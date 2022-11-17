@@ -49,7 +49,7 @@ module mp3player_soc_sysid_qsys_0 (
 
   wire    [ 31: 0] readdata;
   //control_slave, which is an e_avalon_slave
-  assign readdata = address ? 1668705936 : 0;
+  assign readdata = address ? 1668723057 : 0;
 
 endmodule
 
