@@ -1,0 +1,180 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 320 400)
+	(text "mp3player_soc" (rect 116 -1 178 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 384 20 396)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "clk_clk" (rect 0 0 27 12)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 61 46 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 128 72)(line_width 1))
+	)
+	(port
+		(pt 0 112)
+		(input)
+		(text "i2c0_sda_in" (rect 0 0 47 12)(font "Arial" (font_size 8)))
+		(text "i2c0_sda_in" (rect 4 101 70 112)(font "Arial" (font_size 8)))
+		(line (pt 0 112)(pt 128 112)(line_width 1))
+	)
+	(port
+		(pt 0 128)
+		(input)
+		(text "i2c0_scl_in" (rect 0 0 43 12)(font "Arial" (font_size 8)))
+		(text "i2c0_scl_in" (rect 4 117 70 128)(font "Arial" (font_size 8)))
+		(line (pt 0 128)(pt 128 128)(line_width 1))
+	)
+	(port
+		(pt 0 200)
+		(input)
+		(text "reset_reset_n" (rect 0 0 56 12)(font "Arial" (font_size 8)))
+		(text "reset_reset_n" (rect 4 189 82 200)(font "Arial" (font_size 8)))
+		(line (pt 0 200)(pt 128 200)(line_width 1))
+	)
+	(port
+		(pt 0 144)
+		(output)
+		(text "i2c0_sda_oe" (rect 0 0 50 12)(font "Arial" (font_size 8)))
+		(text "i2c0_sda_oe" (rect 4 133 70 144)(font "Arial" (font_size 8)))
+		(line (pt 0 144)(pt 128 144)(line_width 1))
+	)
+	(port
+		(pt 0 160)
+		(output)
+		(text "i2c0_scl_oe" (rect 0 0 47 12)(font "Arial" (font_size 8)))
+		(text "i2c0_scl_oe" (rect 4 149 70 160)(font "Arial" (font_size 8)))
+		(line (pt 0 160)(pt 128 160)(line_width 1))
+	)
+	(port
+		(pt 320 72)
+		(output)
+		(text "sdram_clk_clk" (rect 0 0 59 12)(font "Arial" (font_size 8)))
+		(text "sdram_clk_clk" (rect 248 61 326 72)(font "Arial" (font_size 8)))
+		(line (pt 320 72)(pt 192 72)(line_width 1))
+	)
+	(port
+		(pt 0 240)
+		(output)
+		(text "sdram_wire_addr[12..0]" (rect 0 0 94 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_addr[12..0]" (rect 4 229 136 240)(font "Arial" (font_size 8)))
+		(line (pt 0 240)(pt 128 240)(line_width 3))
+	)
+	(port
+		(pt 0 256)
+		(output)
+		(text "sdram_wire_ba[1..0]" (rect 0 0 81 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_ba[1..0]" (rect 4 245 118 256)(font "Arial" (font_size 8)))
+		(line (pt 0 256)(pt 128 256)(line_width 3))
+	)
+	(port
+		(pt 0 272)
+		(output)
+		(text "sdram_wire_cas_n" (rect 0 0 77 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_cas_n" (rect 4 261 100 272)(font "Arial" (font_size 8)))
+		(line (pt 0 272)(pt 128 272)(line_width 1))
+	)
+	(port
+		(pt 0 288)
+		(output)
+		(text "sdram_wire_cke" (rect 0 0 67 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_cke" (rect 4 277 88 288)(font "Arial" (font_size 8)))
+		(line (pt 0 288)(pt 128 288)(line_width 1))
+	)
+	(port
+		(pt 0 304)
+		(output)
+		(text "sdram_wire_cs_n" (rect 0 0 73 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_cs_n" (rect 4 293 94 304)(font "Arial" (font_size 8)))
+		(line (pt 0 304)(pt 128 304)(line_width 1))
+	)
+	(port
+		(pt 0 336)
+		(output)
+		(text "sdram_wire_dqm[1..0]" (rect 0 0 89 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_dqm[1..0]" (rect 4 325 124 336)(font "Arial" (font_size 8)))
+		(line (pt 0 336)(pt 128 336)(line_width 3))
+	)
+	(port
+		(pt 0 352)
+		(output)
+		(text "sdram_wire_ras_n" (rect 0 0 76 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_ras_n" (rect 4 341 100 352)(font "Arial" (font_size 8)))
+		(line (pt 0 352)(pt 128 352)(line_width 1))
+	)
+	(port
+		(pt 0 368)
+		(output)
+		(text "sdram_wire_we_n" (rect 0 0 74 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_we_n" (rect 4 357 94 368)(font "Arial" (font_size 8)))
+		(line (pt 0 368)(pt 128 368)(line_width 1))
+	)
+	(port
+		(pt 0 320)
+		(bidir)
+		(text "sdram_wire_dq[15..0]" (rect 0 0 86 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_dq[15..0]" (rect 4 309 124 320)(font "Arial" (font_size 8)))
+		(line (pt 0 320)(pt 128 320)(line_width 3))
+	)
+	(drawing
+		(text "clk" (rect 113 43 244 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 133 67 284 144)(font "Arial" (color 0 0 0)))
+		(text "i2c0" (rect 106 83 236 179)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "sda_in" (rect 133 107 302 224)(font "Arial" (color 0 0 0)))
+		(text "scl_in" (rect 133 123 302 256)(font "Arial" (color 0 0 0)))
+		(text "sda_oe" (rect 133 139 302 288)(font "Arial" (color 0 0 0)))
+		(text "scl_oe" (rect 133 155 302 320)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 99 171 228 355)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 133 195 308 400)(font "Arial" (color 0 0 0)))
+		(text "sdram_clk" (rect 193 43 440 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 177 67 372 144)(font "Arial" (color 0 0 0)))
+		(text "sdram_wire" (rect 59 211 178 435)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "addr" (rect 133 235 290 480)(font "Arial" (color 0 0 0)))
+		(text "ba" (rect 133 251 278 512)(font "Arial" (color 0 0 0)))
+		(text "cas_n" (rect 133 267 296 544)(font "Arial" (color 0 0 0)))
+		(text "cke" (rect 133 283 284 576)(font "Arial" (color 0 0 0)))
+		(text "cs_n" (rect 133 299 290 608)(font "Arial" (color 0 0 0)))
+		(text "dq" (rect 133 315 278 640)(font "Arial" (color 0 0 0)))
+		(text "dqm" (rect 133 331 284 672)(font "Arial" (color 0 0 0)))
+		(text "ras_n" (rect 133 347 296 704)(font "Arial" (color 0 0 0)))
+		(text "we_n" (rect 133 363 290 736)(font "Arial" (color 0 0 0)))
+		(text " mp3player_soc " (rect 251 384 592 778)(font "Arial" ))
+		(line (pt 128 32)(pt 192 32)(line_width 1))
+		(line (pt 192 32)(pt 192 384)(line_width 1))
+		(line (pt 128 384)(pt 192 384)(line_width 1))
+		(line (pt 128 32)(pt 128 384)(line_width 1))
+		(line (pt 129 52)(pt 129 76)(line_width 1))
+		(line (pt 130 52)(pt 130 76)(line_width 1))
+		(line (pt 129 92)(pt 129 164)(line_width 1))
+		(line (pt 130 92)(pt 130 164)(line_width 1))
+		(line (pt 129 180)(pt 129 204)(line_width 1))
+		(line (pt 130 180)(pt 130 204)(line_width 1))
+		(line (pt 191 52)(pt 191 76)(line_width 1))
+		(line (pt 190 52)(pt 190 76)(line_width 1))
+		(line (pt 129 220)(pt 129 372)(line_width 1))
+		(line (pt 130 220)(pt 130 372)(line_width 1))
+		(line (pt 0 0)(pt 320 0)(line_width 1))
+		(line (pt 320 0)(pt 320 400)(line_width 1))
+		(line (pt 0 400)(pt 320 400)(line_width 1))
+		(line (pt 0 0)(pt 0 400)(line_width 1))
+	)
+)

@@ -7,9 +7,9 @@
 
 #include <stdio.h>
 #include "system.h"
-#include "altera_avalon_spi.h"
-#include "altera_avalon_spi_regs.h"
-#include "altera_avalon_pio_regs.h"
+// include "altera_avalon_spi.h"
+// include "altera_avalon_spi_regs.h"
+// include "altera_avalon_pio_regs.h"
 #include "altera_avalon_i2c.h"
 #include "altera_avalon_i2c_regs.h"
 #include "sys/alt_irq.h"
@@ -19,12 +19,12 @@
 
 void setLED(int LED)
 {
-	IOWR_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE, (IORD_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE) | (0x001 << LED)));
+//	IOWR_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE, (IORD_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE) | (0x001 << LED)));
 }
 
 void clearLED(int LED)
 {
-	IOWR_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE, (IORD_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE) & ~(0x001 << LED)));
+//	IOWR_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE, (IORD_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE) & ~(0x001 << LED)));
 
 }
 
@@ -32,7 +32,7 @@ void printSignedHex0(signed char value)
 {
 	BYTE tens = 0;
 	BYTE ones = 0;
-	WORD pio_val = IORD_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE);
+	WORD pio_val = 0;//IORD_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE);
 	if (value < 0)
 	{
 		setLED(11);
@@ -56,14 +56,14 @@ void printSignedHex0(signed char value)
 	pio_val |= (tens << 12);
 	pio_val |= (ones << 8);
 
-	IOWR_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE, pio_val);
+//	IOWR_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE, pio_val);
 }
 
 void printSignedHex1(signed char value)
 {
 	BYTE tens = 0;
 	BYTE ones = 0;
-	DWORD pio_val = IORD_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE);
+	DWORD pio_val = 0;//IORD_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE);
 	if (value < 0)
 	{
 		setLED(10);
@@ -89,7 +89,7 @@ void printSignedHex1(signed char value)
 	pio_val |= (tens << 4);
 	pio_val |= (ones << 0);
 
-	IOWR_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE, pio_val);
+//	IOWR_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE, pio_val);
 }
 
 
