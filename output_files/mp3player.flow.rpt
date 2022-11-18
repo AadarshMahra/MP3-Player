@@ -1,5 +1,5 @@
 Flow report for mp3player
-Thu Nov 17 21:34:32 2022
+Fri Nov 18 10:54:28 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -40,24 +40,24 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Flow Summary                                                                     ;
 +------------------------------------+---------------------------------------------+
-; Flow Status                        ; Flow Failed - Thu Nov 17 21:34:32 2022      ;
+; Flow Status                        ; Successful - Fri Nov 18 10:54:28 2022       ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; mp3player                                   ;
 ; Top-level Entity Name              ; mp3player                                   ;
 ; Family                             ; MAX 10                                      ;
-; Device                             ; 10M08DAF484C8G                              ;
+; Device                             ; 10M50DAF484C7G                              ;
 ; Timing Models                      ; Final                                       ;
-; Total logic elements               ; 3,389 / 8,064 ( 42 % )                      ;
-;     Total combinational functions  ; 2,634 / 8,064 ( 33 % )                      ;
-;     Dedicated logic registers      ; 2,002 / 8,064 ( 25 % )                      ;
-; Total registers                    ; 2002                                        ;
-; Total pins                         ; 74 / 250 ( 30 % )                           ;
+; Total logic elements               ; 3,147 / 49,760 ( 6 % )                      ;
+;     Total combinational functions  ; 2,650 / 49,760 ( 5 % )                      ;
+;     Dedicated logic registers      ; 1,967 / 49,760 ( 4 % )                      ;
+; Total registers                    ; 2036                                        ;
+; Total pins                         ; 74 / 360 ( 21 % )                           ;
 ; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 10,440 / 387,072 ( 3 % )                    ;
-; Embedded Multiplier 9-bit elements ; 0 / 48 ( 0 % )                              ;
-; Total PLLs                         ; 1 / 2 ( 50 % )                              ;
+; Total memory bits                  ; 10,440 / 1,677,312 ( < 1 % )                ;
+; Embedded Multiplier 9-bit elements ; 0 / 288 ( 0 % )                             ;
+; Total PLLs                         ; 1 / 4 ( 25 % )                              ;
 ; UFM blocks                         ; 0 / 1 ( 0 % )                               ;
-; ADC blocks                         ; 0 / 1 ( 0 % )                               ;
+; ADC blocks                         ; 0 / 2 ( 0 % )                               ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -66,47 +66,40 @@ refer to the applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/17/2022 21:32:30 ;
+; Start date & time ; 11/18/2022 10:51:40 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; mp3player           ;
 +-------------------+---------------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                                                           ;
-+-------------------------------------+-----------------------------------------------------------------+---------------+-------------------+----------------+
-; Assignment Name                     ; Value                                                           ; Default Value ; Entity Name       ; Section Id     ;
-+-------------------------------------+-----------------------------------------------------------------+---------------+-------------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 174508021077661.166874234818216                                 ; --            ; --                ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                                               ; --            ; --                ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)                                 ; <None>        ; --                ; --             ;
-; EDA_TIME_SCALE                      ; 1 ps                                                            ; --            ; --                ; eda_simulation ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                                                              ; --            ; --                ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                                                               ; --            ; --                ; --             ;
-; MISC_FILE                           ; mp3player_soc/synthesis/../mp3player_soc.cmp                    ; --            ; --                ; --             ;
-; MISC_FILE                           ; mp3player_soc/synthesis/../../mp3player_soc.qsys                ; --            ; --                ; --             ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                               ; --            ; --                ; --             ;
-; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                                               ; --            ; --                ; --             ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                      ; --            ; --                ; --             ;
-; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                                                      ; --            ; --                ; --             ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)                          ; --            ; DE10_LITE_Default ; Top            ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)                          ; --            ; lab62             ; Top            ;
-; PARTITION_COLOR                     ; -- (Not supported for targeted family)                          ; --            ; --                ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                          ; --            ; DE10_LITE_Default ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                          ; --            ; lab62             ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family)                          ; --            ; --                ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                          ; --            ; DE10_LITE_Default ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                          ; --            ; lab62             ; Top            ;
-; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family)                          ; --            ; --                ; Top            ;
-; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                                             ; --            ; --                ; --             ;
-; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW                           ; --            ; --                ; --             ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                                                    ; --            ; --                ; --             ;
-; SLD_FILE                            ; mp3player_soc/synthesis/mp3player_soc.regmap                    ; --            ; --                ; --             ;
-; SLD_FILE                            ; mp3player_soc/synthesis/mp3player_soc.debuginfo                 ; --            ; --                ; --             ;
-; SLD_INFO                            ; QSYS_NAME mp3player_soc HAS_SOPCINFO 1 GENERATION_ID 1668724370 ; --            ; mp3player_soc     ; --             ;
-; SOPCINFO_FILE                       ; mp3player_soc/synthesis/../../mp3player_soc.sopcinfo            ; --            ; --                ; --             ;
-; SYNTHESIS_ONLY_QIP                  ; On                                                              ; --            ; --                ; --             ;
-+-------------------------------------+-----------------------------------------------------------------+---------------+-------------------+----------------+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                                  ;
++-------------------------------------+----------------------------------------+---------------+-------------------+----------------+
+; Assignment Name                     ; Value                                  ; Default Value ; Entity Name       ; Section Id     ;
++-------------------------------------+----------------------------------------+---------------+-------------------+----------------+
+; COMPILER_SIGNATURE_ID               ; 93328251260964.166879030006100         ; --            ; --                ; --             ;
+; EDA_OUTPUT_DATA_FORMAT              ; Systemverilog Hdl                      ; --            ; --                ; eda_simulation ;
+; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (SystemVerilog)        ; <None>        ; --                ; --             ;
+; EDA_TIME_SCALE                      ; 1 ps                                   ; --            ; --                ; eda_simulation ;
+; MAX_CORE_JUNCTION_TEMP              ; 85                                     ; --            ; --                ; --             ;
+; MIN_CORE_JUNCTION_TEMP              ; 0                                      ; --            ; --                ; --             ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                      ; --            ; --                ; --             ;
+; OUTPUT_IO_TIMING_FAR_END_VMEAS      ; Half Signal Swing                      ; --            ; --                ; --             ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                             ; --            ; --                ; --             ;
+; OUTPUT_IO_TIMING_NEAR_END_VMEAS     ; Half Vccio                             ; --            ; --                ; --             ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; DE10_LITE_Default ; Top            ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; lab62             ; Top            ;
+; PARTITION_COLOR                     ; -- (Not supported for targeted family) ; --            ; --                ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; DE10_LITE_Default ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; lab62             ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL ; -- (Not supported for targeted family) ; --            ; --                ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; DE10_LITE_Default ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; lab62             ; Top            ;
+; PARTITION_NETLIST_TYPE              ; -- (Not supported for targeted family) ; --            ; --                ; Top            ;
+; POWER_BOARD_THERMAL_MODEL           ; None (CONSERVATIVE)                    ; --            ; --                ; --             ;
+; POWER_PRESET_COOLING_SOLUTION       ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW  ; --            ; --                ; --             ;
+; PROJECT_OUTPUT_DIRECTORY            ; output_files                           ; --            ; --                ; --             ;
++-------------------------------------+----------------------------------------+---------------+-------------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -114,9 +107,12 @@ refer to the applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:01:43     ; 1.0                     ; 4911 MB             ; 00:02:42                           ;
-; Fitter               ; 00:00:11     ; 1.0                     ; 4932 MB             ; 00:00:11                           ;
-; Total                ; 00:01:54     ; --                      ; --                  ; 00:02:53                           ;
+; Analysis & Synthesis ; 00:01:42     ; 1.0                     ; 4940 MB             ; 00:02:52                           ;
+; Fitter               ; 00:00:37     ; 1.2                     ; 5421 MB             ; 00:00:48                           ;
+; Assembler            ; 00:00:06     ; 1.0                     ; 4691 MB             ; 00:00:06                           ;
+; Timing Analyzer      ; 00:00:09     ; 1.4                     ; 4841 MB             ; 00:00:10                           ;
+; EDA Netlist Writer   ; 00:00:03     ; 1.0                     ; 4708 MB             ; 00:00:03                           ;
+; Total                ; 00:02:37     ; --                      ; --                  ; 00:03:59                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -125,8 +121,11 @@ refer to the applicable agreement for further details.
 +----------------------+------------------+------------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name    ; OS Version ; Processor type ;
 +----------------------+------------------+------------+------------+----------------+
-; Analysis & Synthesis ; DESKTOP-KMHH70Q  ; Windows 10 ; 10.0       ; x86_64         ;
-; Fitter               ; DESKTOP-KMHH70Q  ; Windows 10 ; 10.0       ; x86_64         ;
+; Analysis & Synthesis ; CXM-LT           ; Windows 10 ; 10.0       ; x86_64         ;
+; Fitter               ; CXM-LT           ; Windows 10 ; 10.0       ; x86_64         ;
+; Assembler            ; CXM-LT           ; Windows 10 ; 10.0       ; x86_64         ;
+; Timing Analyzer      ; CXM-LT           ; Windows 10 ; 10.0       ; x86_64         ;
+; EDA Netlist Writer   ; CXM-LT           ; Windows 10 ; 10.0       ; x86_64         ;
 +----------------------+------------------+------------+------------+----------------+
 
 
@@ -135,6 +134,9 @@ refer to the applicable agreement for further details.
 ------------
 quartus_map --read_settings_files=on --write_settings_files=off mp3player -c mp3player
 quartus_fit --read_settings_files=off --write_settings_files=off mp3player -c mp3player
+quartus_asm --read_settings_files=off --write_settings_files=off mp3player -c mp3player
+quartus_sta mp3player -c mp3player
+quartus_eda --read_settings_files=off --write_settings_files=off mp3player -c mp3player
 
 
 

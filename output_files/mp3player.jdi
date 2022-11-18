@@ -1,9 +1,9 @@
 <sld_project_info>
   <project>
-    <hash md5_digest_80b="4ee33ab67f9e9b1f77d9"/>
+    <hash md5_digest_80b="cc562b69bb8d3204ec90"/>
   </project>
   <file_info>
-    <file device="10M08DAF484C8G" path="mp3player.sof" usercode="0xFFFFFFFF"/>
+    <file device="10M50DAF484C7G" path="mp3player.sof" usercode="0xFFFFFFFF"/>
   </file_info>
   <hub_info hub_ir_width="4" ir_width="2" node_addr_width="1" node_count="1"/>
   <node_info>
@@ -83,12 +83,6 @@
     </node>
   </node_info>
   <sld_infos>
-    <sld_info hpath="mp3player_soc:soc" name="soc">
-      <assignment_values>
-        <assignment_value text="QSYS_NAME mp3player_soc HAS_SOPCINFO 1 GENERATION_ID 1668724370"/>
-      </assignment_values>
-      <parameters/>
-    </sld_info>
     <sld_info hpath="sld_hub:auto_hub|alt_sld_fab:\instrumentation_fabric_with_node_gen:instrumentation_fabric" library="alt_sld_fab" name="instrumentation_fabric">
       <assignment_values>
         <assignment_value text="QSYS_NAME alt_sld_fab HAS_SOPCINFO 1"/>
