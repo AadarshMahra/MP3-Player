@@ -1,0 +1,18 @@
+Fitter Status : Successful - Thu Nov 17 17:55:58 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : mp3player
+Top-level Entity Name : mp3player
+Family : MAX 10
+Device : 10M08DAF484C8G
+Timing Models : Final
+Total logic elements : 3,122 / 8,064 ( 39 % )
+    Total combinational functions : 2,624 / 8,064 ( 33 % )
+    Dedicated logic registers : 1,944 / 8,064 ( 24 % )
+Total registers : 2013
+Total pins : 58 / 250 ( 23 % )
+Total virtual pins : 0
+Total memory bits : 10,440 / 387,072 ( 3 % )
+Embedded Multiplier 9-bit elements : 0 / 48 ( 0 % )
+Total PLLs : 1 / 2 ( 50 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )

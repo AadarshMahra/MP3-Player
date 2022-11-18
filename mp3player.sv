@@ -10,7 +10,7 @@
   ---------------------------------------------------------------------------*/
 // Top-level module that integrates the Nios II system with the rest of the hardware
 
-module lab61(  	 	  input	        MAX10_CLK1_50, 
+module mp3player(  	 	  input	        MAX10_CLK1_50, 
 					  input  [1:0]  KEY,
 					  input [7:0] SW, 
 					  output [7:0]  LEDR,
@@ -32,9 +32,6 @@ module lab61(  	 	  input	        MAX10_CLK1_50,
 				  // the interface in lab61_soc.v
 				  mp3player_soc soc (.clk_clk(MAX10_CLK1_50),
 											 .reset_reset_n(KEY[0]), 
-											 .sw_wire_export(SW),
-											 .led_wire_export(LEDR),
-											 .keys_wire_export(KEY),
 											//SDRAM
 											.sdram_clk_clk(DRAM_CLK),                            //clk_sdram.clk
 											.sdram_wire_addr(DRAM_ADDR),                         //sdram_wire.addr

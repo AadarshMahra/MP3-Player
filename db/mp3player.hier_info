@@ -1,23 +1,23 @@
-|lab61
+|mp3player
 MAX10_CLK1_50 => MAX10_CLK1_50.IN1
-KEY[0] => KEY[0].IN2
-KEY[1] => KEY[1].IN1
-SW[0] => SW[0].IN1
-SW[1] => SW[1].IN1
-SW[2] => SW[2].IN1
-SW[3] => SW[3].IN1
-SW[4] => SW[4].IN1
-SW[5] => SW[5].IN1
-SW[6] => SW[6].IN1
-SW[7] => SW[7].IN1
-LEDR[0] <= mp3player_soc:soc.led_wire_export
-LEDR[1] <= mp3player_soc:soc.led_wire_export
-LEDR[2] <= mp3player_soc:soc.led_wire_export
-LEDR[3] <= mp3player_soc:soc.led_wire_export
-LEDR[4] <= mp3player_soc:soc.led_wire_export
-LEDR[5] <= mp3player_soc:soc.led_wire_export
-LEDR[6] <= mp3player_soc:soc.led_wire_export
-LEDR[7] <= mp3player_soc:soc.led_wire_export
+KEY[0] => KEY[0].IN1
+KEY[1] => ~NO_FANOUT~
+SW[0] => ~NO_FANOUT~
+SW[1] => ~NO_FANOUT~
+SW[2] => ~NO_FANOUT~
+SW[3] => ~NO_FANOUT~
+SW[4] => ~NO_FANOUT~
+SW[5] => ~NO_FANOUT~
+SW[6] => ~NO_FANOUT~
+SW[7] => ~NO_FANOUT~
+LEDR[0] <= <GND>
+LEDR[1] <= <GND>
+LEDR[2] <= <GND>
+LEDR[3] <= <GND>
+LEDR[4] <= <GND>
+LEDR[5] <= <GND>
+LEDR[6] <= <GND>
+LEDR[7] <= <GND>
 DRAM_ADDR[0] <= mp3player_soc:soc.sdram_wire_addr
 DRAM_ADDR[1] <= mp3player_soc:soc.sdram_wire_addr
 DRAM_ADDR[2] <= mp3player_soc:soc.sdram_wire_addr
@@ -59,7 +59,7 @@ DRAM_WE_N <= mp3player_soc:soc.sdram_wire_we_n
 DRAM_CLK <= mp3player_soc:soc.sdram_clk_clk
 
 
-|lab61|mp3player_soc:soc
+|mp3player|mp3player_soc:soc
 clk_clk => clk_clk.IN9
 i2c0_sda_in => i2c0_sda_in.IN1
 i2c0_scl_in => i2c0_scl_in.IN1
@@ -109,7 +109,7 @@ sdram_wire_ras_n <= mp3player_soc_sdram:sdram.zs_ras_n
 sdram_wire_we_n <= mp3player_soc_sdram:sdram.zs_we_n
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_altpll_0:altpll_0
+|mp3player|mp3player_soc:soc|mp3player_soc_altpll_0:altpll_0
 address[0] => w_select_control.IN0
 address[0] => w_select_status.IN0
 address[1] => w_select_status.IN1
@@ -206,14 +206,14 @@ writedata[30] => ~NO_FANOUT~
 writedata[31] => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_altpll_0:altpll_0|mp3player_soc_altpll_0_stdsync_sv6:stdsync2
+|mp3player|mp3player_soc:soc|mp3player_soc_altpll_0:altpll_0|mp3player_soc_altpll_0_stdsync_sv6:stdsync2
 clk => clk.IN1
 din => din.IN1
 dout <= mp3player_soc_altpll_0_dffpipe_l2c:dffpipe3.q
 reset_n => reset_n.IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_altpll_0:altpll_0|mp3player_soc_altpll_0_stdsync_sv6:stdsync2|mp3player_soc_altpll_0_dffpipe_l2c:dffpipe3
+|mp3player|mp3player_soc:soc|mp3player_soc_altpll_0:altpll_0|mp3player_soc_altpll_0_stdsync_sv6:stdsync2|mp3player_soc_altpll_0_dffpipe_l2c:dffpipe3
 clock => dffe6a[0].CLK
 clock => dffe5a[0].CLK
 clock => dffe4a[0].CLK
@@ -224,7 +224,7 @@ d[0] => dffe4a[0].DATAIN
 q[0] <= dffe6a[0].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_altpll_0:altpll_0|mp3player_soc_altpll_0_altpll_vg92:sd1
+|mp3player|mp3player_soc:soc|mp3player_soc_altpll_0:altpll_0|mp3player_soc_altpll_0_altpll_vg92:sd1
 areset => pll_lock_sync.ACLR
 areset => pll7.ARESET
 clk[0] <= pll7.CLK
@@ -237,7 +237,7 @@ inclk[1] => pll7.CLK1
 locked <= locked.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0
 clk => clk.IN11
 rst_n => rst_n.IN11
 addr[0] => addr[0].IN1
@@ -345,7 +345,7 @@ sda_in => sda_in.IN1
 intr <= altera_avalon_i2c_csr:u_csr.intr
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_csr:u_csr
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_csr:u_csr
 clk => intr~reg0.CLK
 clk => sda_hold_rden_dly.CLK
 clk => scl_high_rden_dly.CLK
@@ -862,7 +862,7 @@ sda_hold[15] <= sda_hold[15]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 speed_mode <= ctrl[1].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_mstfsm:u_mstfsm
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_mstfsm:u_mstfsm
 clk => ctrl_en_dly.CLK
 clk => mstfsm_b2b_rxshift~reg0.CLK
 clk => rx_hold_flag.CLK
@@ -996,7 +996,7 @@ abrt_7b_addr_noack <= abrt_7b_addr_noack.DB_MAX_OUTPUT_PORT_TYPE
 gen_stop_state <= gen_stop_state~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_rxshifter:u_rxshifter
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_rxshifter:u_rxshifter
 clk => mst_rx_shift_done_gen_dly.CLK
 clk => rx_shifter[0]~reg0.CLK
 clk => rx_shifter[1]~reg0.CLK
@@ -1101,7 +1101,7 @@ rx_shifter[7] <= rx_shifter[7]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 mst_rxack_phase <= mst_rxack_phase.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_txshifter:u_txshifter
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_txshifter:u_txshifter
 clk => mst_tx_shift_done_gen_dly.CLK
 clk => tx_shifter[0]~reg0.CLK
 clk => tx_shifter[1]~reg0.CLK
@@ -1232,7 +1232,7 @@ tx_shifter[9] <= tx_shifter[9]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 mst_txdata_phase <= mst_txdata_phase.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_spksupp:u_spksupp
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_spksupp:u_spksupp
 clk => sda_int_reg.CLK
 clk => sda_spike_cnt[0].CLK
 clk => sda_spike_cnt[1].CLK
@@ -1299,7 +1299,7 @@ sda_int <= sda_int_reg.DB_MAX_OUTPUT_PORT_TYPE
 scl_int <= scl_int_reg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_condt_det:u_condt_det
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_condt_det:u_condt_det
 clk => load_tbuf_cnt~reg0.CLK
 clk => bus_idle~reg0.CLK
 clk => tbuf_cnt_en~reg0.CLK
@@ -1348,7 +1348,7 @@ load_tbuf_cnt <= load_tbuf_cnt~reg0.DB_MAX_OUTPUT_PORT_TYPE
 tbuf_cnt_en <= tbuf_cnt_en~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_condt_gen:u_condt_gen
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_condt_gen:u_condt_gen
 clk => stop_scl_out~reg0.CLK
 clk => stop_sda_out~reg0.CLK
 clk => stop_done~reg0.CLK
@@ -1472,7 +1472,7 @@ stop_sda_out <= stop_sda_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 stop_scl_out <= stop_scl_out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_clk_cnt:u_clk_cnt
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_clk_cnt:u_clk_cnt
 clk => mst_rx_scl_low_cnt_complete~reg0.CLK
 clk => mst_rx_scl_high_cnt_complete~reg0.CLK
 clk => mst_tx_scl_low_cnt_complete~reg0.CLK
@@ -1670,7 +1670,7 @@ mst_rx_scl_high_cnt_complete <= mst_rx_scl_high_cnt_complete~reg0.DB_MAX_OUTPUT_
 mst_rx_scl_low_cnt_complete <= mst_rx_scl_low_cnt_complete~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_txout:u_txout
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_txout:u_txout
 clk => sda_hold_cnt[0].CLK
 clk => sda_hold_cnt[1].CLK
 clk => sda_hold_cnt[2].CLK
@@ -1741,7 +1741,7 @@ sda_oe <= data_oe.DB_MAX_OUTPUT_PORT_TYPE
 scl_oe <= clk_oe.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_txfifo
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_txfifo
 clk => clk.IN1
 rst_n => internal_used[0].ACLR
 rst_n => internal_used[1].ACLR
@@ -1792,7 +1792,7 @@ rdata[8] <= altsyncram:the_dp_ram.q_b
 rdata[9] <= altsyncram:the_dp_ram.q_b
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_txfifo|altsyncram:the_dp_ram
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_txfifo|altsyncram:the_dp_ram
 wren_a => altsyncram_33b1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -1858,7 +1858,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_txfifo|altsyncram:the_dp_ram|altsyncram_33b1:auto_generated
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_txfifo|altsyncram:the_dp_ram|altsyncram_33b1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -1941,7 +1941,7 @@ wren_a => ram_block1a8.PORTAWE
 wren_a => ram_block1a9.PORTAWE
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_rxfifo
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_rxfifo
 clk => clk.IN1
 rst_n => internal_used[0].ACLR
 rst_n => internal_used[1].ACLR
@@ -1988,7 +1988,7 @@ rdata[6] <= altsyncram:the_dp_ram.q_b
 rdata[7] <= altsyncram:the_dp_ram.q_b
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_rxfifo|altsyncram:the_dp_ram
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_rxfifo|altsyncram:the_dp_ram
 wren_a => altsyncram_h0b1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -2046,7 +2046,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|lab61|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_rxfifo|altsyncram:the_dp_ram|altsyncram_h0b1:auto_generated
+|mp3player|mp3player_soc:soc|altera_avalon_i2c:i2c_0|altera_avalon_i2c_fifo:u_rxfifo|altsyncram:the_dp_ram|altsyncram_h0b1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -2113,7 +2113,7 @@ wren_a => ram_block1a6.PORTAWE
 wren_a => ram_block1a7.PORTAWE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0
 clk => clk.IN1
 reset_n => reset_n.IN1
 reset_req => reset_req.IN1
@@ -2396,7 +2396,7 @@ debug_mem_slave_writedata[31] => debug_mem_slave_writedata[31].IN1
 dummy_ci_port <= mp3player_soc_nios2_gen2_0_cpu:cpu.dummy_ci_port
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu
 clk => clk.IN4
 d_readdata[0] => av_ld_byte0_data_nxt.DATAA
 d_readdata[1] => av_ld_byte0_data_nxt.DATAA
@@ -2679,7 +2679,7 @@ i_address[27] <= i_address[27].DB_MAX_OUTPUT_PORT_TYPE
 i_read <= i_read.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_test_bench:the_mp3player_soc_nios2_gen2_0_cpu_test_bench
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_test_bench:the_mp3player_soc_nios2_gen2_0_cpu_test_bench
 D_iw[0] => ~NO_FANOUT~
 D_iw[1] => ~NO_FANOUT~
 D_iw[2] => ~NO_FANOUT~
@@ -3033,7 +3033,7 @@ av_ld_data_aligned_filtered[31] <= av_ld_data_aligned_unfiltered[31].DB_MAX_OUTP
 test_has_ended <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_a_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_a
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_a_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_a
 clock => clock.IN1
 data[0] => ram_data[0].IN1
 data[1] => ram_data[1].IN1
@@ -3112,7 +3112,7 @@ q[30] <= altsyncram:the_altsyncram.q_b
 q[31] <= altsyncram:the_altsyncram.q_b
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_a_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_a_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram
 wren_a => altsyncram_s0c1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -3272,7 +3272,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_a_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram|altsyncram_s0c1:auto_generated
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_a_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_a|altsyncram:the_altsyncram|altsyncram_s0c1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -3723,7 +3723,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_b_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_b
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_b_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_b
 clock => clock.IN1
 data[0] => ram_data[0].IN1
 data[1] => ram_data[1].IN1
@@ -3802,7 +3802,7 @@ q[30] <= altsyncram:the_altsyncram.q_b
 q[31] <= altsyncram:the_altsyncram.q_b
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_b_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_b|altsyncram:the_altsyncram
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_b_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_b|altsyncram:the_altsyncram
 wren_a => altsyncram_s0c1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -3962,7 +3962,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_b_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_b|altsyncram:the_altsyncram|altsyncram_s0c1:auto_generated
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_register_bank_b_module:mp3player_soc_nios2_gen2_0_cpu_register_bank_b|altsyncram:the_altsyncram|altsyncram_s0c1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -4413,7 +4413,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci
 D_valid => D_valid.IN1
 E_st_data[0] => E_st_data[0].IN1
 E_st_data[1] => E_st_data[1].IN1
@@ -4661,7 +4661,7 @@ resetrequest <= mp3player_soc_nios2_gen2_0_cpu_nios2_oci_debug:the_mp3player_soc
 waitrequest <= mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem:the_mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem.waitrequest
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_debug:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_debug
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_debug:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_debug
 clk => clk.IN1
 dbrk_break => oci_hbreak_req.IN1
 debugreq => always0.IN0
@@ -4729,7 +4729,7 @@ resetlatch <= resetlatch~reg0.DB_MAX_OUTPUT_PORT_TYPE
 resetrequest <= resetrequest~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_debug:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_debug|altera_std_synchronizer:the_altera_std_synchronizer
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_debug:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_debug|altera_std_synchronizer:the_altera_std_synchronizer
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -4738,7 +4738,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_break:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_break
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_break:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_break
 clk => trigger_state.CLK
 clk => break_readreg[0]~reg0.CLK
 clk => break_readreg[1]~reg0.CLK
@@ -5086,7 +5086,7 @@ xbrk_ctrl3[6] <= <GND>
 xbrk_ctrl3[7] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_xbrk:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_xbrk
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_xbrk:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_xbrk
 D_valid => ~NO_FANOUT~
 E_valid => xbrk_break~reg0.ENA
 F_pc[0] => ~NO_FANOUT~
@@ -5159,7 +5159,7 @@ xbrk_traceon <= <GND>
 xbrk_trigout <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dbrk:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dbrk
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dbrk:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dbrk
 E_st_data[0] => cpu_d_writedata[0].DATAIN
 E_st_data[1] => cpu_d_writedata[1].DATAIN
 E_st_data[2] => cpu_d_writedata[2].DATAIN
@@ -5376,7 +5376,7 @@ dbrk_traceon <= dbrk_traceon~reg0.DB_MAX_OUTPUT_PORT_TYPE
 dbrk_trigout <= dbrk_trigout~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_itrace:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_itrace
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_itrace:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_itrace
 clk => ~NO_FANOUT~
 dbrk_traceoff => ~NO_FANOUT~
 dbrk_traceon => ~NO_FANOUT~
@@ -5456,7 +5456,7 @@ trc_ctrl[15] <= <GND>
 trc_on <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dtrace:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dtrace
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dtrace:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dtrace
 clk => dtm[0]~reg0.CLK
 clk => dtm[1]~reg0.CLK
 clk => dtm[2]~reg0.CLK
@@ -5786,7 +5786,7 @@ dtm[34] <= dtm[34]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 dtm[35] <= dtm[35]~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dtrace:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dtrace|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_td_mode:mp3player_soc_nios2_gen2_0_cpu_nios2_oci_trc_ctrl_td_mode
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dtrace:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_dtrace|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_td_mode:mp3player_soc_nios2_gen2_0_cpu_nios2_oci_trc_ctrl_td_mode
 ctrl[0] => ~NO_FANOUT~
 ctrl[1] => ~NO_FANOUT~
 ctrl[2] => ~NO_FANOUT~
@@ -5806,7 +5806,7 @@ td_mode[2] <= ctrl[6].DB_MAX_OUTPUT_PORT_TYPE
 td_mode[3] <= ctrl[5].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo
 atm[0] => ~NO_FANOUT~
 atm[1] => ~NO_FANOUT~
 atm[2] => ~NO_FANOUT~
@@ -5972,7 +5972,7 @@ tw[34] <= itm[34].DB_MAX_OUTPUT_PORT_TYPE
 tw[35] <= itm[35].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt
 atm_valid => Decoder0.IN1
 dtm_valid => Decoder0.IN2
 itm_valid => Decoder0.IN0
@@ -5980,7 +5980,7 @@ compute_input_tm_cnt[0] <= WideOr1.DB_MAX_OUTPUT_PORT_TYPE
 compute_input_tm_cnt[1] <= WideOr0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc
 ge2_free => always0.IN1
 ge3_free => always0.IN1
 input_tm_cnt[0] => LessThan0.IN4
@@ -5995,7 +5995,7 @@ fifo_wrptr_inc[2] <= <GND>
 fifo_wrptr_inc[3] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc
 empty => fifo_cnt_inc.OUTPUTSELECT
 empty => fifo_cnt_inc.OUTPUTSELECT
 empty => fifo_cnt_inc.OUTPUTSELECT
@@ -6018,7 +6018,7 @@ fifo_cnt_inc[3] <= fifo_cnt_inc.DB_MAX_OUTPUT_PORT_TYPE
 fifo_cnt_inc[4] <= fifo_cnt_inc.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_pib:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_pib
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_pib:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_pib
 tr_data[0] <= <GND>
 tr_data[1] <= <GND>
 tr_data[2] <= <GND>
@@ -6057,7 +6057,7 @@ tr_data[34] <= <GND>
 tr_data[35] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_im:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_im
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_oci_im:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci_im
 clk => trc_wrap~reg0.CLK
 clk => trc_im_addr[0]~reg0.CLK
 clk => trc_im_addr[1]~reg0.CLK
@@ -6175,7 +6175,7 @@ trc_wrap <= trc_wrap~reg0.DB_MAX_OUTPUT_PORT_TYPE
 xbrk_wrap_traceoff <= xbrk_wrap_traceoff.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_avalon_reg:the_mp3player_soc_nios2_gen2_0_cpu_nios2_avalon_reg
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_avalon_reg:the_mp3player_soc_nios2_gen2_0_cpu_nios2_avalon_reg
 address[0] => Equal0.IN8
 address[0] => Equal1.IN1
 address[1] => Equal0.IN7
@@ -6368,7 +6368,7 @@ ocireg_mrs <= writedata[0].DB_MAX_OUTPUT_PORT_TYPE
 take_action_ocireg <= take_action_ocireg.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem:the_mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem:the_mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem
 address[0] => ociram_addr.DATAA
 address[1] => ociram_addr.DATAA
 address[2] => ociram_addr.DATAA
@@ -6722,7 +6722,7 @@ ociram_readdata[31] <= mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:mp3pl
 waitrequest <= waitrequest~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem:the_mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem|mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem:the_mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem|mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram
 address[0] => address[0].IN1
 address[1] => address[1].IN1
 address[2] => address[2].IN1
@@ -6804,7 +6804,7 @@ q[30] <= altsyncram:the_altsyncram.q_a
 q[31] <= altsyncram:the_altsyncram.q_a
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem:the_mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem|mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem:the_mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem|mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram
 wren_a => altsyncram_0n61:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -6904,7 +6904,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem:the_mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem|mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram|altsyncram_0n61:auto_generated
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem:the_mp3player_soc_nios2_gen2_0_cpu_nios2_ocimem|mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram_module:mp3player_soc_nios2_gen2_0_cpu_ociram_sp_ram|altsyncram:the_altsyncram|altsyncram_0n61:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -7356,7 +7356,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper
 MonDReg[0] => MonDReg[0].IN1
 MonDReg[1] => MonDReg[1].IN1
 MonDReg[2] => MonDReg[2].IN1
@@ -7532,7 +7532,7 @@ take_no_action_break_c <= mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk:the_
 take_no_action_ocimem_a <= mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk.take_no_action_ocimem_a
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck
 MonDReg[0] => Mux36.IN0
 MonDReg[1] => Mux35.IN0
 MonDReg[2] => Mux34.IN0
@@ -7868,7 +7868,7 @@ st_ready_test_idle <= jtag_state_rti.DB_MAX_OUTPUT_PORT_TYPE
 tdo <= tdo.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck|altera_std_synchronizer:the_altera_std_synchronizer1
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck|altera_std_synchronizer:the_altera_std_synchronizer1
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -7877,7 +7877,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck|altera_std_synchronizer:the_altera_std_synchronizer2
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck|altera_std_synchronizer:the_altera_std_synchronizer2
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -7886,7 +7886,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk
 clk => clk.IN2
 ir_in[0] => ir[0].DATAIN
 ir_in[1] => ir[1].DATAIN
@@ -7980,7 +7980,7 @@ take_no_action_break_c <= take_no_action_break_c.DB_MAX_OUTPUT_PORT_TYPE
 take_no_action_ocimem_a <= take_no_action_ocimem_a.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk|altera_std_synchronizer:the_altera_std_synchronizer3
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk|altera_std_synchronizer:the_altera_std_synchronizer3
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -7989,7 +7989,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk|altera_std_synchronizer:the_altera_std_synchronizer4
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk|altera_std_synchronizer:the_altera_std_synchronizer4
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -7998,7 +7998,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:mp3player_soc_nios2_gen2_0_cpu_debug_slave_phy
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:mp3player_soc_nios2_gen2_0_cpu_debug_slave_phy
 tck <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tck
 tdi <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_tdi
 ir_in[0] <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_ir_in
@@ -8033,7 +8033,7 @@ jtag_state_e2ir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_sta
 jtag_state_uir <= sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst.usr_jtag_state_uir
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:mp3player_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:mp3player_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst
 usr_tck <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tck
 usr_tdi <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_tdi
 usr_ir_in[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.adapted_ir_in
@@ -8095,7 +8095,7 @@ ir_out[0] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
 ir_out[1] <= sld_jtag_endpoint_adapter:jtag_signal_adapter.ir_out
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:mp3player_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:mp3player_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter
 raw_tck => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tck
 raw_tms => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.raw_tms
 tdi => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.tdi
@@ -8154,7 +8154,7 @@ adapted_ir_out[0] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_im
 adapted_ir_out[1] => sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst.adapted_ir_out[1]
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:mp3player_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst
+|mp3player|mp3player_soc:soc|mp3player_soc_nios2_gen2_0:nios2_gen2_0|mp3player_soc_nios2_gen2_0_cpu:cpu|mp3player_soc_nios2_gen2_0_cpu_nios2_oci:the_mp3player_soc_nios2_gen2_0_cpu_nios2_oci|mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper:the_mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper|sld_virtual_jtag_basic:mp3player_soc_nios2_gen2_0_cpu_debug_slave_phy|sld_virtual_jtag_impl:sld_virtual_jtag_impl_inst|sld_jtag_endpoint_adapter:jtag_signal_adapter|sld_jtag_endpoint_adapter_impl:sld_jtag_endpoint_adapter_impl_inst
 raw_tck => adapted_tck.DATAIN
 raw_tms => adapted_tms.DATAIN
 tdi => adapted_tdi.DATAIN
@@ -8213,7 +8213,7 @@ adapted_ir_out[0] => ir_out[0].DATAIN
 adapted_ir_out[1] => ir_out[1].DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_onchip_memory2_0:onchip_memory2_0
+|mp3player|mp3player_soc:soc|mp3player_soc_onchip_memory2_0:onchip_memory2_0
 address[0] => address[0].IN1
 address[1] => address[1].IN1
 byteenable[0] => byteenable[0].IN1
@@ -8293,7 +8293,7 @@ readdata[30] <= altsyncram:the_altsyncram.q_a
 readdata[31] <= altsyncram:the_altsyncram.q_a
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram
+|mp3player|mp3player_soc:soc|mp3player_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram
 wren_a => altsyncram_8ng1:auto_generated.wren_a
 rden_a => ~NO_FANOUT~
 wren_b => ~NO_FANOUT~
@@ -8387,7 +8387,7 @@ eccstatus[1] <= <GND>
 eccstatus[2] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram|altsyncram_8ng1:auto_generated
+|mp3player|mp3player_soc:soc|mp3player_soc_onchip_memory2_0:onchip_memory2_0|altsyncram:the_altsyncram|altsyncram_8ng1:auto_generated
 address_a[0] => ram_block1a0.PORTAADDR
 address_a[0] => ram_block1a1.PORTAADDR
 address_a[0] => ram_block1a2.PORTAADDR
@@ -8647,7 +8647,7 @@ wren_a => ram_block1a30.PORTAWE
 wren_a => ram_block1a31.PORTAWE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_sdram:sdram
+|mp3player|mp3player_soc:soc|mp3player_soc_sdram:sdram
 az_addr[0] => az_addr[0].IN1
 az_addr[1] => az_addr[1].IN1
 az_addr[2] => az_addr[2].IN1
@@ -8754,7 +8754,7 @@ zs_ras_n <= zs_ras_n.DB_MAX_OUTPUT_PORT_TYPE
 zs_we_n <= zs_we_n.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_sdram:sdram|mp3player_soc_sdram_input_efifo_module:the_mp3player_soc_sdram_input_efifo_module
+|mp3player|mp3player_soc:soc|mp3player_soc_sdram:sdram|mp3player_soc_sdram_input_efifo_module:the_mp3player_soc_sdram_input_efifo_module
 clk => entry_0[0].CLK
 clk => entry_0[1].CLK
 clk => entry_0[2].CLK
@@ -8998,7 +8998,7 @@ rd_data[42] <= rd_data.DB_MAX_OUTPUT_PORT_TYPE
 rd_data[43] <= rd_data.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_sysid_qsys_0:sysid_qsys_0
+|mp3player|mp3player_soc:soc|mp3player_soc_sysid_qsys_0:sysid_qsys_0
 address => readdata[30].DATAIN
 address => readdata[29].DATAIN
 address => readdata[25].DATAIN
@@ -9052,7 +9052,7 @@ readdata[30] <= address.DB_MAX_OUTPUT_PORT_TYPE
 readdata[31] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0
 altpll_0_c0_clk => altpll_0_c0_clk.IN15
 clk_0_clk_clk => clk_0_clk_clk.IN49
 i2c_0_reset_sink_reset_bridge_in_reset_reset => i2c_0_reset_sink_reset_bridge_in_reset_reset.IN7
@@ -9611,7 +9611,7 @@ sysid_qsys_0_control_slave_readdata[30] => sysid_qsys_0_control_slave_readdata[3
 sysid_qsys_0_control_slave_readdata[31] => sysid_qsys_0_control_slave_readdata[31].IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_translator:nios2_gen2_0_data_master_translator
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_translator:nios2_gen2_0_data_master_translator
 clk => end_begintransfer.CLK
 clk => write_accepted.CLK
 clk => read_accepted.CLK
@@ -9848,7 +9848,7 @@ av_response[1] <= <GND>
 av_writeresponsevalid <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_translator:nios2_gen2_0_instruction_master_translator
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_translator:nios2_gen2_0_instruction_master_translator
 clk => read_accepted.CLK
 reset => read_accepted.ACLR
 uav_write <= <GND>
@@ -10077,7 +10077,7 @@ av_response[1] <= <GND>
 av_writeresponsevalid <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:sysid_qsys_0_control_slave_translator
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:sysid_qsys_0_control_slave_translator
 clk => in_transfer.CLK
 clk => end_beginbursttransfer.CLK
 clk => end_begintransfer.CLK
@@ -10377,7 +10377,7 @@ av_response[1] => ~NO_FANOUT~
 av_writeresponsevalid => uav_writeresponsevalid.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:i2c_0_csr_translator
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:i2c_0_csr_translator
 clk => in_transfer.CLK
 clk => end_beginbursttransfer.CLK
 clk => end_begintransfer.CLK
@@ -10614,7 +10614,7 @@ av_response[1] => ~NO_FANOUT~
 av_writeresponsevalid => uav_writeresponsevalid.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:nios2_gen2_0_debug_mem_slave_translator
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:nios2_gen2_0_debug_mem_slave_translator
 clk => in_transfer.CLK
 clk => end_beginbursttransfer.CLK
 clk => end_begintransfer.CLK
@@ -10920,7 +10920,7 @@ av_response[1] => ~NO_FANOUT~
 av_writeresponsevalid => uav_writeresponsevalid.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:altpll_0_pll_slave_translator
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:altpll_0_pll_slave_translator
 clk => in_transfer.CLK
 clk => end_beginbursttransfer.CLK
 clk => end_begintransfer.CLK
@@ -11217,7 +11217,7 @@ av_response[1] => ~NO_FANOUT~
 av_writeresponsevalid => uav_writeresponsevalid.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:onchip_memory2_0_s1_translator
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:onchip_memory2_0_s1_translator
 clk => in_transfer.CLK
 clk => end_beginbursttransfer.CLK
 clk => end_begintransfer.CLK
@@ -11450,7 +11450,7 @@ av_response[1] => ~NO_FANOUT~
 av_writeresponsevalid => uav_writeresponsevalid.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:sdram_s1_translator
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_translator:sdram_s1_translator
 clk => in_transfer.CLK
 clk => end_beginbursttransfer.CLK
 clk => end_begintransfer.CLK
@@ -11629,7 +11629,7 @@ av_response[1] => ~NO_FANOUT~
 av_writeresponsevalid => uav_writeresponsevalid.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_agent:nios2_gen2_0_data_master_agent
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_agent:nios2_gen2_0_data_master_agent
 clk => hold_waitrequest.CLK
 reset => hold_waitrequest.PRESET
 av_address[0] => ~NO_FANOUT~
@@ -11967,7 +11967,7 @@ rp_endofpacket => ~NO_FANOUT~
 rp_ready <= <VCC>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_agent:nios2_gen2_0_instruction_master_agent
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_master_agent:nios2_gen2_0_instruction_master_agent
 clk => hold_waitrequest.CLK
 reset => hold_waitrequest.PRESET
 av_address[0] => ~NO_FANOUT~
@@ -12305,7 +12305,7 @@ rp_endofpacket => ~NO_FANOUT~
 rp_ready <= <VCC>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:sysid_qsys_0_control_slave_agent
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:sysid_qsys_0_control_slave_agent
 clk => clk.IN1
 reset => reset.IN1
 m0_address[0] <= <GND>
@@ -12986,7 +12986,7 @@ rp_startofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_startof
 rp_endofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_endofpacket
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:sysid_qsys_0_control_slave_agent|altera_merlin_burst_uncompressor:uncompressor
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:sysid_qsys_0_control_slave_agent|altera_merlin_burst_uncompressor:uncompressor
 clk => burst_uncompress_address_offset[0].CLK
 clk => burst_uncompress_address_offset[1].CLK
 clk => burst_uncompress_address_offset[2].CLK
@@ -13322,7 +13322,7 @@ source_burstsize[1] <= sink_burstsize[1].DB_MAX_OUTPUT_PORT_TYPE
 source_burstsize[2] <= sink_burstsize[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sysid_qsys_0_control_slave_agent_rsp_fifo
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sysid_qsys_0_control_slave_agent_rsp_fifo
 clk => csr_readdata[0]~reg0.CLK
 clk => csr_readdata[1]~reg0.CLK
 clk => csr_readdata[2]~reg0.CLK
@@ -14147,7 +14147,7 @@ almost_full_data <= <GND>
 almost_empty_data <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:i2c_0_csr_agent
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:i2c_0_csr_agent
 clk => clk.IN1
 reset => reset.IN1
 m0_address[0] <= <GND>
@@ -14828,7 +14828,7 @@ rp_startofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_startof
 rp_endofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_endofpacket
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:i2c_0_csr_agent|altera_merlin_burst_uncompressor:uncompressor
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:i2c_0_csr_agent|altera_merlin_burst_uncompressor:uncompressor
 clk => burst_uncompress_address_offset[0].CLK
 clk => burst_uncompress_address_offset[1].CLK
 clk => burst_uncompress_address_offset[2].CLK
@@ -15164,7 +15164,7 @@ source_burstsize[1] <= sink_burstsize[1].DB_MAX_OUTPUT_PORT_TYPE
 source_burstsize[2] <= sink_burstsize[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:i2c_0_csr_agent_rsp_fifo
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:i2c_0_csr_agent_rsp_fifo
 clk => csr_readdata[0]~reg0.CLK
 clk => csr_readdata[1]~reg0.CLK
 clk => csr_readdata[2]~reg0.CLK
@@ -16312,7 +16312,7 @@ almost_full_data <= <GND>
 almost_empty_data <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:nios2_gen2_0_debug_mem_slave_agent
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:nios2_gen2_0_debug_mem_slave_agent
 clk => clk.IN1
 reset => reset.IN1
 m0_address[0] <= <GND>
@@ -16993,7 +16993,7 @@ rp_startofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_startof
 rp_endofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_endofpacket
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:nios2_gen2_0_debug_mem_slave_agent|altera_merlin_burst_uncompressor:uncompressor
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:nios2_gen2_0_debug_mem_slave_agent|altera_merlin_burst_uncompressor:uncompressor
 clk => burst_uncompress_address_offset[0].CLK
 clk => burst_uncompress_address_offset[1].CLK
 clk => burst_uncompress_address_offset[2].CLK
@@ -17329,7 +17329,7 @@ source_burstsize[1] <= sink_burstsize[1].DB_MAX_OUTPUT_PORT_TYPE
 source_burstsize[2] <= sink_burstsize[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:nios2_gen2_0_debug_mem_slave_agent_rsp_fifo
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:nios2_gen2_0_debug_mem_slave_agent_rsp_fifo
 clk => csr_readdata[0]~reg0.CLK
 clk => csr_readdata[1]~reg0.CLK
 clk => csr_readdata[2]~reg0.CLK
@@ -18154,7 +18154,7 @@ almost_full_data <= <GND>
 almost_empty_data <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:altpll_0_pll_slave_agent
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:altpll_0_pll_slave_agent
 clk => clk.IN1
 reset => reset.IN1
 m0_address[0] <= <GND>
@@ -18835,7 +18835,7 @@ rp_startofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_startof
 rp_endofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_endofpacket
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:altpll_0_pll_slave_agent|altera_merlin_burst_uncompressor:uncompressor
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:altpll_0_pll_slave_agent|altera_merlin_burst_uncompressor:uncompressor
 clk => burst_uncompress_address_offset[0].CLK
 clk => burst_uncompress_address_offset[1].CLK
 clk => burst_uncompress_address_offset[2].CLK
@@ -19171,7 +19171,7 @@ source_burstsize[1] <= sink_burstsize[1].DB_MAX_OUTPUT_PORT_TYPE
 source_burstsize[2] <= sink_burstsize[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:altpll_0_pll_slave_agent_rsp_fifo
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:altpll_0_pll_slave_agent_rsp_fifo
 clk => csr_readdata[0]~reg0.CLK
 clk => csr_readdata[1]~reg0.CLK
 clk => csr_readdata[2]~reg0.CLK
@@ -19996,7 +19996,7 @@ almost_full_data <= <GND>
 almost_empty_data <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:onchip_memory2_0_s1_agent
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:onchip_memory2_0_s1_agent
 clk => clk.IN1
 reset => reset.IN1
 m0_address[0] <= <GND>
@@ -20677,7 +20677,7 @@ rp_startofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_startof
 rp_endofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_endofpacket
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:onchip_memory2_0_s1_agent|altera_merlin_burst_uncompressor:uncompressor
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:onchip_memory2_0_s1_agent|altera_merlin_burst_uncompressor:uncompressor
 clk => burst_uncompress_address_offset[0].CLK
 clk => burst_uncompress_address_offset[1].CLK
 clk => burst_uncompress_address_offset[2].CLK
@@ -21013,7 +21013,7 @@ source_burstsize[1] <= sink_burstsize[1].DB_MAX_OUTPUT_PORT_TYPE
 source_burstsize[2] <= sink_burstsize[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:onchip_memory2_0_s1_agent_rsp_fifo
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:onchip_memory2_0_s1_agent_rsp_fifo
 clk => csr_readdata[0]~reg0.CLK
 clk => csr_readdata[1]~reg0.CLK
 clk => csr_readdata[2]~reg0.CLK
@@ -21838,7 +21838,7 @@ almost_full_data <= <GND>
 almost_empty_data <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:sdram_s1_agent
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:sdram_s1_agent
 clk => clk.IN1
 reset => reset.IN1
 m0_address[0] <= <GND>
@@ -22380,7 +22380,7 @@ rp_startofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_startof
 rp_endofpacket <= altera_merlin_burst_uncompressor:uncompressor.source_endofpacket
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:sdram_s1_agent|altera_merlin_burst_uncompressor:uncompressor
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_slave_agent:sdram_s1_agent|altera_merlin_burst_uncompressor:uncompressor
 clk => burst_uncompress_address_offset[0].CLK
 clk => burst_uncompress_address_offset[1].CLK
 clk => burst_uncompress_address_offset[2].CLK
@@ -22716,7 +22716,7 @@ source_burstsize[1] <= sink_burstsize[1].DB_MAX_OUTPUT_PORT_TYPE
 source_burstsize[2] <= sink_burstsize[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sdram_s1_agent_rsp_fifo
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sdram_s1_agent_rsp_fifo
 clk => csr_readdata[0]~reg0.CLK
 clk => csr_readdata[1]~reg0.CLK
 clk => csr_readdata[2]~reg0.CLK
@@ -25047,7 +25047,7 @@ almost_full_data <= <GND>
 almost_empty_data <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sdram_s1_agent_rdata_fifo
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_sc_fifo:sdram_s1_agent_rdata_fifo
 clk => mem.we_a.CLK
 clk => mem.waddr_a[2].CLK
 clk => mem.waddr_a[1].CLK
@@ -25381,7 +25381,7 @@ almost_full_data <= <GND>
 almost_empty_data <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router:router
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router:router
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 sink_valid => src_valid.DATAIN
@@ -25723,7 +25723,7 @@ src_endofpacket <= sink_endofpacket.DB_MAX_OUTPUT_PORT_TYPE
 src_ready => sink_ready.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router:router|mp3player_soc_mm_interconnect_0_router_default_decode:the_default_decode
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router:router|mp3player_soc_mm_interconnect_0_router_default_decode:the_default_decode
 default_destination_id[0] <= <GND>
 default_destination_id[1] <= <GND>
 default_destination_id[2] <= <VCC>
@@ -25747,7 +25747,7 @@ default_src_channel[4] <= <GND>
 default_src_channel[5] <= <VCC>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router:router_001
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router:router_001
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 sink_valid => src_valid.DATAIN
@@ -26089,7 +26089,7 @@ src_endofpacket <= sink_endofpacket.DB_MAX_OUTPUT_PORT_TYPE
 src_ready => sink_ready.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router:router_001|mp3player_soc_mm_interconnect_0_router_default_decode:the_default_decode
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router:router_001|mp3player_soc_mm_interconnect_0_router_default_decode:the_default_decode
 default_destination_id[0] <= <GND>
 default_destination_id[1] <= <GND>
 default_destination_id[2] <= <VCC>
@@ -26113,7 +26113,7 @@ default_src_channel[4] <= <GND>
 default_src_channel[5] <= <VCC>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_002
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_002
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 sink_valid => src_valid.DATAIN
@@ -26347,7 +26347,7 @@ src_endofpacket <= sink_endofpacket.DB_MAX_OUTPUT_PORT_TYPE
 src_ready => sink_ready.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_002|mp3player_soc_mm_interconnect_0_router_002_default_decode:the_default_decode
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_002|mp3player_soc_mm_interconnect_0_router_002_default_decode:the_default_decode
 default_destination_id[0] <= <GND>
 default_destination_id[1] <= <GND>
 default_destination_id[2] <= <GND>
@@ -26371,7 +26371,7 @@ default_src_channel[4] <= <GND>
 default_src_channel[5] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_003
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_003
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 sink_valid => src_valid.DATAIN
@@ -26605,7 +26605,7 @@ src_endofpacket <= sink_endofpacket.DB_MAX_OUTPUT_PORT_TYPE
 src_ready => sink_ready.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_003|mp3player_soc_mm_interconnect_0_router_002_default_decode:the_default_decode
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_003|mp3player_soc_mm_interconnect_0_router_002_default_decode:the_default_decode
 default_destination_id[0] <= <GND>
 default_destination_id[1] <= <GND>
 default_destination_id[2] <= <GND>
@@ -26629,7 +26629,7 @@ default_src_channel[4] <= <GND>
 default_src_channel[5] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_004
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_004
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 sink_valid => src_valid.DATAIN
@@ -26863,7 +26863,7 @@ src_endofpacket <= sink_endofpacket.DB_MAX_OUTPUT_PORT_TYPE
 src_ready => sink_ready.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_004|mp3player_soc_mm_interconnect_0_router_002_default_decode:the_default_decode
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_004|mp3player_soc_mm_interconnect_0_router_002_default_decode:the_default_decode
 default_destination_id[0] <= <GND>
 default_destination_id[1] <= <GND>
 default_destination_id[2] <= <GND>
@@ -26887,7 +26887,7 @@ default_src_channel[4] <= <GND>
 default_src_channel[5] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_005
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_005
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 sink_valid => src_valid.DATAIN
@@ -27121,7 +27121,7 @@ src_endofpacket <= sink_endofpacket.DB_MAX_OUTPUT_PORT_TYPE
 src_ready => sink_ready.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_005|mp3player_soc_mm_interconnect_0_router_002_default_decode:the_default_decode
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_005|mp3player_soc_mm_interconnect_0_router_002_default_decode:the_default_decode
 default_destination_id[0] <= <GND>
 default_destination_id[1] <= <GND>
 default_destination_id[2] <= <GND>
@@ -27145,7 +27145,7 @@ default_src_channel[4] <= <GND>
 default_src_channel[5] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_006
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_006
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 sink_valid => src_valid.DATAIN
@@ -27379,7 +27379,7 @@ src_endofpacket <= sink_endofpacket.DB_MAX_OUTPUT_PORT_TYPE
 src_ready => sink_ready.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_006|mp3player_soc_mm_interconnect_0_router_002_default_decode:the_default_decode
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_002:router_006|mp3player_soc_mm_interconnect_0_router_002_default_decode:the_default_decode
 default_destination_id[0] <= <GND>
 default_destination_id[1] <= <GND>
 default_destination_id[2] <= <GND>
@@ -27403,7 +27403,7 @@ default_src_channel[4] <= <GND>
 default_src_channel[5] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_007:router_007
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_007:router_007
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 sink_valid => src_valid.DATAIN
@@ -27601,7 +27601,7 @@ src_endofpacket <= sink_endofpacket.DB_MAX_OUTPUT_PORT_TYPE
 src_ready => sink_ready.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_007:router_007|mp3player_soc_mm_interconnect_0_router_007_default_decode:the_default_decode
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_router_007:router_007|mp3player_soc_mm_interconnect_0_router_007_default_decode:the_default_decode
 default_destination_id[0] <= <GND>
 default_destination_id[1] <= <GND>
 default_destination_id[2] <= <GND>
@@ -27625,7 +27625,7 @@ default_src_channel[4] <= <GND>
 default_src_channel[5] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:sdram_s1_burst_adapter
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:sdram_s1_burst_adapter
 clk => clk.IN1
 reset => reset.IN1
 sink0_valid => sink0_valid.IN1
@@ -27822,7 +27822,7 @@ source0_endofpacket <= altera_merlin_burst_adapter_uncompressed_only:altera_merl
 source0_ready => source0_ready.IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:sdram_s1_burst_adapter|altera_merlin_burst_adapter_uncompressed_only:altera_merlin_burst_adapter_uncompressed_only.burst_adapter
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_burst_adapter:sdram_s1_burst_adapter|altera_merlin_burst_adapter_uncompressed_only:altera_merlin_burst_adapter_uncompressed_only.burst_adapter
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 sink0_valid => source0_valid.DATAIN
@@ -28019,7 +28019,7 @@ source0_endofpacket <= sink0_endofpacket.DB_MAX_OUTPUT_PORT_TYPE
 source0_ready => sink0_ready.DATAIN
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_demux:cmd_demux
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_demux:cmd_demux
 sink_valid[0] => src0_valid.IN0
 sink_valid[0] => src1_valid.IN0
 sink_valid[0] => src2_valid.IN0
@@ -29363,7 +29363,7 @@ clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_demux:cmd_demux_001
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_demux:cmd_demux_001
 sink_valid[0] => src0_valid.IN0
 sink_valid[0] => src1_valid.IN0
 sink_valid[0] => src2_valid.IN0
@@ -30707,7 +30707,7 @@ clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux
 sink0_valid => request.IN1
 sink0_valid => src_valid.IN1
 sink0_data[0] => src_payload.IN1
@@ -31060,7 +31060,7 @@ clk => clk.IN1
 reset => reset.IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux|altera_merlin_arbitrator:arb
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux|altera_merlin_arbitrator:arb
 clk => top_priority_reg[0].CLK
 clk => top_priority_reg[1].CLK
 reset => top_priority_reg[0].PRESET
@@ -31082,7 +31082,7 @@ increment_top_priority => top_priority_reg.OUTPUTSELECT
 save_top_priority => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
 a[0] => sum.IN0
 a[0] => full_adder.cout[0].IN0
 a[1] => cout.IN0
@@ -31103,7 +31103,7 @@ sum[2] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[3] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_001
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_001
 sink0_valid => request.IN1
 sink0_valid => src_valid.IN1
 sink0_data[0] => src_payload.IN1
@@ -31456,7 +31456,7 @@ clk => clk.IN1
 reset => reset.IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_001|altera_merlin_arbitrator:arb
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_001|altera_merlin_arbitrator:arb
 clk => top_priority_reg[0].CLK
 clk => top_priority_reg[1].CLK
 reset => top_priority_reg[0].PRESET
@@ -31478,7 +31478,7 @@ increment_top_priority => top_priority_reg.OUTPUTSELECT
 save_top_priority => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_001|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_001|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
 a[0] => sum.IN0
 a[0] => full_adder.cout[0].IN0
 a[1] => cout.IN0
@@ -31499,7 +31499,7 @@ sum[2] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[3] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_002
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_002
 sink0_valid => request.IN1
 sink0_valid => src_valid.IN1
 sink0_data[0] => src_payload.IN1
@@ -31852,7 +31852,7 @@ clk => clk.IN1
 reset => reset.IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_002|altera_merlin_arbitrator:arb
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_002|altera_merlin_arbitrator:arb
 clk => top_priority_reg[0].CLK
 clk => top_priority_reg[1].CLK
 reset => top_priority_reg[0].PRESET
@@ -31874,7 +31874,7 @@ increment_top_priority => top_priority_reg.OUTPUTSELECT
 save_top_priority => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_002|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_002|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
 a[0] => sum.IN0
 a[0] => full_adder.cout[0].IN0
 a[1] => cout.IN0
@@ -31895,7 +31895,7 @@ sum[2] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[3] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_003
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_003
 sink0_valid => request.IN1
 sink0_valid => src_valid.IN1
 sink0_data[0] => src_payload.IN1
@@ -32248,7 +32248,7 @@ clk => clk.IN1
 reset => reset.IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_003|altera_merlin_arbitrator:arb
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_003|altera_merlin_arbitrator:arb
 clk => top_priority_reg[0].CLK
 clk => top_priority_reg[1].CLK
 reset => top_priority_reg[0].PRESET
@@ -32270,7 +32270,7 @@ increment_top_priority => top_priority_reg.OUTPUTSELECT
 save_top_priority => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_003|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_003|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
 a[0] => sum.IN0
 a[0] => full_adder.cout[0].IN0
 a[1] => cout.IN0
@@ -32291,7 +32291,7 @@ sum[2] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[3] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_004
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_004
 sink0_valid => request.IN1
 sink0_valid => src_valid.IN1
 sink0_data[0] => src_payload.IN1
@@ -32644,7 +32644,7 @@ clk => clk.IN1
 reset => reset.IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_004|altera_merlin_arbitrator:arb
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_004|altera_merlin_arbitrator:arb
 clk => top_priority_reg[0].CLK
 clk => top_priority_reg[1].CLK
 reset => top_priority_reg[0].PRESET
@@ -32666,7 +32666,7 @@ increment_top_priority => top_priority_reg.OUTPUTSELECT
 save_top_priority => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_004|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_004|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
 a[0] => sum.IN0
 a[0] => full_adder.cout[0].IN0
 a[1] => cout.IN0
@@ -32687,7 +32687,7 @@ sum[2] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[3] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_005
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_005
 sink0_valid => request.IN1
 sink0_valid => src_valid.IN1
 sink0_data[0] => src_payload.IN1
@@ -33040,7 +33040,7 @@ clk => clk.IN1
 reset => reset.IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_005|altera_merlin_arbitrator:arb
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_005|altera_merlin_arbitrator:arb
 clk => top_priority_reg[0].CLK
 clk => top_priority_reg[1].CLK
 reset => top_priority_reg[0].PRESET
@@ -33062,7 +33062,7 @@ increment_top_priority => top_priority_reg.OUTPUTSELECT
 save_top_priority => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_005|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_cmd_mux:cmd_mux_005|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
 a[0] => sum.IN0
 a[0] => full_adder.cout[0].IN0
 a[1] => cout.IN0
@@ -33083,7 +33083,7 @@ sum[2] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 sum[3] <= sum.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux
 sink_valid[0] => src0_valid.IN0
 sink_valid[0] => src1_valid.IN0
 sink_data[0] => src1_data[0].DATAIN
@@ -33543,7 +33543,7 @@ clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux_001
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux_001
 sink_valid[0] => src0_valid.IN0
 sink_valid[0] => src1_valid.IN0
 sink_data[0] => src1_data[0].DATAIN
@@ -34003,7 +34003,7 @@ clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux_002
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux_002
 sink_valid[0] => src0_valid.IN0
 sink_valid[0] => src1_valid.IN0
 sink_data[0] => src1_data[0].DATAIN
@@ -34463,7 +34463,7 @@ clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux_003
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux_003
 sink_valid[0] => src0_valid.IN0
 sink_valid[0] => src1_valid.IN0
 sink_data[0] => src1_data[0].DATAIN
@@ -34923,7 +34923,7 @@ clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux_004
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux_004
 sink_valid[0] => src0_valid.IN0
 sink_valid[0] => src1_valid.IN0
 sink_data[0] => src1_data[0].DATAIN
@@ -35383,7 +35383,7 @@ clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux_005
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_demux:rsp_demux_005
 sink_valid[0] => src0_valid.IN0
 sink_valid[0] => src1_valid.IN0
 sink_data[0] => src1_data[0].DATAIN
@@ -35843,7 +35843,7 @@ clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux
 sink0_valid => request[0].IN1
 sink0_data[0] => src_payload.IN1
 sink0_data[1] => src_payload.IN1
@@ -36658,7 +36658,7 @@ clk => clk.IN1
 reset => reset.IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux|altera_merlin_arbitrator:arb
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux|altera_merlin_arbitrator:arb
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 request[0] => grant[0].DATAIN
@@ -36689,7 +36689,7 @@ increment_top_priority => ~NO_FANOUT~
 save_top_priority => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
 a[0] => Add0.IN12
 a[1] => Add0.IN11
 a[2] => Add0.IN10
@@ -36728,7 +36728,7 @@ sum[10] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 sum[11] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux_001
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux_001
 sink0_valid => request[0].IN1
 sink0_data[0] => src_payload.IN1
 sink0_data[1] => src_payload.IN1
@@ -37543,7 +37543,7 @@ clk => clk.IN1
 reset => reset.IN1
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux_001|altera_merlin_arbitrator:arb
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux_001|altera_merlin_arbitrator:arb
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 request[0] => grant[0].DATAIN
@@ -37574,7 +37574,7 @@ increment_top_priority => ~NO_FANOUT~
 save_top_priority => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux_001|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_rsp_mux:rsp_mux_001|altera_merlin_arbitrator:arb|altera_merlin_arb_adder:adder
 a[0] => Add0.IN12
 a[1] => Add0.IN11
 a[2] => Add0.IN10
@@ -37613,7 +37613,7 @@ sum[10] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 sum[11] <= Add0.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:sdram_s1_rsp_width_adapter
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:sdram_s1_rsp_width_adapter
 clk => clk.IN1
 reset => reset.IN1
 in_ready <= in_ready.DB_MAX_OUTPUT_PORT_TYPE
@@ -37844,7 +37844,7 @@ in_command_size_data[1] => ~NO_FANOUT~
 in_command_size_data[2] => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:sdram_s1_rsp_width_adapter|altera_merlin_burst_uncompressor:uncompressor
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:sdram_s1_rsp_width_adapter|altera_merlin_burst_uncompressor:uncompressor
 clk => burst_uncompress_address_offset[0].CLK
 clk => burst_uncompress_address_offset[1].CLK
 clk => burst_uncompress_address_offset[2].CLK
@@ -38180,7 +38180,7 @@ source_burstsize[1] <= sink_burstsize[1].DB_MAX_OUTPUT_PORT_TYPE
 source_burstsize[2] <= sink_burstsize[2].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:sdram_s1_cmd_width_adapter
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_merlin_width_adapter:sdram_s1_cmd_width_adapter
 clk => byteen_reg[0].CLK
 clk => byteen_reg[1].CLK
 clk => byteen_reg[2].CLK
@@ -38622,7 +38622,7 @@ in_command_size_data[1] => ~NO_FANOUT~
 in_command_size_data[2] => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser
 in_clk => in_clk.IN1
 in_reset => in_reset.IN1
 out_clk => out_clk.IN1
@@ -38861,7 +38861,7 @@ out_endofpacket <= altera_avalon_st_clock_crosser:clock_xer.out_data
 out_empty[0] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser|altera_avalon_st_clock_crosser:clock_xer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser|altera_avalon_st_clock_crosser:clock_xer
 in_clk => in_clk.IN1
 in_reset => in_data_toggle.ACLR
 in_reset => in_data_buffer[0].ACLR
@@ -39322,7 +39322,7 @@ out_data[110] <= out_data_buffer[110].DB_MAX_OUTPUT_PORT_TYPE
 out_data[111] <= out_data_buffer[111].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:in_to_out_synchronizer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:in_to_out_synchronizer
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -39331,7 +39331,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:out_to_in_synchronizer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:out_to_in_synchronizer
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -39340,7 +39340,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_001
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_001
 in_clk => in_clk.IN1
 in_reset => in_reset.IN1
 out_clk => out_clk.IN1
@@ -39579,7 +39579,7 @@ out_endofpacket <= altera_avalon_st_clock_crosser:clock_xer.out_data
 out_empty[0] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_001|altera_avalon_st_clock_crosser:clock_xer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_001|altera_avalon_st_clock_crosser:clock_xer
 in_clk => in_clk.IN1
 in_reset => in_data_toggle.ACLR
 in_reset => in_data_buffer[0].ACLR
@@ -40040,7 +40040,7 @@ out_data[110] <= out_data_buffer[110].DB_MAX_OUTPUT_PORT_TYPE
 out_data[111] <= out_data_buffer[111].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_001|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:in_to_out_synchronizer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_001|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:in_to_out_synchronizer
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -40049,7 +40049,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_001|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:out_to_in_synchronizer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_001|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:out_to_in_synchronizer
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -40058,7 +40058,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_002
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_002
 in_clk => in_clk.IN1
 in_reset => in_reset.IN1
 out_clk => out_clk.IN1
@@ -40297,7 +40297,7 @@ out_endofpacket <= altera_avalon_st_clock_crosser:clock_xer.out_data
 out_empty[0] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_002|altera_avalon_st_clock_crosser:clock_xer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_002|altera_avalon_st_clock_crosser:clock_xer
 in_clk => in_clk.IN1
 in_reset => in_data_toggle.ACLR
 in_reset => in_data_buffer[0].ACLR
@@ -40758,7 +40758,7 @@ out_data[110] <= out_data_buffer[110].DB_MAX_OUTPUT_PORT_TYPE
 out_data[111] <= out_data_buffer[111].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_002|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:in_to_out_synchronizer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_002|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:in_to_out_synchronizer
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -40767,7 +40767,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_002|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:out_to_in_synchronizer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_002|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:out_to_in_synchronizer
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -40776,7 +40776,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_003
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_003
 in_clk => in_clk.IN1
 in_reset => in_reset.IN1
 out_clk => out_clk.IN1
@@ -41015,7 +41015,7 @@ out_endofpacket <= altera_avalon_st_clock_crosser:clock_xer.out_data
 out_empty[0] <= <GND>
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_003|altera_avalon_st_clock_crosser:clock_xer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_003|altera_avalon_st_clock_crosser:clock_xer
 in_clk => in_clk.IN1
 in_reset => in_data_toggle.ACLR
 in_reset => in_data_buffer[0].ACLR
@@ -41476,7 +41476,7 @@ out_data[110] <= out_data_buffer[110].DB_MAX_OUTPUT_PORT_TYPE
 out_data[111] <= out_data_buffer[111].DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_003|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:in_to_out_synchronizer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_003|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:in_to_out_synchronizer
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -41485,7 +41485,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_003|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:out_to_in_synchronizer
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|altera_avalon_st_handshake_clock_crosser:crosser_003|altera_avalon_st_clock_crosser:clock_xer|altera_std_synchronizer_nocut:out_to_in_synchronizer
 clk => dreg[0].CLK
 clk => din_s1.CLK
 reset_n => dreg[0].ACLR
@@ -41494,7 +41494,7 @@ din => din_s1.DATAIN
 dout <= dout.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter
 in_clk_0_clk => in_clk_0_clk.IN1
 in_rst_0_reset => _.IN1
 in_0_data[0] => in_0_data[0].IN1
@@ -41572,7 +41572,7 @@ out_0_ready => out_0_ready.IN1
 out_0_error[0] <= mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0.out_error
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter|mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter|mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0
 in_ready <= out_ready.DB_MAX_OUTPUT_PORT_TYPE
 in_valid => out_valid.DATAIN
 in_data[0] => out_data[0].DATAIN
@@ -41650,7 +41650,7 @@ clk => ~NO_FANOUT~
 reset_n => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_001
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_001
 in_clk_0_clk => in_clk_0_clk.IN1
 in_rst_0_reset => _.IN1
 in_0_data[0] => in_0_data[0].IN1
@@ -41728,7 +41728,7 @@ out_0_ready => out_0_ready.IN1
 out_0_error[0] <= mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0.out_error
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_001|mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_001|mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0
 in_ready <= out_ready.DB_MAX_OUTPUT_PORT_TYPE
 in_valid => out_valid.DATAIN
 in_data[0] => out_data[0].DATAIN
@@ -41806,7 +41806,7 @@ clk => ~NO_FANOUT~
 reset_n => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_002
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_002
 in_clk_0_clk => in_clk_0_clk.IN1
 in_rst_0_reset => _.IN1
 in_0_data[0] => in_0_data[0].IN1
@@ -41884,7 +41884,7 @@ out_0_ready => out_0_ready.IN1
 out_0_error[0] <= mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0.out_error
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_002|mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_002|mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0
 in_ready <= out_ready.DB_MAX_OUTPUT_PORT_TYPE
 in_valid => out_valid.DATAIN
 in_data[0] => out_data[0].DATAIN
@@ -41962,7 +41962,7 @@ clk => ~NO_FANOUT~
 reset_n => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_003
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_003
 in_clk_0_clk => in_clk_0_clk.IN1
 in_rst_0_reset => _.IN1
 in_0_data[0] => in_0_data[0].IN1
@@ -42040,7 +42040,7 @@ out_0_ready => out_0_ready.IN1
 out_0_error[0] <= mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0.out_error
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_003|mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_003|mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0
 in_ready <= out_ready.DB_MAX_OUTPUT_PORT_TYPE
 in_valid => out_valid.DATAIN
 in_data[0] => out_data[0].DATAIN
@@ -42118,7 +42118,7 @@ clk => ~NO_FANOUT~
 reset_n => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_004
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_004
 in_clk_0_clk => in_clk_0_clk.IN1
 in_rst_0_reset => _.IN1
 in_0_data[0] => in_0_data[0].IN1
@@ -42196,7 +42196,7 @@ out_0_ready => out_0_ready.IN1
 out_0_error[0] <= mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0.out_error
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_004|mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter:avalon_st_adapter_004|mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0:error_adapter_0
 in_ready <= out_ready.DB_MAX_OUTPUT_PORT_TYPE
 in_valid => out_valid.DATAIN
 in_data[0] => out_data[0].DATAIN
@@ -42274,7 +42274,7 @@ clk => ~NO_FANOUT~
 reset_n => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter_005:avalon_st_adapter_005
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter_005:avalon_st_adapter_005
 in_clk_0_clk => in_clk_0_clk.IN1
 in_rst_0_reset => _.IN1
 in_0_data[0] => in_0_data[0].IN1
@@ -42320,7 +42320,7 @@ out_0_ready => out_0_ready.IN1
 out_0_error[0] <= mp3player_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0:error_adapter_0.out_error
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter_005:avalon_st_adapter_005|mp3player_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0:error_adapter_0
+|mp3player|mp3player_soc:soc|mp3player_soc_mm_interconnect_0:mm_interconnect_0|mp3player_soc_mm_interconnect_0_avalon_st_adapter_005:avalon_st_adapter_005|mp3player_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0:error_adapter_0
 in_ready <= out_ready.DB_MAX_OUTPUT_PORT_TYPE
 in_valid => out_valid.DATAIN
 in_data[0] => out_data[0].DATAIN
@@ -42366,7 +42366,7 @@ clk => ~NO_FANOUT~
 reset_n => ~NO_FANOUT~
 
 
-|lab61|mp3player_soc:soc|mp3player_soc_irq_mapper:irq_mapper
+|mp3player|mp3player_soc:soc|mp3player_soc_irq_mapper:irq_mapper
 clk => ~NO_FANOUT~
 reset => ~NO_FANOUT~
 receiver0_irq => sender_irq[0].DATAIN
@@ -42404,7 +42404,7 @@ sender_irq[30] <= <GND>
 sender_irq[31] <= <GND>
 
 
-|lab61|mp3player_soc:soc|altera_reset_controller:rst_controller
+|mp3player|mp3player_soc:soc|altera_reset_controller:rst_controller
 reset_in0 => merged_reset.IN0
 reset_in1 => merged_reset.IN1
 reset_in2 => merged_reset.IN1
@@ -42442,7 +42442,7 @@ reset_out <= r_sync_rst.DB_MAX_OUTPUT_PORT_TYPE
 reset_req <= r_early_rst.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
+|mp3player|mp3player_soc:soc|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain_out.PRESET
 reset_in => altera_reset_synchronizer_int_chain[0].PRESET
 reset_in => altera_reset_synchronizer_int_chain[1].PRESET
@@ -42452,7 +42452,7 @@ clk => altera_reset_synchronizer_int_chain[1].CLK
 reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
+|mp3player|mp3player_soc:soc|altera_reset_controller:rst_controller|altera_reset_synchronizer:alt_rst_req_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain[1].DATAIN
 clk => altera_reset_synchronizer_int_chain_out.CLK
 clk => altera_reset_synchronizer_int_chain[0].CLK
@@ -42460,7 +42460,7 @@ clk => altera_reset_synchronizer_int_chain[1].CLK
 reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_reset_controller:rst_controller_001
+|mp3player|mp3player_soc:soc|altera_reset_controller:rst_controller_001
 reset_in0 => merged_reset.IN0
 reset_in1 => merged_reset.IN1
 reset_in2 => merged_reset.IN1
@@ -42498,7 +42498,7 @@ reset_out <= altera_reset_synchronizer:alt_rst_sync_uq1.reset_out
 reset_req <= altera_reset_synchronizer:alt_rst_req_sync_uq1.reset_out
 
 
-|lab61|mp3player_soc:soc|altera_reset_controller:rst_controller_001|altera_reset_synchronizer:alt_rst_sync_uq1
+|mp3player|mp3player_soc:soc|altera_reset_controller:rst_controller_001|altera_reset_synchronizer:alt_rst_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain_out.PRESET
 reset_in => altera_reset_synchronizer_int_chain[0].PRESET
 reset_in => altera_reset_synchronizer_int_chain[1].PRESET
@@ -42508,7 +42508,7 @@ clk => altera_reset_synchronizer_int_chain[1].CLK
 reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_reset_controller:rst_controller_001|altera_reset_synchronizer:alt_rst_req_sync_uq1
+|mp3player|mp3player_soc:soc|altera_reset_controller:rst_controller_001|altera_reset_synchronizer:alt_rst_req_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain[1].DATAIN
 clk => altera_reset_synchronizer_int_chain_out.CLK
 clk => altera_reset_synchronizer_int_chain[0].CLK
@@ -42516,7 +42516,7 @@ clk => altera_reset_synchronizer_int_chain[1].CLK
 reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_reset_controller:rst_controller_002
+|mp3player|mp3player_soc:soc|altera_reset_controller:rst_controller_002
 reset_in0 => merged_reset.IN0
 reset_in1 => merged_reset.IN1
 reset_in2 => merged_reset.IN1
@@ -42554,7 +42554,7 @@ reset_out <= altera_reset_synchronizer:alt_rst_sync_uq1.reset_out
 reset_req <= altera_reset_synchronizer:alt_rst_req_sync_uq1.reset_out
 
 
-|lab61|mp3player_soc:soc|altera_reset_controller:rst_controller_002|altera_reset_synchronizer:alt_rst_sync_uq1
+|mp3player|mp3player_soc:soc|altera_reset_controller:rst_controller_002|altera_reset_synchronizer:alt_rst_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain_out.PRESET
 reset_in => altera_reset_synchronizer_int_chain[0].PRESET
 reset_in => altera_reset_synchronizer_int_chain[1].PRESET
@@ -42564,7 +42564,7 @@ clk => altera_reset_synchronizer_int_chain[1].CLK
 reset_out <= altera_reset_synchronizer_int_chain_out.DB_MAX_OUTPUT_PORT_TYPE
 
 
-|lab61|mp3player_soc:soc|altera_reset_controller:rst_controller_002|altera_reset_synchronizer:alt_rst_req_sync_uq1
+|mp3player|mp3player_soc:soc|altera_reset_controller:rst_controller_002|altera_reset_synchronizer:alt_rst_req_sync_uq1
 reset_in => altera_reset_synchronizer_int_chain[1].DATAIN
 clk => altera_reset_synchronizer_int_chain_out.CLK
 clk => altera_reset_synchronizer_int_chain[0].CLK
