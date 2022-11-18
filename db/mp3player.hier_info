@@ -57,6 +57,22 @@ DRAM_UDQM <= mp3player_soc:soc.sdram_wire_dqm
 DRAM_RAS_N <= mp3player_soc:soc.sdram_wire_ras_n
 DRAM_WE_N <= mp3player_soc:soc.sdram_wire_we_n
 DRAM_CLK <= mp3player_soc:soc.sdram_clk_clk
+ARDUINO_IO[0] <> <UNC>
+ARDUINO_IO[1] <> <UNC>
+ARDUINO_IO[2] <> <UNC>
+ARDUINO_IO[3] <> ARDUINO_IO[3]
+ARDUINO_IO[4] <> <UNC>
+ARDUINO_IO[5] <> <UNC>
+ARDUINO_IO[6] <> <UNC>
+ARDUINO_IO[7] <> <UNC>
+ARDUINO_IO[8] <> <UNC>
+ARDUINO_IO[9] <> <UNC>
+ARDUINO_IO[10] <> <UNC>
+ARDUINO_IO[11] <> <UNC>
+ARDUINO_IO[12] <> <UNC>
+ARDUINO_IO[13] <> <UNC>
+ARDUINO_IO[14] <> ARDUINO_IO[14]
+ARDUINO_IO[15] <> ARDUINO_IO[15]
 
 
 |mp3player|mp3player_soc:soc

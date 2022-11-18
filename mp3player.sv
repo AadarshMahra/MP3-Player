@@ -30,10 +30,10 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 					  inout [15:0] ARDUINO_IO
 				  
 				  );
-				  
+					logic [24:0] aud_mclk_ctr;
 				   assign ARDUINO_IO[3] = aud_mclk_ctr[1]; 
 
-					always_ff @(posedge MAX10_CLK2_50) begin
+					always_ff @(posedge MAX10_CLK1_50) begin
 						aud_mclk_ctr <= aud_mclk_ctr + 1;
 					end
 					
@@ -51,10 +51,10 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				  mp3player_soc soc (.clk_clk(MAX10_CLK1_50),
 											 .reset_reset_n(KEY[0]), 
 											 // I2C
-											 i2c0_sda_in(SDA_IN); 
-											 i2c0_scl_in(SCL_IN); 
-											 i2c0_sda_oe(SDA_OE); 
-											 i2c0_scl_oe(SCL_OE); 
+											 .i2c0_sda_in(SDA_IN),
+											 .i2c0_scl_in(SCL_IN), 
+											 .i2c0_sda_oe(SDA_OE), 
+											 .i2c0_scl_oe(SCL_OE), 
 											//SDRAM
 											.sdram_clk_clk(DRAM_CLK),                            //clk_sdram.clk
 											.sdram_wire_addr(DRAM_ADDR),                         //sdram_wire.addr

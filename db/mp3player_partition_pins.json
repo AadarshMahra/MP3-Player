@@ -152,6 +152,18 @@
 					"strict" : false
 				},
 				{
+					"name" : "ARDUINO_IO[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ARDUINO_IO[14]",
+					"strict" : false
+				},
+				{
+					"name" : "ARDUINO_IO[15]",
+					"strict" : false
+				},
+				{
 					"name" : "MAX10_CLK1_50",
 					"strict" : false
 				},
