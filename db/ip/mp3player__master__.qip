@@ -1,1 +1,0 @@
-set_global_assignment -name QIP_FILE [file join $::quartus(qip_path) mp3player_soc/mp3player_soc.qip]
