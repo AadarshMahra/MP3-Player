@@ -1,0 +1,6 @@
+23:14:02 **** Clean-only build of configuration Nios II for project mp3_player ****
+make clean 
+[mp3_player clean complete]
+
+23:14:02 Build Finished (took 269ms)
+

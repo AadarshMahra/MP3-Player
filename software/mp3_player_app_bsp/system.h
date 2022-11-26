@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
  * SOPC Builder design path: ../../mp3player_soc.sopcinfo
  *
- * Generated: Fri Nov 18 12:58:28 CST 2022
+ * Generated: Fri Nov 25 19:25:18 CST 2022
  */
 
 /*
@@ -134,6 +134,7 @@
  */
 
 #define __ALTERA_AVALON_I2C
+#define __ALTERA_AVALON_JTAG_UART
 #define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
 #define __ALTERA_AVALON_ONCHIP_MEMORY2
 #define __ALTERA_AVALON_SYSID_QSYS
@@ -156,18 +157,24 @@
 #define ALT_NUM_EXTERNAL_INTERRUPT_CONTROLLERS 0
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
-#define ALT_STDERR "/dev/null"
-#define ALT_STDERR_BASE 0x0
-#define ALT_STDERR_DEV null
-#define ALT_STDERR_TYPE ""
-#define ALT_STDIN "/dev/null"
-#define ALT_STDIN_BASE 0x0
-#define ALT_STDIN_DEV null
-#define ALT_STDIN_TYPE ""
-#define ALT_STDOUT "/dev/null"
-#define ALT_STDOUT_BASE 0x0
-#define ALT_STDOUT_DEV null
-#define ALT_STDOUT_TYPE ""
+#define ALT_STDERR "/dev/jtag_uart_0"
+#define ALT_STDERR_BASE 0x80010d8
+#define ALT_STDERR_DEV jtag_uart_0
+#define ALT_STDERR_IS_JTAG_UART
+#define ALT_STDERR_PRESENT
+#define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
+#define ALT_STDIN "/dev/jtag_uart_0"
+#define ALT_STDIN_BASE 0x80010d8
+#define ALT_STDIN_DEV jtag_uart_0
+#define ALT_STDIN_IS_JTAG_UART
+#define ALT_STDIN_PRESENT
+#define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
+#define ALT_STDOUT "/dev/jtag_uart_0"
+#define ALT_STDOUT_BASE 0x80010d8
+#define ALT_STDOUT_DEV jtag_uart_0
+#define ALT_STDOUT_IS_JTAG_UART
+#define ALT_STDOUT_PRESENT
+#define ALT_STDOUT_TYPE "altera_avalon_jtag_uart"
 #define ALT_SYSTEM_NAME "mp3player_soc"
 
 
@@ -211,6 +218,24 @@
 #define I2C_0_SPAN 64
 #define I2C_0_TYPE "altera_avalon_i2c"
 #define I2C_0_USE_AV_ST 0
+
+
+/*
+ * jtag_uart_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_jtag_uart_0 altera_avalon_jtag_uart
+#define JTAG_UART_0_BASE 0x80010d8
+#define JTAG_UART_0_IRQ 1
+#define JTAG_UART_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define JTAG_UART_0_NAME "/dev/jtag_uart_0"
+#define JTAG_UART_0_READ_DEPTH 64
+#define JTAG_UART_0_READ_THRESHOLD 8
+#define JTAG_UART_0_SPAN 8
+#define JTAG_UART_0_TYPE "altera_avalon_jtag_uart"
+#define JTAG_UART_0_WRITE_DEPTH 64
+#define JTAG_UART_0_WRITE_THRESHOLD 8
 
 
 /*
@@ -287,13 +312,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid_qsys_0 altera_avalon_sysid_qsys
-#define SYSID_QSYS_0_BASE 0x80010c8
+#define SYSID_QSYS_0_BASE 0x80010d0
 #define SYSID_QSYS_0_ID 0
 #define SYSID_QSYS_0_IRQ -1
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1668797621
+#define SYSID_QSYS_0_TIMESTAMP 1669425664
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

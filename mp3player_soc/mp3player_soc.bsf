@@ -157,7 +157,7 @@ refer to the applicable agreement for further details.
 		(text "dqm" (rect 133 331 284 672)(font "Arial" (color 0 0 0)))
 		(text "ras_n" (rect 133 347 296 704)(font "Arial" (color 0 0 0)))
 		(text "we_n" (rect 133 363 290 736)(font "Arial" (color 0 0 0)))
-		(text " mp3player_soc " (rect 251 384 592 778)(font "Arial" ))
+		(text " system " (rect 285 384 618 778)(font "Arial" ))
 		(line (pt 128 32)(pt 192 32)(line_width 1))
 		(line (pt 192 32)(pt 192 384)(line_width 1))
 		(line (pt 128 384)(pt 192 384)(line_width 1))

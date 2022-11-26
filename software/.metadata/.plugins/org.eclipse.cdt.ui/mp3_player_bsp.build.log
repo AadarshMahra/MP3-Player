@@ -1,0 +1,6 @@
+23:13:55 **** Clean-only build of configuration Nios II for project mp3_player_bsp ****
+make clean 
+[BSP clean complete]
+
+23:13:56 Build Finished (took 1s.97ms)
+

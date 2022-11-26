@@ -30,7 +30,7 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 					  inout [15:0] ARDUINO_IO
 				  
 				  );
-				logic [24:0] aud_mclk_ctr;
+				logic [31:0] aud_mclk_ctr;
 				logic SCL_IN, SCL, SDA_IN, SDA, SDA_OE, SCL_OE;    	
 					
 					
