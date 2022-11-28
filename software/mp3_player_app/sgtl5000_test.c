@@ -158,11 +158,12 @@ int main()
 	printf( "CHIP_I2S_CTRL register: %x\n", SGTL5000_Reg_Rd (i2c_dev, SGTL5000_CHIP_I2S_CTRL));
 
 	//ADC input from Line
-	/*SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_CTRL, \
-			SGTL5000_ADC_SEL_LINE_IN << SGTL5000_ADC_SEL_SHIFT);*/
+	SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_CTRL, \
+			SGTL5000_ADC_SEL_LINE_IN << SGTL5000_ADC_SEL_SHIFT);
 	/* route the line input directly to Headphone Output */
+	/*
 	    SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_CTRL, \
-	                SGTL5000_ADC_SEL_LINE_IN << 6);
+	                SGTL5000_ADC_SEL_LINE_IN << 6); */
 	printf( "CHIP_ANA_CTRL register: %x\n", SGTL5000_Reg_Rd (i2c_dev, SGTL5000_CHIP_ANA_CTRL));
 
 	//ADC -> I2S out, I2S in -> DAC

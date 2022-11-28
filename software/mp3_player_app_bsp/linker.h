@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
  * SOPC Builder design path: ../../mp3player_soc.sopcinfo
  *
- * Generated: Thu Nov 17 11:29:36 CST 2022
+ * Generated: Sat Nov 26 14:11:56 CST 2022
  */
 
 /*

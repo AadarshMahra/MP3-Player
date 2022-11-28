@@ -13,7 +13,7 @@ WORD SGTL5000_Reg_Rd (ALT_AVALON_I2C_DEV_t* dev, WORD ADDR)
 	buffer[1] = (ADDR & 0x00FF);
 
 	ALT_AVALON_I2C_STATUS_CODE status=alt_avalon_i2c_master_tx_rx(dev,buffer,2,buffer,2,0);
-	printf("%d",status);
+	printf("%d\n",status);
 	if (status != ALT_AVALON_I2C_SUCCESS){
 		printf ("SGTL5000 I2C error, address: %x", ADDR);
 		while (1)

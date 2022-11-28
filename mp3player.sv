@@ -30,26 +30,35 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 					  inout [15:0] ARDUINO_IO
 				  
 				  );
-				logic [31:0] aud_mclk_ctr;
+				logic [1:0] aud_mclk_ctr;
 				logic SCL_IN, SCL, SDA_IN, SDA, SDA_OE, SCL_OE;    	
 					
 					
 					
+					assign ARDUINO_IO[1] = 1'bz; 
+					assign ARDUINO_IO[2] = ARDUINO_IO[1]; 
+					assign LRCLK = ARDUINO_IO[4]; 
+					assign SCLK = ARDUINO_IO[5]; 
+					
+					
+					/* set the master clock (Arduino) pin */
 				   assign ARDUINO_IO[3] = aud_mclk_ctr[1]; 
 
 					always_ff @(posedge MAX10_CLK1_50) begin
 						aud_mclk_ctr <= aud_mclk_ctr + 1;
 					end
 					
-		
-					assign SCL_IN = SCL; 
-					assign SCL = SCL_OE ? 1'b0 : 1'bz; 
+					/*  */ 
+					assign SCL_IN = ARDUINO_IO[15]; 
+					assign ARDUINO_IO[15] = SCL_OE ? 1'b0 : 1'bz; 
 					
-					assign SDA_IN = SDA; 
-					assign SDA = SDA_OE ? 1'b0 : 1'bz;
+					assign SDA_IN = ARDUINO_IO[14]; 
+					assign ARDUINO_IO[14] = SDA_OE ? 1'b0 : 1'bz;
 					
-					assign ARDUINO_IO[15] = SCL;
-					assign ARDUINO_IO[14] = SDA;
+					
+					//assign ARDUINO_IO[15] = SCL;
+					//assign ARDUINO_IO[14] = SDA;
+					
 				  // You need to make sure that the port names here are identical to the port names at 
 				  // the interface in lab61_soc.v
 				  mp3player_soc soc (.clk_clk(MAX10_CLK1_50),
