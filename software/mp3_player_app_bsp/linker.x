@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
  * SOPC Builder design path: ../../mp3player_soc.sopcinfo
  *
- * Generated: Sat Nov 26 14:11:56 CST 2022
+ * Generated: Mon Nov 28 21:20:49 CST 2022
  */
 
 /*
@@ -52,12 +52,12 @@ MEMORY
 {
     reset : ORIGIN = 0x4000000, LENGTH = 32
     sdram : ORIGIN = 0x4000020, LENGTH = 67108832
-    onchip_memory2_0 : ORIGIN = 0x80010a0, LENGTH = 16
+    onchip_memory2_0 : ORIGIN = 0x80010c0, LENGTH = 16
 }
 
 /* Define symbols for each memory base-address */
 __alt_mem_sdram = 0x4000000;
-__alt_mem_onchip_memory2_0 = 0x80010a0;
+__alt_mem_onchip_memory2_0 = 0x80010c0;
 
 OUTPUT_FORMAT( "elf32-littlenios2",
                "elf32-littlenios2",

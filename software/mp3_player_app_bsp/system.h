@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
  * SOPC Builder design path: ../../mp3player_soc.sopcinfo
  *
- * Generated: Mon Nov 28 16:51:25 CST 2022
+ * Generated: Mon Nov 28 21:59:02 CST 2022
  */
 
 /*
@@ -137,6 +137,7 @@
 #define __ALTERA_AVALON_JTAG_UART
 #define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
 #define __ALTERA_AVALON_ONCHIP_MEMORY2
+#define __ALTERA_AVALON_PIO
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_NIOS2_GEN2
 #define __ALTPLL
@@ -158,19 +159,19 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart_0"
-#define ALT_STDERR_BASE 0x80010d8
+#define ALT_STDERR_BASE 0x80010f8
 #define ALT_STDERR_DEV jtag_uart_0
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart_0"
-#define ALT_STDIN_BASE 0x80010d8
+#define ALT_STDIN_BASE 0x80010f8
 #define ALT_STDIN_DEV jtag_uart_0
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart_0"
-#define ALT_STDOUT_BASE 0x80010d8
+#define ALT_STDOUT_BASE 0x80010f8
 #define ALT_STDOUT_DEV jtag_uart_0
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
@@ -183,7 +184,7 @@
  *
  */
 
-#define ALTPLL_0_BASE 0x80010b0
+#define ALTPLL_0_BASE 0x80010d0
 #define ALTPLL_0_IRQ -1
 #define ALTPLL_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define ALTPLL_0_NAME "/dev/altpll_0"
@@ -226,7 +227,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart_0 altera_avalon_jtag_uart
-#define JTAG_UART_0_BASE 0x80010d8
+#define JTAG_UART_0_BASE 0x80010f8
 #define JTAG_UART_0_IRQ 1
 #define JTAG_UART_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_0_NAME "/dev/jtag_uart_0"
@@ -239,6 +240,33 @@
 
 
 /*
+ * keys configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_keys altera_avalon_pio
+#define KEYS_BASE 0x80010b0
+#define KEYS_BIT_CLEARING_EDGE_REGISTER 0
+#define KEYS_BIT_MODIFYING_OUTPUT_REGISTER 0
+#define KEYS_CAPTURE 0
+#define KEYS_DATA_WIDTH 2
+#define KEYS_DO_TEST_BENCH_WIRING 0
+#define KEYS_DRIVEN_SIM_VALUE 0
+#define KEYS_EDGE_TYPE "NONE"
+#define KEYS_FREQ 50000000
+#define KEYS_HAS_IN 1
+#define KEYS_HAS_OUT 0
+#define KEYS_HAS_TRI 0
+#define KEYS_IRQ -1
+#define KEYS_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define KEYS_IRQ_TYPE "NONE"
+#define KEYS_NAME "/dev/keys"
+#define KEYS_RESET_VALUE 0
+#define KEYS_SPAN 16
+#define KEYS_TYPE "altera_avalon_pio"
+
+
+/*
  * onchip_memory2_0 configuration
  *
  */
@@ -246,7 +274,7 @@
 #define ALT_MODULE_CLASS_onchip_memory2_0 altera_avalon_onchip_memory2
 #define ONCHIP_MEMORY2_0_ALLOW_IN_SYSTEM_MEMORY_CONTENT_EDITOR 0
 #define ONCHIP_MEMORY2_0_ALLOW_MRAM_SIM_CONTENTS_ONLY_FILE 0
-#define ONCHIP_MEMORY2_0_BASE 0x80010a0
+#define ONCHIP_MEMORY2_0_BASE 0x80010c0
 #define ONCHIP_MEMORY2_0_CONTENTS_INFO ""
 #define ONCHIP_MEMORY2_0_DUAL_PORT 0
 #define ONCHIP_MEMORY2_0_GUI_RAM_BLOCK_TYPE "AUTO"
@@ -312,13 +340,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid_qsys_0 altera_avalon_sysid_qsys
-#define SYSID_QSYS_0_BASE 0x80010d0
+#define SYSID_QSYS_0_BASE 0x80010f0
 #define SYSID_QSYS_0_ID 0
 #define SYSID_QSYS_0_IRQ -1
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1669675455
+#define SYSID_QSYS_0_TIMESTAMP 1669694094
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

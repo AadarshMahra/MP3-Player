@@ -1,9 +1,9 @@
-19:39:36 **** Incremental Build of configuration Nios II for project mp3_player_app ****
+22:21:40 **** Incremental Build of configuration Nios II for project mp3_player_app ****
 make all 
 Info: Building ../mp3_player_app_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../mp3_player_app_bsp/
 [BSP build complete]
 [mp3_player_app build complete]
 
-19:39:38 Build Finished (took 1s.992ms)
+22:21:41 Build Finished (took 738ms)
 

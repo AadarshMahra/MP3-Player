@@ -62,7 +62,8 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				  // You need to make sure that the port names here are identical to the port names at 
 				  // the interface in lab61_soc.v
 				  mp3player_soc soc (.clk_clk(MAX10_CLK1_50),
-											 .reset_reset_n(KEY[0]), 
+											 .reset_reset_n(SW[0]), 
+											 .keys_export(KEY),
 											 // I2C
 											 .i2c0_sda_in(SDA_IN),
 											 .i2c0_scl_in(SCL_IN), 

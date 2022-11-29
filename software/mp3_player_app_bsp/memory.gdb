@@ -3,7 +3,7 @@
 # Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
 # SOPC Builder design path: ../../mp3player_soc.sopcinfo
 #
-# Generated: Sat Nov 26 14:11:56 CST 2022
+# Generated: Mon Nov 28 21:20:49 CST 2022
 
 # DO NOT MODIFY THIS FILE
 #
@@ -50,4 +50,4 @@
 memory 0x4000000 0x8000000 cache
 
 # onchip_memory2_0
-memory 0x80010a0 0x80010b0 cache
+memory 0x80010c0 0x80010d0 cache

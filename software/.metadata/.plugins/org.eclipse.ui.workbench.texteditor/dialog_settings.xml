@@ -2,12 +2,13 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="NACK" key="selection"/>
+		<item value="keys" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="keys"/>
 			<item value="nack"/>
 			<item value="i2c_set"/>
 			<item value="i2c_se"/>
@@ -15,7 +16,6 @@
 			<item value="i2c"/>
 			<item value="sgtl"/>
 			<item value="master_target_set"/>
-			<item value="main"/>
 		</list>
 		<list key="replacehistory">
 		</list>

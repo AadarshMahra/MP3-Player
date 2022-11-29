@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Nov 28, 2022 4:51:43 PM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1669675903659</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\tofu42\Documents\MP3Player\software\mp3_player_app_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>Nov 28, 2022 9:59:01 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1669694341818</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Users\puroh\OneDrive\Desktop\385\MP3-Player\software\mp3_player_app_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\mp3player_soc.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
@@ -911,26 +911,32 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>onchip_memory2_0</slaveDescriptor>
-                <addressRange>0x080010A0 - 0x080010AF</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes>memory</attributes>
-        </MemoryMap>
-        <MemoryMap>
-                <slaveDescriptor>altpll_0</slaveDescriptor>
+                <slaveDescriptor>keys</slaveDescriptor>
                 <addressRange>0x080010B0 - 0x080010BF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
+                <slaveDescriptor>onchip_memory2_0</slaveDescriptor>
+                <addressRange>0x080010C0 - 0x080010CF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes>memory</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>altpll_0</slaveDescriptor>
+                <addressRange>0x080010D0 - 0x080010DF</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
+        </MemoryMap>
+        <MemoryMap>
                 <slaveDescriptor>sysid_qsys_0</slaveDescriptor>
-                <addressRange>0x080010D0 - 0x080010D7</addressRange>
+                <addressRange>0x080010F0 - 0x080010F7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart_0</slaveDescriptor>
-                <addressRange>0x080010D8 - 0x080010DF</addressRange>
+                <addressRange>0x080010F8 - 0x080010FF</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>

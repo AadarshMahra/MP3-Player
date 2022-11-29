@@ -9,6 +9,7 @@ module mp3player_soc (
 		input  wire        i2c0_scl_in,      //           .scl_in
 		output wire        i2c0_sda_oe,      //           .sda_oe
 		output wire        i2c0_scl_oe,      //           .scl_oe
+		input  wire [1:0]  keys_export,      //       keys.export
 		input  wire        reset_reset_n,    //      reset.reset_n
 		output wire        sdram_clk_clk,    //  sdram_clk.clk
 		output wire [12:0] sdram_wire_addr,  // sdram_wire.addr
@@ -68,7 +69,7 @@ module mp3player_soc (
 	wire   [3:0] mm_interconnect_0_onchip_memory2_0_s1_byteenable;            // mm_interconnect_0:onchip_memory2_0_s1_byteenable -> onchip_memory2_0:byteenable
 	wire         mm_interconnect_0_onchip_memory2_0_s1_write;                 // mm_interconnect_0:onchip_memory2_0_s1_write -> onchip_memory2_0:write
 	wire  [31:0] mm_interconnect_0_onchip_memory2_0_s1_writedata;             // mm_interconnect_0:onchip_memory2_0_s1_writedata -> onchip_memory2_0:writedata
-	wire         mm_interconnect_0_onchip_memory2_0_s1_en;                 // mm_interconnect_0:onchip_memory2_0_s1_clken -> onchip_memory2_0:clken
+	wire         mm_interconnect_0_onchip_memory2_0_s1_clken;                 // mm_interconnect_0:onchip_memory2_0_s1_clken -> onchip_memory2_0:clken
 	wire         mm_interconnect_0_sdram_s1_chipselect;                       // mm_interconnect_0:sdram_s1_chipselect -> sdram:az_cs
 	wire  [15:0] mm_interconnect_0_sdram_s1_readdata;                         // sdram:za_data -> mm_interconnect_0:sdram_s1_readdata
 	wire         mm_interconnect_0_sdram_s1_waitrequest;                      // sdram:za_waitrequest -> mm_interconnect_0:sdram_s1_waitrequest
@@ -78,13 +79,15 @@ module mp3player_soc (
 	wire         mm_interconnect_0_sdram_s1_readdatavalid;                    // sdram:za_valid -> mm_interconnect_0:sdram_s1_readdatavalid
 	wire         mm_interconnect_0_sdram_s1_write;                            // mm_interconnect_0:sdram_s1_write -> sdram:az_wr_n
 	wire  [15:0] mm_interconnect_0_sdram_s1_writedata;                        // mm_interconnect_0:sdram_s1_writedata -> sdram:az_data
+	wire  [31:0] mm_interconnect_0_keys_s1_readdata;                          // keys:readdata -> mm_interconnect_0:keys_s1_readdata
+	wire   [1:0] mm_interconnect_0_keys_s1_address;                           // mm_interconnect_0:keys_s1_address -> keys:address
 	wire         irq_mapper_receiver0_irq;                                    // i2c_0:intr -> irq_mapper:receiver0_irq
 	wire         irq_mapper_receiver1_irq;                                    // jtag_uart_0:av_irq -> irq_mapper:receiver1_irq
 	wire  [31:0] nios2_gen2_0_irq_irq;                                        // irq_mapper:sender_irq -> nios2_gen2_0:irq
 	wire         rst_controller_reset_out_reset;                              // rst_controller:reset_out -> [altpll_0:reset, irq_mapper:reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, rst_translator:in_reset, sysid_qsys_0:reset_n]
 	wire         rst_controller_reset_out_reset_req;                          // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
 	wire         nios2_gen2_0_debug_reset_request_reset;                      // nios2_gen2_0:debug_reset_request -> [rst_controller:reset_in1, rst_controller_002:reset_in1]
-	wire         rst_controller_001_reset_out_reset;                          // rst_controller_001:reset_out -> [i2c_0:rst_n, jtag_uart_0:rst_n, mm_interconnect_0:jtag_uart_0_reset_reset_bridge_in_reset_reset]
+	wire         rst_controller_001_reset_out_reset;                          // rst_controller_001:reset_out -> [i2c_0:rst_n, jtag_uart_0:rst_n, keys:reset_n, mm_interconnect_0:jtag_uart_0_reset_reset_bridge_in_reset_reset]
 	wire         rst_controller_002_reset_out_reset;                          // rst_controller_002:reset_out -> [mm_interconnect_0:sdram_reset_reset_bridge_in_reset_reset, sdram:reset_n]
 
 	mp3player_soc_altpll_0 altpll_0 (
@@ -150,6 +153,14 @@ module mp3player_soc (
 		.av_writedata   (mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_writedata),   //                  .writedata
 		.av_waitrequest (mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_waitrequest), //                  .waitrequest
 		.av_irq         (irq_mapper_receiver1_irq)                                     //               irq.irq
+	);
+
+	mp3player_soc_keys keys (
+		.clk      (clk_clk),                             //                 clk.clk
+		.reset_n  (~rst_controller_001_reset_out_reset), //               reset.reset_n
+		.address  (mm_interconnect_0_keys_s1_address),   //                  s1.address
+		.readdata (mm_interconnect_0_keys_s1_readdata),  //                    .readdata
+		.in_port  (keys_export)                          // external_connection.export
 	);
 
 	mp3player_soc_nios2_gen2_0 nios2_gen2_0 (
@@ -260,6 +271,8 @@ module mp3player_soc (
 		.jtag_uart_0_avalon_jtag_slave_writedata        (mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_writedata),   //                                         .writedata
 		.jtag_uart_0_avalon_jtag_slave_waitrequest      (mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_waitrequest), //                                         .waitrequest
 		.jtag_uart_0_avalon_jtag_slave_chipselect       (mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_chipselect),  //                                         .chipselect
+		.keys_s1_address                                (mm_interconnect_0_keys_s1_address),                           //                                  keys_s1.address
+		.keys_s1_readdata                               (mm_interconnect_0_keys_s1_readdata),                          //                                         .readdata
 		.nios2_gen2_0_debug_mem_slave_address           (mm_interconnect_0_nios2_gen2_0_debug_mem_slave_address),      //             nios2_gen2_0_debug_mem_slave.address
 		.nios2_gen2_0_debug_mem_slave_write             (mm_interconnect_0_nios2_gen2_0_debug_mem_slave_write),        //                                         .write
 		.nios2_gen2_0_debug_mem_slave_read              (mm_interconnect_0_nios2_gen2_0_debug_mem_slave_read),         //                                         .read
