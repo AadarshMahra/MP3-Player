@@ -160,10 +160,6 @@ int main()
 	//ADC input from Line
 	SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_CTRL, \
 			SGTL5000_ADC_SEL_LINE_IN << SGTL5000_ADC_SEL_SHIFT);
-	/* route the line input directly to Headphone Output */
-	/*
-	    SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_CTRL, \
-	                SGTL5000_ADC_SEL_LINE_IN << 6); */
 	printf( "CHIP_ANA_CTRL register: %x\n", SGTL5000_Reg_Rd (i2c_dev, SGTL5000_CHIP_ANA_CTRL));
 
 	//ADC -> I2S out, I2S in -> DAC
@@ -193,7 +189,7 @@ int main()
 			else
 				current_volume -= step;
 			SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_HP_CTRL, current_volume);
-			printf("Volume Up: %x",current_volume);
+			printf("Volume Up: %x\n",current_volume);
 		}
 
 		//Volume Down
@@ -204,7 +200,7 @@ int main()
 				current_volume = 0x7F7F;
 			SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_HP_CTRL, current_volume);
 			pressed = 1;
-			printf("Volume Down: %x", current_volume);
+			printf("Volume Down: %x\n", current_volume);
 		}
 		if(*KEY == 0x3){
 			pressed = 0;

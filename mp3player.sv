@@ -35,8 +35,8 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 					
 					
 					
-					assign ARDUINO_IO[1] = 1'bz; 
-					assign ARDUINO_IO[2] = ARDUINO_IO[1]; 
+					assign ARDUINO_IO[2] = ARDUINO_IO[1];
+					 
 					assign LRCLK = ARDUINO_IO[4]; 
 					assign SCLK = ARDUINO_IO[5]; 
 					
@@ -83,5 +83,19 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 											 );
 	
 											 
-				//Instantiate additional FPGA fabric modules as needed		  
+				//Instantiate additional FPGA fabric modules as needed	
+				logic [8:0] register; //9 bits to account for dummy bit
+				logic [31:0] address;
+				logic [2:0] index;
+				harmony_rom hrom (.clk(MAX10_CLK1_50), .addr(address), .q(register));
+				//cat_flat_rom crom (.clk(MAX10_CLK1_50), .addr(address), .q(register));
+				//at each positive edge of the LRCLK, we want the next 8-bit sample
+				always_ff @(posedge ARDUINO_IO[4]) begin
+					address <= address + 1;
+				end
+				
+				always_ff @(posedge ARDUINO_IO[5]) begin
+					ARDUINO_IO[1] <= register[8-index];
+					index <= index + 1;
+				end
 endmodule
