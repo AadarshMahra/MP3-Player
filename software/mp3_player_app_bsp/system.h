@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
  * SOPC Builder design path: ../../mp3player_soc.sopcinfo
  *
- * Generated: Sun Dec 04 00:03:05 CST 2022
+ * Generated: Mon Dec 05 15:39:43 CST 2022
  */
 
 /*
@@ -346,7 +346,7 @@
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1670133158
+#define SYSID_QSYS_0_TIMESTAMP 1670216406
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

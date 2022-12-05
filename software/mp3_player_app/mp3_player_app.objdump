@@ -77,9 +77,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  29 .quartus_project_dir 0000002e  00000000  00000000  00079439  2**0
                   CONTENTS, READONLY
- 30 .jdi          00006649  00000000  00000000  00079467  2**0
+ 30 .jdi          000065ed  00000000  00000000  00079467  2**0
                   CONTENTS, READONLY
- 31 .sopcinfo     00055b05  00000000  00000000  0007fab0  2**0
+ 31 .sopcinfo     00055b05  00000000  00000000  0007fa54  2**0
                   CONTENTS, READONLY
 SYMBOL TABLE:
 04000000 l    d  .entry	00000000 .entry
@@ -2944,7 +2944,7 @@ int main()
  4001c58:	04002884 	movi	r16,162
  4001c5c:	04002884 	movi	r16,162
  4001c60:	04002884 	movi	r16,162
- 4001c64:	04001f40 	call	4001f4 <__alt_mem_sdram-0x3bffe0c>
+ 4001c64:	04001f40 	call	4001f4 <__reset-0x3bffe0c>
  4001c68:	04002008 	cmpgei	r16,zero,128
  4001c6c:	04002884 	movi	r16,162
  4001c70:	04002008 	cmpgei	r16,zero,128
@@ -2955,7 +2955,7 @@ int main()
  4001c84:	040020b4 	movhi	r16,130
  4001c88:	04002884 	movi	r16,162
  4001c8c:	04002884 	movi	r16,162
- 4001c90:	040020c0 	call	40020c <__alt_mem_sdram-0x3bffdf4>
+ 4001c90:	040020c0 	call	40020c <__reset-0x3bffdf4>
  4001c94:	04002884 	movi	r16,162
  4001c98:	04002884 	movi	r16,162
  4001c9c:	04002884 	movi	r16,162
@@ -23886,7 +23886,7 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
  4012ae4:	d9400015 	stw	r5,0(sp)
  4012ae8:	d9800115 	stw	r6,4(sp)
  4012aec:	d9c00215 	stw	r7,8(sp)
- 4012af0:	00000000 	call	0 <__alt_mem_sdram-0x4000000>
+ 4012af0:	00000000 	call	0 <__reset-0x4000000>
  4012af4:	d9400017 	ldw	r5,0(sp)
  4012af8:	d9800117 	ldw	r6,4(sp)
  4012afc:	d9c00217 	ldw	r7,8(sp)
@@ -23970,7 +23970,7 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
  4012c2c:	10003226 	beq	r2,zero,4012cf8 <__call_exitprocs+0x178>
  4012c30:	a009883a 	mov	r4,r20
  4012c34:	98800015 	stw	r2,0(r19)
- 4012c38:	00000000 	call	0 <__alt_mem_sdram-0x4000000>
+ 4012c38:	00000000 	call	0 <__reset-0x4000000>
  4012c3c:	9d000017 	ldw	r20,0(r19)
  4012c40:	a03fe41e 	bne	r20,zero,4012bd4 <__alt_mem_onchip_memory2_0+0xfc011b14>
  4012c44:	dfc00a17 	ldw	ra,40(sp)

@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Dec 4, 2022 12:03:04 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1670133784548</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Dec 5, 2022 3:39:41 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1670276381573</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\puroh\OneDrive\Desktop\385\MP3-Player\software\mp3_player_app_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\mp3player_soc.sopcinfo</SopcDesignFile>
