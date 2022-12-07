@@ -7,9 +7,9 @@
 
 #include <stdio.h>
 #include "system.h"
-// include "altera_avalon_spi.h"
-// include "altera_avalon_spi_regs.h"
-// include "altera_avalon_pio_regs.h"
+//#include "altera_avalon_spi.h"
+//#include "altera_avalon_spi_regs.h"
+#include "altera_avalon_pio_regs.h"
 #include "altera_avalon_i2c.h"
 #include "altera_avalon_i2c_regs.h"
 #include "sys/alt_irq.h"
@@ -19,12 +19,12 @@
 
 void setLED(int LED)
 {
-//	IOWR_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE, (IORD_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE) | (0x001 << LED)));
+	//IOWR_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE, (IORD_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE) | (0x001 << LED)));
 }
 
 void clearLED(int LED)
 {
-//	IOWR_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE, (IORD_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE) & ~(0x001 << LED)));
+	//IOWR_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE, (IORD_ALTERA_AVALON_PIO_DATA(LEDS_PIO_BASE) & ~(0x001 << LED)));
 
 }
 
@@ -32,7 +32,7 @@ void printSignedHex0(signed char value)
 {
 	BYTE tens = 0;
 	BYTE ones = 0;
-	WORD pio_val = 0;//IORD_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE);
+	//WORD pio_val = IORD_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE);
 	if (value < 0)
 	{
 		setLED(11);
@@ -52,18 +52,18 @@ void printSignedHex0(signed char value)
 	tens = value / 10;
 	ones = value % 10;
 
-	pio_val &= 0x00FF;
-	pio_val |= (tens << 12);
-	pio_val |= (ones << 8);
+	//pio_val &= 0x00FF;
+	//pio_val |= (tens << 12);
+	//pio_val |= (ones << 8);
 
-//	IOWR_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE, pio_val);
+	//IOWR_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE, pio_val);
 }
 
 void printSignedHex1(signed char value)
 {
 	BYTE tens = 0;
 	BYTE ones = 0;
-	DWORD pio_val = 0;//IORD_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE);
+	//DWORD pio_val = IORD_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE);
 	if (value < 0)
 	{
 		setLED(10);
@@ -85,11 +85,11 @@ void printSignedHex1(signed char value)
 	tens = value / 10;
 	ones = value % 10;
 
-	pio_val &= 0xFF00;
-	pio_val |= (tens << 4);
-	pio_val |= (ones << 0);
+	//pio_val &= 0xFF00;
+	//pio_val |= (tens << 4);
+	//pio_val |= (ones << 0);
 
-//	IOWR_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE, pio_val);
+	//IOWR_ALTERA_AVALON_PIO_DATA(HEX_DIGITS_PIO_BASE, pio_val);
 }
 
 
@@ -175,37 +175,6 @@ int main()
 	printf( "CHIP_ADCDAC_CTRL register: %x\n", SGTL5000_Reg_Rd (i2c_dev, SGTL5000_CHIP_ADCDAC_CTRL));
 	printf( "CHIP_PAD_STRENGTH register: %x\n", SGTL5000_Reg_Rd (i2c_dev, SGTL5000_CHIP_PAD_STRENGTH));
 
-	volatile WORD current_volume = SGTL5000_Reg_Rd (i2c_dev, SGTL5000_CHIP_ANA_HP_CTRL);
-	volatile unsigned int *KEY = (unsigned int*) 0x80010b0; //pointer to keys
-	volatile int pressed = 0;
-	int step = 0x808;
-	while(1){
-		//Volume Up
-		if(*KEY == 0x2 && pressed == 0){
-			pressed = 1;
-
-			if(current_volume <= 0x808)
-				current_volume = 0;
-			else
-				current_volume -= step;
-			SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_HP_CTRL, current_volume);
-			printf("Volume Up: %x\n",current_volume);
-		}
-
-		//Volume Down
-		if(*KEY == 0x1 && pressed == 0){
-			if(current_volume != 0x7F7F)
-				current_volume += step;
-			if(current_volume > 0x7F7F)
-				current_volume = 0x7F7F;
-			SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_HP_CTRL, current_volume);
-			pressed = 1;
-			printf("Volume Down: %x\n", current_volume);
-		}
-		if(*KEY == 0x3){
-			pressed = 0;
-		}
-	}
 
 	return 0;
 }

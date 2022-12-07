@@ -86,16 +86,49 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				//Instantiate additional FPGA fabric modules as needed	
 				logic [8:0] register; //9 bits to account for dummy bit
 				logic [31:0] address;
-				logic [2:0] index;
-				harmony_rom hrom (.clk(MAX10_CLK1_50), .addr(address), .q(register));
-				//cat_flat_rom crom (.clk(MAX10_CLK1_50), .addr(address), .q(register));
+				int index;
+				//harmony_rom hrom (.clk(MAX10_CLK1_50), .addr(2'b11), .q(register));
+				cat_flat_rom crom (.clk(MAX10_CLK1_50), .addr(address), .q(register));
+				
+				//implement shift register
+				logic LD_EN, SH_EN, Data_Bit;
+				logic[31:0] full_register;
+				
+				logic [31:0] LD_ctr, LR_ctr;
+				logic [2:0] div_clk;
+				logic [7:0] new_reg;
+				assign SH_EN = ARDUINO_IO[5];
+				assign full_register = {2'b00,register,22'b0};
+				//reg_8 shift_reg(.Clk(MAX10_CLK1_50), .Load(LD_EN), .Shift_En(1'b0), .D(register), .Data_Out(new_reg), .Shift_Out(Data_Bit));
 				//at each positive edge of the LRCLK, we want the next 8-bit sample
-				always_ff @(posedge ARDUINO_IO[4]) begin
+				always_ff @(posedge ARDUINO_IO[5]) begin
+				
+					LD_ctr <= LD_ctr + 1;
+					
+					/*if(LD_ctr[4:0] == 5'b00000)
+					begin
+						address <= address + 1'b1;
+					end*/
+					
+					if(ARDUINO_IO[4])
+					begin
+						LR_ctr <= 5'h1F;
+						LR_ctr <= LR_ctr - 1;
+						ARDUINO_IO[1] <= full_register[LR_ctr];
+					end
+					else
+					begin
+						LR_ctr <= 5'h1F;
+						LR_ctr <= LR_ctr - 1;
+						ARDUINO_IO[1] <= full_register[LR_ctr];
+					end
+				end
+				always_ff @(posedge div_clk[1]) begin
 					address <= address + 1;
 				end
-				
-				always_ff @(posedge ARDUINO_IO[5]) begin
-					ARDUINO_IO[1] <= register[8-index];
-					index <= index + 1;
+				always_ff @(posedge ARDUINO_IO[4]) begin
+					div_clk <= div_clk + 1;
 				end
+
+				
 endmodule
