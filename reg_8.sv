@@ -1,6 +1,7 @@
 module reg_8 (input  logic Clk, Load, Shift_En,
               input  logic [8:0]  D,
-              output logic [8:0]  Data_Out);
+              output logic [8:0]  Data_Out,
+				  output logic Shift_Out);
 
     always_ff @ (posedge Clk)
     begin
@@ -13,5 +14,6 @@ module reg_8 (input  logic Clk, Load, Shift_En,
 			  Data_Out <= { Data_Out[7:0], 1'b0 }; 
 	    end
     end
+	 assign Shift_Out = Data_Out[8];
 
 endmodule
