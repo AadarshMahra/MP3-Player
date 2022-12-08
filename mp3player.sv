@@ -70,13 +70,22 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 					logic BRIDGE_ACK; 
 					logic [15:0] BRIDGE_READ_DATA; 
 					
+					/* set BRIDGE ADDRESS based on read/write */ 
+					always_comb
+					begin
+						if (LOAD_MEM)
+							BRIDGE_ADDR = LOAD_ADDRESS;
+						else 
+							BRIDGE_ADDR = address; 
+					end
+					
 				  // You need to make sure that the port names here are identical to the port names at 
 				  // the interface in lab61_soc.v
 				  mp3player_soc soc (.clk_clk(MAX10_CLK1_50),
 											 .reset_reset_n(SW[0]), 
 											 .keys_export(KEY),
 											 // Avalon Bridge, interface into SDRAM  
-											 .bridge_address(BRIDGE_ADDR), 
+											 .bridge_address(address), 
 											 .bridge_byte_enable(2'b11), 
 											 .bridge_read(PLAY),
 											 .bridge_write(LOAD_MEM & WE),
@@ -113,7 +122,7 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				
 				/* wire declarations for control logic and SDCard Initialization */	
 				logic LOAD_MEM,PLAY; 
-				logic [24:0] RAM_ADDRESS; 
+				logic [24:0] LOAD_ADDRESS; 
 				logic [15:0] RAM_DATA; 
 				logic RAM_OP_BEGUN, RAM_INIT_ERROR, RAM_INIT_DONE, SCLK_O, CS_BO, MOSI_O, WE; 
 				Control ISDU(.Clk(MAX10_CLK1_50), .Reset(SW[0]), .RAM_INIT_DONE(RAM_INIT_DONE), .LOAD_MEM(LOAD_MEM), .PLAY(PLAY)); 
@@ -125,7 +134,7 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				.reset(SW[0]),      
 				.miso_i(SPI0_MISO), 		 // inputs end
 				.ram_we(WE), 		 // RAM interface pins
-				.ram_address(RAM_ADDRESS), // 25 bits
+				.ram_address(LOAD_ADDRESS), // 25 bits
 				.ram_data(RAM_DATA), 	 // 16 bits
 				.ram_op_begun(RAM_OP_BEGUN), // acknowledgement from RAM to move on to next word 
 				.ram_init_error(RAM_INIT_ERROR), //error initializing
@@ -139,7 +148,7 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 											 
 				//Instantiate additional FPGA fabric modules as needed	
 				logic [15:0] register; //9 bits to account for dummy bit
-				logic [31:0] address;
+				logic [26:0] address;
 				//harmony_rom hrom (.clk(MAX10_CLK1_50), .addr(2'b11), .q(register));
 				//cat_flat_rom crom (.clk(MAX10_CLK1_50), .addr(address), .q(register));
 				
