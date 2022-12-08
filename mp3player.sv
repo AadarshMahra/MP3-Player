@@ -79,17 +79,17 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 							BRIDGE_ADDR = address; 
 					end
 					
-				  // You need to make sure that the port names here are identical to the port names at 
-				  // the interface in lab61_soc.v
+				 /* We need SDRAM interface pins to use the SD Card Initializer. 
+				    This requires creating a controller to do the interfacing. */
 				  mp3player_soc soc (.clk_clk(MAX10_CLK1_50),
 											 .reset_reset_n(SW[0]), 
 											 .keys_export(KEY),
 											 // Avalon Bridge, interface into SDRAM  
-											 .bridge_address(address), 
+											 .bridge_address(BRIDGE_ADDR), 
 											 .bridge_byte_enable(2'b11), 
 											 .bridge_read(PLAY),
 											 .bridge_write(LOAD_MEM & WE),
-											 .bridge_write_data(BRIDGE_WR_DATA),
+											 .bridge_write_data(RAM_DATA),
 											 .bridge_acknowledge(BRIDGE_ACK), //output 
 											 .bridge_read_data(BRIDGE_READ_DATA),	//output
 											 // I2C
@@ -111,37 +111,37 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 											.sdram_wire_we_n(DRAM_WE_N),                          //.we_n
 											*/
 											// SPI 
-											.spi0_MISO(SPI0_MISO), 
+											.spi0_MISO(SPI0_MISO), //only input
 											.spi0_MOSI(SPI0_MOSI), 
 											.spi0_SCLK(SPI0_SCLK), 
 											.spi0_SS_n(SPI0_CS_N)
 											
 											 );
 											 
-				/* We need SDRAM interface pins to use the SD Card Initializer. This requires creating a controller to do the interfacing. */
+				
 				
 				/* wire declarations for control logic and SDCard Initialization */	
 				logic LOAD_MEM,PLAY; 
 				logic [24:0] LOAD_ADDRESS; 
 				logic [15:0] RAM_DATA; 
 				logic RAM_OP_BEGUN, RAM_INIT_ERROR, RAM_INIT_DONE, SCLK_O, CS_BO, MOSI_O, WE; 
-				Control ISDU(.Clk(MAX10_CLK1_50), .Reset(SW[0]), .RAM_INIT_DONE(RAM_INIT_DONE), .LOAD_MEM(LOAD_MEM), .PLAY(PLAY)); 
+				Control ISDU(.Clk(MAX10_CLK1_50), .Reset(~SW[0]), .RAM_INIT_DONE(RAM_INIT_DONE), .LOAD_MEM(LOAD_MEM), .PLAY(PLAY)); 
 				 
 				
 				/* create SD Card Initializer */
 				sdcard_init sdci(
 				.clk50(MAX10_CLK1_50),			 
-				.reset(SW[0]),      
-				.miso_i(SPI0_MISO), 		 // inputs end
+				.reset(~SW[0]),     
+				.ram_op_begun(BRIDGE_ACK), // acknowledgement from RAM to move on to next word
+				.miso_i(SPI0_MISO), 		 // last input
 				.ram_we(WE), 		 // RAM interface pins
-				.ram_address(LOAD_ADDRESS), // 25 bits
-				.ram_data(RAM_DATA), 	 // 16 bits
-				.ram_op_begun(RAM_OP_BEGUN), // acknowledgement from RAM to move on to next word 
-				.ram_init_error(RAM_INIT_ERROR), //error initializing
-				.ram_init_done(RAM_INIT_DONE), //done with reading all words
+				.ram_address(LOAD_ADDRESS), 
+				.ram_data(RAM_DATA), 	 
+				.ram_init_done(RAM_INIT_DONE),
+				.ram_init_error(RAM_INIT_ERROR), // not tied after this point
 				.cs_bo(CS_BO), 		//SD card pins (also make sure to disable USB CS if using DE10-Lite)
-				.sclk_o(SCLK_O), 
-				.mosi_o(MOSI_O) 
+				.sclk_o(SCLK_O), //not tied
+				.mosi_o(MOSI_O) //not tied
 				); 
 				
 	
@@ -152,21 +152,15 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				//harmony_rom hrom (.clk(MAX10_CLK1_50), .addr(2'b11), .q(register));
 				//cat_flat_rom crom (.clk(MAX10_CLK1_50), .addr(address), .q(register));
 				
-				logic LD_EN, SH_EN, Data_Bit;
-				logic[31:0] full_register;
-				
-				logic [31:0] LD_ctr, LR_ctr;
+				logic[31:0] full_register, LR_ctr; 
 				logic [2:0] div_clk;
-				logic [7:0] new_reg;
-				assign SH_EN = ARDUINO_IO[5];
 				
+				// fill register from SDRAM 
 				assign register = BRIDGE_READ_DATA; 
 				assign full_register = {2'b00,register,14'b0};
 				
 				//at each positive edge of the LRCLK, we want the next 8-bit sample
 				always_ff @(posedge ARDUINO_IO[5]) begin
-					LD_ctr <= LD_ctr + 1;
-					
 					if(ARDUINO_IO[4])
 					begin
 						LR_ctr <= 5'h1F;

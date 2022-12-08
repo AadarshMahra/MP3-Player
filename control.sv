@@ -50,7 +50,8 @@ begin
 			LOAD_MEM = 1'b0;
 		end
 		
-		default: ; 
+		default: 
+			next_state = Halted; 
 		
 	endcase 
 end

@@ -75,9 +75,9 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY
  28 .quartus_project_dir 00000023  00000000  00000000  000285a5  2**0
                   CONTENTS, READONLY
- 29 .jdi          000065f3  00000000  00000000  000285c8  2**0
+ 29 .jdi          000065f9  00000000  00000000  000285c8  2**0
                   CONTENTS, READONLY
- 30 .sopcinfo     000658da  00000000  00000000  0002ebbb  2**0
+ 30 .sopcinfo     000658da  00000000  00000000  0002ebc1  2**0
                   CONTENTS, READONLY
 SYMBOL TABLE:
 08010000 l    d  .entry	00000000 .entry
@@ -1676,9 +1676,9 @@ int main()
  8010c60:	1105883a 	add	r2,r2,r4
  8010c64:	10800017 	ldw	r2,0(r2)
  8010c68:	1000683a 	jmp	r2
- 8010c6c:	08010e00 	call	8010e0 <__reset-0x780ef20>
- 8010c70:	08010cc0 	call	8010cc <__reset-0x780ef34>
- 8010c74:	08010cc0 	call	8010cc <__reset-0x780ef34>
+ 8010c6c:	08010e00 	call	8010e0 <__alt_mem_onchip_memory2_0-0x780ef20>
+ 8010c70:	08010cc0 	call	8010cc <__alt_mem_onchip_memory2_0-0x780ef34>
+ 8010c74:	08010cc0 	call	8010cc <__alt_mem_onchip_memory2_0-0x780ef34>
  8010c78:	08010cbc 	xorhi	zero,at,1074
  8010c7c:	08010de4 	muli	zero,at,1079
  8010c80:	08010de4 	muli	zero,at,1079
@@ -1691,7 +1691,7 @@ int main()
  8010c9c:	08010df0 	cmpltui	zero,at,1079
  8010ca0:	08010df0 	cmpltui	zero,at,1079
  8010ca4:	08010df0 	cmpltui	zero,at,1079
- 8010ca8:	08010f00 	call	8010f0 <__reset-0x780ef10>
+ 8010ca8:	08010f00 	call	8010f0 <__alt_mem_onchip_memory2_0-0x780ef10>
  8010cac:	90003b1e 	bne	r18,zero,8010d9c <__mulsf3+0x204>
  8010cb0:	04400204 	movi	r17,8
  8010cb4:	05c00084 	movi	r23,2
@@ -9909,19 +9909,19 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
  8015bec:	1000683a 	jmp	r2
  8015bf0:	08015c30 	cmpltui	zero,at,1392
  8015bf4:	08015c30 	cmpltui	zero,at,1392
- 8015bf8:	08015c40 	call	8015c4 <__reset-0x780ea3c>
- 8015bfc:	08015c40 	call	8015c4 <__reset-0x780ea3c>
- 8015c00:	08015c40 	call	8015c4 <__reset-0x780ea3c>
+ 8015bf8:	08015c40 	call	8015c4 <__alt_mem_onchip_memory2_0-0x780ea3c>
+ 8015bfc:	08015c40 	call	8015c4 <__alt_mem_onchip_memory2_0-0x780ea3c>
+ 8015c00:	08015c40 	call	8015c4 <__alt_mem_onchip_memory2_0-0x780ea3c>
  8015c04:	08015c30 	cmpltui	zero,at,1392
  8015c08:	08015c38 	rdprs	zero,at,1392
- 8015c0c:	08015c40 	call	8015c4 <__reset-0x780ea3c>
+ 8015c0c:	08015c40 	call	8015c4 <__alt_mem_onchip_memory2_0-0x780ea3c>
  8015c10:	08015c30 	cmpltui	zero,at,1392
  8015c14:	08015c30 	cmpltui	zero,at,1392
- 8015c18:	08015c40 	call	8015c4 <__reset-0x780ea3c>
+ 8015c18:	08015c40 	call	8015c4 <__alt_mem_onchip_memory2_0-0x780ea3c>
  8015c1c:	08015c30 	cmpltui	zero,at,1392
  8015c20:	08015c38 	rdprs	zero,at,1392
- 8015c24:	08015c40 	call	8015c4 <__reset-0x780ea3c>
- 8015c28:	08015c40 	call	8015c4 <__reset-0x780ea3c>
+ 8015c24:	08015c40 	call	8015c4 <__alt_mem_onchip_memory2_0-0x780ea3c>
+ 8015c28:	08015c40 	call	8015c4 <__alt_mem_onchip_memory2_0-0x780ea3c>
  8015c2c:	08015c30 	cmpltui	zero,at,1392
   case NIOS2_EXCEPTION_MISALIGNED_TARGET_PC:
   case NIOS2_EXCEPTION_TLB_READ_PERM_VIOLATION:
@@ -10068,7 +10068,7 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
  8015df4:	00bfffc4 	movi	r2,-1
  8015df8:	00003106 	br	8015ec0 <__register_exitproc+0x134>
  8015dfc:	01002304 	movi	r4,140
- 8015e00:	00000000 	call	0 <__reset-0x8010000>
+ 8015e00:	00000000 	call	0 <__alt_mem_onchip_memory2_0-0x8010000>
  8015e04:	1021883a 	mov	r16,r2
  8015e08:	103ffa26 	beq	r2,zero,8015df4 <__alt_data_end+0xffff63f4>
  8015e0c:	10000115 	stw	zero,4(r2)
@@ -10086,7 +10086,7 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
  8015e3c:	10800004 	addi	r2,r2,0
  8015e40:	103fec26 	beq	r2,zero,8015df4 <__alt_data_end+0xffff63f4>
  8015e44:	01004204 	movi	r4,264
- 8015e48:	00000000 	call	0 <__reset-0x8010000>
+ 8015e48:	00000000 	call	0 <__alt_mem_onchip_memory2_0-0x8010000>
  8015e4c:	103fe926 	beq	r2,zero,8015df4 <__alt_data_end+0xffff63f4>
  8015e50:	10004015 	stw	zero,256(r2)
  8015e54:	10004115 	stw	zero,260(r2)
@@ -10207,9 +10207,9 @@ alt_exception_cause_generated_bad_addr(alt_exception_cause cause)
  8016018:	89000015 	stw	r4,0(r17)
  801601c:	a8000226 	beq	r21,zero,8016028 <__call_exitprocs+0x144>
  8016020:	a809883a 	mov	r4,r21
- 8016024:	00000000 	call	0 <__reset-0x8010000>
+ 8016024:	00000000 	call	0 <__alt_mem_onchip_memory2_0-0x8010000>
  8016028:	9809883a 	mov	r4,r19
- 801602c:	00000000 	call	0 <__reset-0x8010000>
+ 801602c:	00000000 	call	0 <__alt_mem_onchip_memory2_0-0x8010000>
  8016030:	8cc00017 	ldw	r19,0(r17)
  8016034:	003fbd06 	br	8015f2c <__alt_data_end+0xffff652c>
  8016038:	9823883a 	mov	r17,r19
