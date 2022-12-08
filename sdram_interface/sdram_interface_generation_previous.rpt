@@ -1,0 +1,57 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate C:\Users\tofu42\Documents\MP3Player\sdram_interface.qsys --block-symbol-file --output-directory=C:\Users\tofu42\Documents\MP3Player\sdram_interface --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading MP3Player/sdram_interface.qsys
+Progress: Reading input file
+Progress: Adding altpll_0 [altpll 18.1]
+Progress: Parameterizing module altpll_0
+Progress: Adding bridge_0 [altera_up_external_bus_to_avalon_bridge 18.0]
+Progress: Parameterizing module bridge_0
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding new_sdram_controller_0 [altera_avalon_new_sdram_controller 18.1]
+Progress: Parameterizing module new_sdram_controller_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: sdram_interface.sdram_interface: Module dependency loop involving: "clk_0" (clock_source 18.1), "altpll_0" (altpll 18.1)
+Info: sdram_interface.new_sdram_controller_0: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Warning: sdram_interface.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Warning: sdram_interface.new_sdram_controller_0: new_sdram_controller_0.s1 must be connected to an Avalon-MM master
+Warning: sdram_interface.: You have exported the interface bridge_0.avalon_master but not its associated clock interface.  Export bridge_0.clk
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate C:\Users\tofu42\Documents\MP3Player\sdram_interface.qsys --synthesis=VERILOG --output-directory=C:\Users\tofu42\Documents\MP3Player\sdram_interface\synthesis --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading MP3Player/sdram_interface.qsys
+Progress: Reading input file
+Progress: Adding altpll_0 [altpll 18.1]
+Progress: Parameterizing module altpll_0
+Progress: Adding bridge_0 [altera_up_external_bus_to_avalon_bridge 18.0]
+Progress: Parameterizing module bridge_0
+Progress: Adding clk_0 [clock_source 18.1]
+Progress: Parameterizing module clk_0
+Progress: Adding new_sdram_controller_0 [altera_avalon_new_sdram_controller 18.1]
+Progress: Parameterizing module new_sdram_controller_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Warning: sdram_interface.sdram_interface: Module dependency loop involving: "altpll_0" (altpll 18.1), "clk_0" (clock_source 18.1)
+Info: sdram_interface.new_sdram_controller_0: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
+Warning: sdram_interface.altpll_0: altpll_0.pll_slave must be connected to an Avalon-MM master
+Warning: sdram_interface.new_sdram_controller_0: new_sdram_controller_0.s1 must be connected to an Avalon-MM master
+Warning: sdram_interface.: You have exported the interface bridge_0.avalon_master but not its associated clock interface.  Export bridge_0.clk
+Info: sdram_interface: Generating sdram_interface "sdram_interface" for QUARTUS_SYNTH
+Info: altpll_0: "sdram_interface" instantiated altpll "altpll_0"
+Info: bridge_0: Starting Generation of External Bus to Avalon Bridge
+Info: bridge_0: "sdram_interface" instantiated altera_up_external_bus_to_avalon_bridge "bridge_0"
+Info: new_sdram_controller_0: Starting RTL generation for module 'sdram_interface_new_sdram_controller_0'
+Info: new_sdram_controller_0:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=sdram_interface_new_sdram_controller_0 --dir=C:/Users/tofu42/AppData/Local/Temp/alt9334_5344710783925140810.dir/0005_new_sdram_controller_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/tofu42/AppData/Local/Temp/alt9334_5344710783925140810.dir/0005_new_sdram_controller_0_gen//sdram_interface_new_sdram_controller_0_component_configuration.pl  --do_build_sim=0  ]
+Info: new_sdram_controller_0: Done RTL generation for module 'sdram_interface_new_sdram_controller_0'
+Info: new_sdram_controller_0: "sdram_interface" instantiated altera_avalon_new_sdram_controller "new_sdram_controller_0"
+Info: rst_controller: "sdram_interface" instantiated altera_reset_controller "rst_controller"
+Info: sdram_interface: Done "sdram_interface" with 5 modules, 7 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

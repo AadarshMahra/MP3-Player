@@ -1,0 +1,193 @@
+/*
+WARNING: Do NOT edit the input and output ports in this file in a text
+editor if you plan to continue editing the block that represents it in
+the Block Editor! File corruption is VERY likely to occur.
+*/
+/*
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+*/
+(header "symbol" (version "1.1"))
+(symbol
+	(rect 0 0 560 448)
+	(text "sdram_interface" (rect 232 -1 298 11)(font "Arial" (font_size 10)))
+	(text "inst" (rect 8 432 20 444)(font "Arial" ))
+	(port
+		(pt 0 72)
+		(input)
+		(text "bridge_0_external_interface_address[26..0]" (rect 0 0 173 12)(font "Arial" (font_size 8)))
+		(text "bridge_0_external_interface_address[26..0]" (rect 4 61 256 72)(font "Arial" (font_size 8)))
+		(line (pt 0 72)(pt 240 72)(line_width 3))
+	)
+	(port
+		(pt 0 88)
+		(input)
+		(text "bridge_0_external_interface_byte_enable[1..0]" (rect 0 0 184 12)(font "Arial" (font_size 8)))
+		(text "bridge_0_external_interface_byte_enable[1..0]" (rect 4 77 274 88)(font "Arial" (font_size 8)))
+		(line (pt 0 88)(pt 240 88)(line_width 3))
+	)
+	(port
+		(pt 0 104)
+		(input)
+		(text "bridge_0_external_interface_read" (rect 0 0 134 12)(font "Arial" (font_size 8)))
+		(text "bridge_0_external_interface_read" (rect 4 93 196 104)(font "Arial" (font_size 8)))
+		(line (pt 0 104)(pt 240 104)(line_width 1))
+	)
+	(port
+		(pt 0 120)
+		(input)
+		(text "bridge_0_external_interface_write" (rect 0 0 134 12)(font "Arial" (font_size 8)))
+		(text "bridge_0_external_interface_write" (rect 4 109 202 120)(font "Arial" (font_size 8)))
+		(line (pt 0 120)(pt 240 120)(line_width 1))
+	)
+	(port
+		(pt 0 136)
+		(input)
+		(text "bridge_0_external_interface_write_data[15..0]" (rect 0 0 180 12)(font "Arial" (font_size 8)))
+		(text "bridge_0_external_interface_write_data[15..0]" (rect 4 125 274 136)(font "Arial" (font_size 8)))
+		(line (pt 0 136)(pt 240 136)(line_width 3))
+	)
+	(port
+		(pt 0 208)
+		(input)
+		(text "clk_clk" (rect 0 0 27 12)(font "Arial" (font_size 8)))
+		(text "clk_clk" (rect 4 197 46 208)(font "Arial" (font_size 8)))
+		(line (pt 0 208)(pt 240 208)(line_width 1))
+	)
+	(port
+		(pt 0 248)
+		(input)
+		(text "reset_reset_n" (rect 0 0 56 12)(font "Arial" (font_size 8)))
+		(text "reset_reset_n" (rect 4 237 82 248)(font "Arial" (font_size 8)))
+		(line (pt 0 248)(pt 240 248)(line_width 1))
+	)
+	(port
+		(pt 0 152)
+		(output)
+		(text "bridge_0_external_interface_acknowledge" (rect 0 0 166 12)(font "Arial" (font_size 8)))
+		(text "bridge_0_external_interface_acknowledge" (rect 4 141 238 152)(font "Arial" (font_size 8)))
+		(line (pt 0 152)(pt 240 152)(line_width 1))
+	)
+	(port
+		(pt 0 168)
+		(output)
+		(text "bridge_0_external_interface_read_data[15..0]" (rect 0 0 180 12)(font "Arial" (font_size 8)))
+		(text "bridge_0_external_interface_read_data[15..0]" (rect 4 157 268 168)(font "Arial" (font_size 8)))
+		(line (pt 0 168)(pt 240 168)(line_width 3))
+	)
+	(port
+		(pt 0 288)
+		(output)
+		(text "sdram_wire_addr[12..0]" (rect 0 0 94 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_addr[12..0]" (rect 4 277 136 288)(font "Arial" (font_size 8)))
+		(line (pt 0 288)(pt 240 288)(line_width 3))
+	)
+	(port
+		(pt 0 304)
+		(output)
+		(text "sdram_wire_ba[1..0]" (rect 0 0 81 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_ba[1..0]" (rect 4 293 118 304)(font "Arial" (font_size 8)))
+		(line (pt 0 304)(pt 240 304)(line_width 3))
+	)
+	(port
+		(pt 0 320)
+		(output)
+		(text "sdram_wire_cas_n" (rect 0 0 77 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_cas_n" (rect 4 309 100 320)(font "Arial" (font_size 8)))
+		(line (pt 0 320)(pt 240 320)(line_width 1))
+	)
+	(port
+		(pt 0 336)
+		(output)
+		(text "sdram_wire_cke" (rect 0 0 67 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_cke" (rect 4 325 88 336)(font "Arial" (font_size 8)))
+		(line (pt 0 336)(pt 240 336)(line_width 1))
+	)
+	(port
+		(pt 0 352)
+		(output)
+		(text "sdram_wire_cs_n" (rect 0 0 73 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_cs_n" (rect 4 341 94 352)(font "Arial" (font_size 8)))
+		(line (pt 0 352)(pt 240 352)(line_width 1))
+	)
+	(port
+		(pt 0 384)
+		(output)
+		(text "sdram_wire_dqm[1..0]" (rect 0 0 89 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_dqm[1..0]" (rect 4 373 124 384)(font "Arial" (font_size 8)))
+		(line (pt 0 384)(pt 240 384)(line_width 3))
+	)
+	(port
+		(pt 0 400)
+		(output)
+		(text "sdram_wire_ras_n" (rect 0 0 76 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_ras_n" (rect 4 389 100 400)(font "Arial" (font_size 8)))
+		(line (pt 0 400)(pt 240 400)(line_width 1))
+	)
+	(port
+		(pt 0 416)
+		(output)
+		(text "sdram_wire_we_n" (rect 0 0 74 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_we_n" (rect 4 405 94 416)(font "Arial" (font_size 8)))
+		(line (pt 0 416)(pt 240 416)(line_width 1))
+	)
+	(port
+		(pt 0 368)
+		(bidir)
+		(text "sdram_wire_dq[15..0]" (rect 0 0 86 12)(font "Arial" (font_size 8)))
+		(text "sdram_wire_dq[15..0]" (rect 4 357 124 368)(font "Arial" (font_size 8)))
+		(line (pt 0 368)(pt 240 368)(line_width 3))
+	)
+	(drawing
+		(text "bridge_0_external_interface" (rect 77 43 316 99)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "address" (rect 245 67 532 144)(font "Arial" (color 0 0 0)))
+		(text "byte_enable" (rect 245 83 556 176)(font "Arial" (color 0 0 0)))
+		(text "read" (rect 245 99 514 208)(font "Arial" (color 0 0 0)))
+		(text "write" (rect 245 115 520 240)(font "Arial" (color 0 0 0)))
+		(text "write_data" (rect 245 131 550 272)(font "Arial" (color 0 0 0)))
+		(text "acknowledge" (rect 245 147 556 304)(font "Arial" (color 0 0 0)))
+		(text "read_data" (rect 245 163 544 336)(font "Arial" (color 0 0 0)))
+		(text "clk" (rect 225 179 468 371)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "clk" (rect 245 203 508 416)(font "Arial" (color 0 0 0)))
+		(text "reset" (rect 211 219 452 451)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "reset_n" (rect 245 243 532 496)(font "Arial" (color 0 0 0)))
+		(text "sdram_wire" (rect 171 259 402 531)(font "Arial" (color 128 0 0)(font_size 9)))
+		(text "addr" (rect 245 283 514 576)(font "Arial" (color 0 0 0)))
+		(text "ba" (rect 245 299 502 608)(font "Arial" (color 0 0 0)))
+		(text "cas_n" (rect 245 315 520 640)(font "Arial" (color 0 0 0)))
+		(text "cke" (rect 245 331 508 672)(font "Arial" (color 0 0 0)))
+		(text "cs_n" (rect 245 347 514 704)(font "Arial" (color 0 0 0)))
+		(text "dq" (rect 245 363 502 736)(font "Arial" (color 0 0 0)))
+		(text "dqm" (rect 245 379 508 768)(font "Arial" (color 0 0 0)))
+		(text "ras_n" (rect 245 395 520 800)(font "Arial" (color 0 0 0)))
+		(text "we_n" (rect 245 411 514 832)(font "Arial" (color 0 0 0)))
+		(text " sdram_interface " (rect 486 432 1074 874)(font "Arial" ))
+		(line (pt 240 32)(pt 320 32)(line_width 1))
+		(line (pt 320 32)(pt 320 432)(line_width 1))
+		(line (pt 240 432)(pt 320 432)(line_width 1))
+		(line (pt 240 32)(pt 240 432)(line_width 1))
+		(line (pt 241 52)(pt 241 172)(line_width 1))
+		(line (pt 242 52)(pt 242 172)(line_width 1))
+		(line (pt 241 188)(pt 241 212)(line_width 1))
+		(line (pt 242 188)(pt 242 212)(line_width 1))
+		(line (pt 241 228)(pt 241 252)(line_width 1))
+		(line (pt 242 228)(pt 242 252)(line_width 1))
+		(line (pt 241 268)(pt 241 420)(line_width 1))
+		(line (pt 242 268)(pt 242 420)(line_width 1))
+		(line (pt 0 0)(pt 560 0)(line_width 1))
+		(line (pt 560 0)(pt 560 448)(line_width 1))
+		(line (pt 0 448)(pt 560 448)(line_width 1))
+		(line (pt 0 0)(pt 0 448)(line_width 1))
+	)
+)

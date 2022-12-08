@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
  * SOPC Builder design path: ../../mp3player_soc.sopcinfo
  *
- * Generated: Wed Dec 07 11:52:21 CST 2022
+ * Generated: Wed Dec 07 23:28:08 CST 2022
  */
 
 /*
@@ -135,12 +135,11 @@
 
 #define __ALTERA_AVALON_I2C
 #define __ALTERA_AVALON_JTAG_UART
-#define __ALTERA_AVALON_NEW_SDRAM_CONTROLLER
 #define __ALTERA_AVALON_ONCHIP_MEMORY2
 #define __ALTERA_AVALON_PIO
+#define __ALTERA_AVALON_SPI
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_NIOS2_GEN2
-#define __ALTPLL
 
 
 /*
@@ -159,38 +158,24 @@
 #define ALT_NUM_INTERNAL_INTERRUPT_CONTROLLERS 1
 #define ALT_NUM_INTERRUPT_CONTROLLERS 1
 #define ALT_STDERR "/dev/jtag_uart_0"
-#define ALT_STDERR_BASE 0x80210d8
+#define ALT_STDERR_BASE 0x8021118
 #define ALT_STDERR_DEV jtag_uart_0
 #define ALT_STDERR_IS_JTAG_UART
 #define ALT_STDERR_PRESENT
 #define ALT_STDERR_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDIN "/dev/jtag_uart_0"
-#define ALT_STDIN_BASE 0x80210d8
+#define ALT_STDIN_BASE 0x8021118
 #define ALT_STDIN_DEV jtag_uart_0
 #define ALT_STDIN_IS_JTAG_UART
 #define ALT_STDIN_PRESENT
 #define ALT_STDIN_TYPE "altera_avalon_jtag_uart"
 #define ALT_STDOUT "/dev/jtag_uart_0"
-#define ALT_STDOUT_BASE 0x80210d8
+#define ALT_STDOUT_BASE 0x8021118
 #define ALT_STDOUT_DEV jtag_uart_0
 #define ALT_STDOUT_IS_JTAG_UART
 #define ALT_STDOUT_PRESENT
 #define ALT_STDOUT_TYPE "altera_avalon_jtag_uart"
 #define ALT_SYSTEM_NAME "mp3player_soc"
-
-
-/*
- * altpll_0 configuration
- *
- */
-
-#define ALTPLL_0_BASE 0x80210b0
-#define ALTPLL_0_IRQ -1
-#define ALTPLL_0_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define ALTPLL_0_NAME "/dev/altpll_0"
-#define ALTPLL_0_SPAN 16
-#define ALTPLL_0_TYPE "altpll"
-#define ALT_MODULE_CLASS_altpll_0 altpll
 
 
 /*
@@ -227,7 +212,7 @@
  */
 
 #define ALT_MODULE_CLASS_jtag_uart_0 altera_avalon_jtag_uart
-#define JTAG_UART_0_BASE 0x80210d8
+#define JTAG_UART_0_BASE 0x8021118
 #define JTAG_UART_0_IRQ 1
 #define JTAG_UART_0_IRQ_INTERRUPT_CONTROLLER_ID 0
 #define JTAG_UART_0_NAME "/dev/jtag_uart_0"
@@ -245,7 +230,7 @@
  */
 
 #define ALT_MODULE_CLASS_keys altera_avalon_pio
-#define KEYS_BASE 0x80210a0
+#define KEYS_BASE 0x80210e0
 #define KEYS_BIT_CLEARING_EDGE_REGISTER 0
 #define KEYS_BIT_MODIFYING_OUTPUT_REGISTER 0
 #define KEYS_CAPTURE 0
@@ -296,42 +281,34 @@
 
 
 /*
- * sdram configuration
+ * spi_0 configuration
  *
  */
 
-#define ALT_MODULE_CLASS_sdram altera_avalon_new_sdram_controller
-#define SDRAM_BASE 0x4000000
-#define SDRAM_CAS_LATENCY 3
-#define SDRAM_CONTENTS_INFO
-#define SDRAM_INIT_NOP_DELAY 0.0
-#define SDRAM_INIT_REFRESH_COMMANDS 2
-#define SDRAM_IRQ -1
-#define SDRAM_IRQ_INTERRUPT_CONTROLLER_ID -1
-#define SDRAM_IS_INITIALIZED 1
-#define SDRAM_NAME "/dev/sdram"
-#define SDRAM_POWERUP_DELAY 200.0
-#define SDRAM_REFRESH_PERIOD 15.625
-#define SDRAM_REGISTER_DATA_IN 1
-#define SDRAM_SDRAM_ADDR_WIDTH 0x19
-#define SDRAM_SDRAM_BANK_WIDTH 2
-#define SDRAM_SDRAM_COL_WIDTH 10
-#define SDRAM_SDRAM_DATA_WIDTH 16
-#define SDRAM_SDRAM_NUM_BANKS 4
-#define SDRAM_SDRAM_NUM_CHIPSELECTS 1
-#define SDRAM_SDRAM_ROW_WIDTH 13
-#define SDRAM_SHARED_DATA 0
-#define SDRAM_SIM_MODEL_BASE 0
-#define SDRAM_SPAN 67108864
-#define SDRAM_STARVATION_INDICATOR 0
-#define SDRAM_TRISTATE_BRIDGE_SLAVE ""
-#define SDRAM_TYPE "altera_avalon_new_sdram_controller"
-#define SDRAM_T_AC 5.4
-#define SDRAM_T_MRD 3
-#define SDRAM_T_RCD 20.0
-#define SDRAM_T_RFC 70.0
-#define SDRAM_T_RP 20.0
-#define SDRAM_T_WR 14.0
+#define ALT_MODULE_CLASS_spi_0 altera_avalon_spi
+#define SPI_0_BASE 0x80210a0
+#define SPI_0_CLOCKMULT 1
+#define SPI_0_CLOCKPHASE 0
+#define SPI_0_CLOCKPOLARITY 0
+#define SPI_0_CLOCKUNITS "Hz"
+#define SPI_0_DATABITS 8
+#define SPI_0_DATAWIDTH 16
+#define SPI_0_DELAYMULT "1.0E-9"
+#define SPI_0_DELAYUNITS "ns"
+#define SPI_0_EXTRADELAY 0
+#define SPI_0_INSERT_SYNC 0
+#define SPI_0_IRQ 2
+#define SPI_0_IRQ_INTERRUPT_CONTROLLER_ID 0
+#define SPI_0_ISMASTER 1
+#define SPI_0_LSBFIRST 0
+#define SPI_0_NAME "/dev/spi_0"
+#define SPI_0_NUMSLAVES 1
+#define SPI_0_PREFIX "spi_"
+#define SPI_0_SPAN 32
+#define SPI_0_SYNC_REG_DEPTH 2
+#define SPI_0_TARGETCLOCK 2500000u
+#define SPI_0_TARGETSSDELAY "0.0"
+#define SPI_0_TYPE "altera_avalon_spi"
 
 
 /*
@@ -340,13 +317,13 @@
  */
 
 #define ALT_MODULE_CLASS_sysid_qsys_0 altera_avalon_sysid_qsys
-#define SYSID_QSYS_0_BASE 0x80210d0
+#define SYSID_QSYS_0_BASE 0x8021110
 #define SYSID_QSYS_0_ID 0
 #define SYSID_QSYS_0_IRQ -1
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1670434985
+#define SYSID_QSYS_0_TIMESTAMP 1670476893
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

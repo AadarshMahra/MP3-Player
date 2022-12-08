@@ -9,8 +9,7 @@ module Control(
 ); 
 
 /* internal state logic */
-enum logic {Halted, Play};  
-logic state, next_state;  
+enum logic {Halted, Play} state, next_state;
 
 
 always_ff @ (posedge Clk)
@@ -29,10 +28,30 @@ begin
 	
 	unique case(state)
 		Halted: 
-			if (RAM_INIT_DONE)
-			begin
-				next_state = Play; 
-				PLAY = 1; 
-				LOAD_MEM = 0;  
-			end
+		begin
+				if (RAM_INIT_DONE)
+				begin
+					next_state = Play; 
+					PLAY = 1'b1; 
+					LOAD_MEM = 1'b0;  
+				end
+				else
+				begin
+					next_state = Halted; 
+					PLAY = 1'b0; 
+					LOAD_MEM = 1'b1;
+				end
+		end
+			
+		Play:
+		begin
+			next_state = Play; 
+			PLAY = 1'b1; 
+			LOAD_MEM = 1'b0;
+		end
+		
+		default: ; 
+		
+	endcase 
 end
+endmodule 

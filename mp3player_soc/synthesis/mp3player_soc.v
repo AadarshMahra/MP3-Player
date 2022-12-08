@@ -4,26 +4,35 @@
 
 `timescale 1 ps / 1 ps
 module mp3player_soc (
-		input  wire        clk_clk,          //        clk.clk
-		input  wire        i2c0_sda_in,      //       i2c0.sda_in
-		input  wire        i2c0_scl_in,      //           .scl_in
-		output wire        i2c0_sda_oe,      //           .sda_oe
-		output wire        i2c0_scl_oe,      //           .scl_oe
-		input  wire [1:0]  keys_export,      //       keys.export
-		input  wire        reset_reset_n,    //      reset.reset_n
-		output wire        sdram_clk_clk,    //  sdram_clk.clk
-		output wire [12:0] sdram_wire_addr,  // sdram_wire.addr
-		output wire [1:0]  sdram_wire_ba,    //           .ba
-		output wire        sdram_wire_cas_n, //           .cas_n
-		output wire        sdram_wire_cke,   //           .cke
-		output wire        sdram_wire_cs_n,  //           .cs_n
-		inout  wire [15:0] sdram_wire_dq,    //           .dq
-		output wire [1:0]  sdram_wire_dqm,   //           .dqm
-		output wire        sdram_wire_ras_n, //           .ras_n
-		output wire        sdram_wire_we_n   //           .we_n
+		input  wire [26:0] bridge_address,     //       bridge.address
+		input  wire [1:0]  bridge_byte_enable, //             .byte_enable
+		input  wire        bridge_read,        //             .read
+		input  wire        bridge_write,       //             .write
+		input  wire [15:0] bridge_write_data,  //             .write_data
+		output wire        bridge_acknowledge, //             .acknowledge
+		output wire [15:0] bridge_read_data,   //             .read_data
+		input  wire        clk_clk,            //          clk.clk
+		input  wire        i2c0_sda_in,        //         i2c0.sda_in
+		input  wire        i2c0_scl_in,        //             .scl_in
+		output wire        i2c0_sda_oe,        //             .sda_oe
+		output wire        i2c0_scl_oe,        //             .scl_oe
+		input  wire [1:0]  keys_export,        //         keys.export
+		input  wire        reset_reset_n,      //        reset.reset_n
+		output wire [12:0] sdram_wire_1_addr,  // sdram_wire_1.addr
+		output wire [1:0]  sdram_wire_1_ba,    //             .ba
+		output wire        sdram_wire_1_cas_n, //             .cas_n
+		output wire        sdram_wire_1_cke,   //             .cke
+		output wire        sdram_wire_1_cs_n,  //             .cs_n
+		inout  wire [15:0] sdram_wire_1_dq,    //             .dq
+		output wire [1:0]  sdram_wire_1_dqm,   //             .dqm
+		output wire        sdram_wire_1_ras_n, //             .ras_n
+		output wire        sdram_wire_1_we_n,  //             .we_n
+		input  wire        spi0_MISO,          //         spi0.MISO
+		output wire        spi0_MOSI,          //             .MOSI
+		output wire        spi0_SCLK,          //             .SCLK
+		output wire        spi0_SS_n           //             .SS_n
 	);
 
-	wire           altpll_0_c0_clk;                                             // altpll_0:c0 -> [mm_interconnect_0:altpll_0_c0_clk, rst_controller_002:clk, sdram:clk]
 	wire    [31:0] nios2_gen2_0_data_master_readdata;                           // mm_interconnect_0:nios2_gen2_0_data_master_readdata -> nios2_gen2_0:d_readdata
 	wire           nios2_gen2_0_data_master_waitrequest;                        // mm_interconnect_0:nios2_gen2_0_data_master_waitrequest -> nios2_gen2_0:d_waitrequest
 	wire           nios2_gen2_0_data_master_debugaccess;                        // nios2_gen2_0:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_0:nios2_gen2_0_data_master_debugaccess
@@ -58,11 +67,6 @@ module mp3player_soc (
 	wire     [3:0] mm_interconnect_0_nios2_gen2_0_debug_mem_slave_byteenable;   // mm_interconnect_0:nios2_gen2_0_debug_mem_slave_byteenable -> nios2_gen2_0:debug_mem_slave_byteenable
 	wire           mm_interconnect_0_nios2_gen2_0_debug_mem_slave_write;        // mm_interconnect_0:nios2_gen2_0_debug_mem_slave_write -> nios2_gen2_0:debug_mem_slave_write
 	wire    [31:0] mm_interconnect_0_nios2_gen2_0_debug_mem_slave_writedata;    // mm_interconnect_0:nios2_gen2_0_debug_mem_slave_writedata -> nios2_gen2_0:debug_mem_slave_writedata
-	wire    [31:0] mm_interconnect_0_altpll_0_pll_slave_readdata;               // altpll_0:readdata -> mm_interconnect_0:altpll_0_pll_slave_readdata
-	wire     [1:0] mm_interconnect_0_altpll_0_pll_slave_address;                // mm_interconnect_0:altpll_0_pll_slave_address -> altpll_0:address
-	wire           mm_interconnect_0_altpll_0_pll_slave_read;                   // mm_interconnect_0:altpll_0_pll_slave_read -> altpll_0:read
-	wire           mm_interconnect_0_altpll_0_pll_slave_write;                  // mm_interconnect_0:altpll_0_pll_slave_write -> altpll_0:write
-	wire    [31:0] mm_interconnect_0_altpll_0_pll_slave_writedata;              // mm_interconnect_0:altpll_0_pll_slave_writedata -> altpll_0:writedata
 	wire           mm_interconnect_0_onchip_memory2_0_s1_chipselect;            // mm_interconnect_0:onchip_memory2_0_s1_chipselect -> onchip_memory2_0:chipselect
 	wire  [1023:0] mm_interconnect_0_onchip_memory2_0_s1_readdata;              // onchip_memory2_0:readdata -> mm_interconnect_0:onchip_memory2_0_s1_readdata
 	wire     [8:0] mm_interconnect_0_onchip_memory2_0_s1_address;               // mm_interconnect_0:onchip_memory2_0_s1_address -> onchip_memory2_0:address
@@ -72,50 +76,20 @@ module mp3player_soc (
 	wire           mm_interconnect_0_onchip_memory2_0_s1_clken;                 // mm_interconnect_0:onchip_memory2_0_s1_clken -> onchip_memory2_0:clken
 	wire    [31:0] mm_interconnect_0_keys_s1_readdata;                          // keys:readdata -> mm_interconnect_0:keys_s1_readdata
 	wire     [1:0] mm_interconnect_0_keys_s1_address;                           // mm_interconnect_0:keys_s1_address -> keys:address
-	wire           mm_interconnect_0_sdram_s1_chipselect;                       // mm_interconnect_0:sdram_s1_chipselect -> sdram:az_cs
-	wire    [15:0] mm_interconnect_0_sdram_s1_readdata;                         // sdram:za_data -> mm_interconnect_0:sdram_s1_readdata
-	wire           mm_interconnect_0_sdram_s1_waitrequest;                      // sdram:za_waitrequest -> mm_interconnect_0:sdram_s1_waitrequest
-	wire    [24:0] mm_interconnect_0_sdram_s1_address;                          // mm_interconnect_0:sdram_s1_address -> sdram:az_addr
-	wire           mm_interconnect_0_sdram_s1_read;                             // mm_interconnect_0:sdram_s1_read -> sdram:az_rd_n
-	wire     [1:0] mm_interconnect_0_sdram_s1_byteenable;                       // mm_interconnect_0:sdram_s1_byteenable -> sdram:az_be_n
-	wire           mm_interconnect_0_sdram_s1_readdatavalid;                    // sdram:za_valid -> mm_interconnect_0:sdram_s1_readdatavalid
-	wire           mm_interconnect_0_sdram_s1_write;                            // mm_interconnect_0:sdram_s1_write -> sdram:az_wr_n
-	wire    [15:0] mm_interconnect_0_sdram_s1_writedata;                        // mm_interconnect_0:sdram_s1_writedata -> sdram:az_data
+	wire           mm_interconnect_0_spi_0_spi_control_port_chipselect;         // mm_interconnect_0:spi_0_spi_control_port_chipselect -> spi_0:spi_select
+	wire    [15:0] mm_interconnect_0_spi_0_spi_control_port_readdata;           // spi_0:data_to_cpu -> mm_interconnect_0:spi_0_spi_control_port_readdata
+	wire     [2:0] mm_interconnect_0_spi_0_spi_control_port_address;            // mm_interconnect_0:spi_0_spi_control_port_address -> spi_0:mem_addr
+	wire           mm_interconnect_0_spi_0_spi_control_port_read;               // mm_interconnect_0:spi_0_spi_control_port_read -> spi_0:read_n
+	wire           mm_interconnect_0_spi_0_spi_control_port_write;              // mm_interconnect_0:spi_0_spi_control_port_write -> spi_0:write_n
+	wire    [15:0] mm_interconnect_0_spi_0_spi_control_port_writedata;          // mm_interconnect_0:spi_0_spi_control_port_writedata -> spi_0:data_from_cpu
 	wire           irq_mapper_receiver0_irq;                                    // i2c_0:intr -> irq_mapper:receiver0_irq
 	wire           irq_mapper_receiver1_irq;                                    // jtag_uart_0:av_irq -> irq_mapper:receiver1_irq
+	wire           irq_mapper_receiver2_irq;                                    // spi_0:irq -> irq_mapper:receiver2_irq
 	wire    [31:0] nios2_gen2_0_irq_irq;                                        // irq_mapper:sender_irq -> nios2_gen2_0:irq
-	wire           rst_controller_reset_out_reset;                              // rst_controller:reset_out -> [altpll_0:reset, irq_mapper:reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, rst_translator:in_reset, sysid_qsys_0:reset_n]
-	wire           rst_controller_reset_out_reset_req;                          // rst_controller:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
-	wire           nios2_gen2_0_debug_reset_request_reset;                      // nios2_gen2_0:debug_reset_request -> [rst_controller:reset_in1, rst_controller_002:reset_in1]
-	wire           rst_controller_001_reset_out_reset;                          // rst_controller_001:reset_out -> [i2c_0:rst_n, jtag_uart_0:rst_n, keys:reset_n, mm_interconnect_0:jtag_uart_0_reset_reset_bridge_in_reset_reset]
-	wire           rst_controller_002_reset_out_reset;                          // rst_controller_002:reset_out -> [mm_interconnect_0:sdram_reset_reset_bridge_in_reset_reset, sdram:reset_n]
-
-	mp3player_soc_altpll_0 altpll_0 (
-		.clk                (clk_clk),                                        //       inclk_interface.clk
-		.reset              (rst_controller_reset_out_reset),                 // inclk_interface_reset.reset
-		.read               (mm_interconnect_0_altpll_0_pll_slave_read),      //             pll_slave.read
-		.write              (mm_interconnect_0_altpll_0_pll_slave_write),     //                      .write
-		.address            (mm_interconnect_0_altpll_0_pll_slave_address),   //                      .address
-		.readdata           (mm_interconnect_0_altpll_0_pll_slave_readdata),  //                      .readdata
-		.writedata          (mm_interconnect_0_altpll_0_pll_slave_writedata), //                      .writedata
-		.c0                 (altpll_0_c0_clk),                                //                    c0.clk
-		.c1                 (sdram_clk_clk),                                  //                    c1.clk
-		.scandone           (),                                               //           (terminated)
-		.scandataout        (),                                               //           (terminated)
-		.c2                 (),                                               //           (terminated)
-		.c3                 (),                                               //           (terminated)
-		.c4                 (),                                               //           (terminated)
-		.areset             (1'b0),                                           //           (terminated)
-		.locked             (),                                               //           (terminated)
-		.phasedone          (),                                               //           (terminated)
-		.phasecounterselect (3'b000),                                         //           (terminated)
-		.phaseupdown        (1'b0),                                           //           (terminated)
-		.phasestep          (1'b0),                                           //           (terminated)
-		.scanclk            (1'b0),                                           //           (terminated)
-		.scanclkena         (1'b0),                                           //           (terminated)
-		.scandata           (1'b0),                                           //           (terminated)
-		.configupdate       (1'b0)                                            //           (terminated)
-	);
+	wire           rst_controller_reset_out_reset;                              // rst_controller:reset_out -> [i2c_0:rst_n, jtag_uart_0:rst_n, keys:reset_n, mm_interconnect_0:jtag_uart_0_reset_reset_bridge_in_reset_reset, spi_0:reset_n]
+	wire           rst_controller_001_reset_out_reset;                          // rst_controller_001:reset_out -> [irq_mapper:reset, mm_interconnect_0:nios2_gen2_0_reset_reset_bridge_in_reset_reset, nios2_gen2_0:reset_n, onchip_memory2_0:reset, rst_translator:in_reset, sysid_qsys_0:reset_n]
+	wire           rst_controller_001_reset_out_reset_req;                      // rst_controller_001:reset_req -> [nios2_gen2_0:reset_req, onchip_memory2_0:reset_req, rst_translator:reset_req_in]
+	wire           nios2_gen2_0_debug_reset_request_reset;                      // nios2_gen2_0:debug_reset_request -> rst_controller_001:reset_in1
 
 	altera_avalon_i2c #(
 		.USE_AV_ST       (0),
@@ -123,7 +97,7 @@ module mp3player_soc (
 		.FIFO_DEPTH_LOG2 (2)
 	) i2c_0 (
 		.clk       (clk_clk),                               //            clock.clk
-		.rst_n     (~rst_controller_001_reset_out_reset),   //       reset_sink.reset_n
+		.rst_n     (~rst_controller_reset_out_reset),       //       reset_sink.reset_n
 		.intr      (irq_mapper_receiver0_irq),              // interrupt_sender.irq
 		.addr      (mm_interconnect_0_i2c_0_csr_address),   //              csr.address
 		.read      (mm_interconnect_0_i2c_0_csr_read),      //                 .read
@@ -142,9 +116,30 @@ module mp3player_soc (
 		.snk_ready ()                                       //      (terminated)
 	);
 
+	mp3player_soc_interface_0 interface_0 (
+		.bridge_0_external_interface_address     (bridge_address),     // bridge_0_external_interface.address
+		.bridge_0_external_interface_byte_enable (bridge_byte_enable), //                            .byte_enable
+		.bridge_0_external_interface_read        (bridge_read),        //                            .read
+		.bridge_0_external_interface_write       (bridge_write),       //                            .write
+		.bridge_0_external_interface_write_data  (bridge_write_data),  //                            .write_data
+		.bridge_0_external_interface_acknowledge (bridge_acknowledge), //                            .acknowledge
+		.bridge_0_external_interface_read_data   (bridge_read_data),   //                            .read_data
+		.clk_clk                                 (clk_clk),            //                         clk.clk
+		.reset_reset_n                           (reset_reset_n),      //                       reset.reset_n
+		.sdram_wire_addr                         (sdram_wire_1_addr),  //                  sdram_wire.addr
+		.sdram_wire_ba                           (sdram_wire_1_ba),    //                            .ba
+		.sdram_wire_cas_n                        (sdram_wire_1_cas_n), //                            .cas_n
+		.sdram_wire_cke                          (sdram_wire_1_cke),   //                            .cke
+		.sdram_wire_cs_n                         (sdram_wire_1_cs_n),  //                            .cs_n
+		.sdram_wire_dq                           (sdram_wire_1_dq),    //                            .dq
+		.sdram_wire_dqm                          (sdram_wire_1_dqm),   //                            .dqm
+		.sdram_wire_ras_n                        (sdram_wire_1_ras_n), //                            .ras_n
+		.sdram_wire_we_n                         (sdram_wire_1_we_n)   //                            .we_n
+	);
+
 	mp3player_soc_jtag_uart_0 jtag_uart_0 (
 		.clk            (clk_clk),                                                     //               clk.clk
-		.rst_n          (~rst_controller_001_reset_out_reset),                         //             reset.reset_n
+		.rst_n          (~rst_controller_reset_out_reset),                             //             reset.reset_n
 		.av_chipselect  (mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_chipselect),  // avalon_jtag_slave.chipselect
 		.av_address     (mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_address),     //                  .address
 		.av_read_n      (~mm_interconnect_0_jtag_uart_0_avalon_jtag_slave_read),       //                  .read_n
@@ -156,17 +151,17 @@ module mp3player_soc (
 	);
 
 	mp3player_soc_keys keys (
-		.clk      (clk_clk),                             //                 clk.clk
-		.reset_n  (~rst_controller_001_reset_out_reset), //               reset.reset_n
-		.address  (mm_interconnect_0_keys_s1_address),   //                  s1.address
-		.readdata (mm_interconnect_0_keys_s1_readdata),  //                    .readdata
-		.in_port  (keys_export)                          // external_connection.export
+		.clk      (clk_clk),                            //                 clk.clk
+		.reset_n  (~rst_controller_reset_out_reset),    //               reset.reset_n
+		.address  (mm_interconnect_0_keys_s1_address),  //                  s1.address
+		.readdata (mm_interconnect_0_keys_s1_readdata), //                    .readdata
+		.in_port  (keys_export)                         // external_connection.export
 	);
 
 	mp3player_soc_nios2_gen2_0 nios2_gen2_0 (
 		.clk                                 (clk_clk),                                                    //                       clk.clk
-		.reset_n                             (~rst_controller_reset_out_reset),                            //                     reset.reset_n
-		.reset_req                           (rst_controller_reset_out_reset_req),                         //                          .reset_req
+		.reset_n                             (~rst_controller_001_reset_out_reset),                        //                     reset.reset_n
+		.reset_req                           (rst_controller_001_reset_out_reset_req),                     //                          .reset_req
 		.d_address                           (nios2_gen2_0_data_master_address),                           //               data_master.address
 		.d_byteenable                        (nios2_gen2_0_data_master_byteenable),                        //                          .byteenable
 		.d_read                              (nios2_gen2_0_data_master_read),                              //                          .read
@@ -201,47 +196,38 @@ module mp3player_soc (
 		.readdata   (mm_interconnect_0_onchip_memory2_0_s1_readdata),   //       .readdata
 		.writedata  (mm_interconnect_0_onchip_memory2_0_s1_writedata),  //       .writedata
 		.byteenable (mm_interconnect_0_onchip_memory2_0_s1_byteenable), //       .byteenable
-		.reset      (rst_controller_reset_out_reset),                   // reset1.reset
-		.reset_req  (rst_controller_reset_out_reset_req),               //       .reset_req
+		.reset      (rst_controller_001_reset_out_reset),               // reset1.reset
+		.reset_req  (rst_controller_001_reset_out_reset_req),           //       .reset_req
 		.freeze     (1'b0)                                              // (terminated)
 	);
 
-	mp3player_soc_sdram sdram (
-		.clk            (altpll_0_c0_clk),                          //   clk.clk
-		.reset_n        (~rst_controller_002_reset_out_reset),      // reset.reset_n
-		.az_addr        (mm_interconnect_0_sdram_s1_address),       //    s1.address
-		.az_be_n        (~mm_interconnect_0_sdram_s1_byteenable),   //      .byteenable_n
-		.az_cs          (mm_interconnect_0_sdram_s1_chipselect),    //      .chipselect
-		.az_data        (mm_interconnect_0_sdram_s1_writedata),     //      .writedata
-		.az_rd_n        (~mm_interconnect_0_sdram_s1_read),         //      .read_n
-		.az_wr_n        (~mm_interconnect_0_sdram_s1_write),        //      .write_n
-		.za_data        (mm_interconnect_0_sdram_s1_readdata),      //      .readdata
-		.za_valid       (mm_interconnect_0_sdram_s1_readdatavalid), //      .readdatavalid
-		.za_waitrequest (mm_interconnect_0_sdram_s1_waitrequest),   //      .waitrequest
-		.zs_addr        (sdram_wire_addr),                          //  wire.export
-		.zs_ba          (sdram_wire_ba),                            //      .export
-		.zs_cas_n       (sdram_wire_cas_n),                         //      .export
-		.zs_cke         (sdram_wire_cke),                           //      .export
-		.zs_cs_n        (sdram_wire_cs_n),                          //      .export
-		.zs_dq          (sdram_wire_dq),                            //      .export
-		.zs_dqm         (sdram_wire_dqm),                           //      .export
-		.zs_ras_n       (sdram_wire_ras_n),                         //      .export
-		.zs_we_n        (sdram_wire_we_n)                           //      .export
+	mp3player_soc_spi_0 spi_0 (
+		.clk           (clk_clk),                                             //              clk.clk
+		.reset_n       (~rst_controller_reset_out_reset),                     //            reset.reset_n
+		.data_from_cpu (mm_interconnect_0_spi_0_spi_control_port_writedata),  // spi_control_port.writedata
+		.data_to_cpu   (mm_interconnect_0_spi_0_spi_control_port_readdata),   //                 .readdata
+		.mem_addr      (mm_interconnect_0_spi_0_spi_control_port_address),    //                 .address
+		.read_n        (~mm_interconnect_0_spi_0_spi_control_port_read),      //                 .read_n
+		.spi_select    (mm_interconnect_0_spi_0_spi_control_port_chipselect), //                 .chipselect
+		.write_n       (~mm_interconnect_0_spi_0_spi_control_port_write),     //                 .write_n
+		.irq           (irq_mapper_receiver2_irq),                            //              irq.irq
+		.MISO          (spi0_MISO),                                           //         external.export
+		.MOSI          (spi0_MOSI),                                           //                 .export
+		.SCLK          (spi0_SCLK),                                           //                 .export
+		.SS_n          (spi0_SS_n)                                            //                 .export
 	);
 
 	mp3player_soc_sysid_qsys_0 sysid_qsys_0 (
 		.clock    (clk_clk),                                               //           clk.clk
-		.reset_n  (~rst_controller_reset_out_reset),                       //         reset.reset_n
+		.reset_n  (~rst_controller_001_reset_out_reset),                   //         reset.reset_n
 		.readdata (mm_interconnect_0_sysid_qsys_0_control_slave_readdata), // control_slave.readdata
 		.address  (mm_interconnect_0_sysid_qsys_0_control_slave_address)   //              .address
 	);
 
 	mp3player_soc_mm_interconnect_0 mm_interconnect_0 (
-		.altpll_0_c0_clk                                (altpll_0_c0_clk),                                             //                              altpll_0_c0.clk
 		.clk_0_clk_clk                                  (clk_clk),                                                     //                                clk_0_clk.clk
-		.jtag_uart_0_reset_reset_bridge_in_reset_reset  (rst_controller_001_reset_out_reset),                          //  jtag_uart_0_reset_reset_bridge_in_reset.reset
-		.nios2_gen2_0_reset_reset_bridge_in_reset_reset (rst_controller_reset_out_reset),                              // nios2_gen2_0_reset_reset_bridge_in_reset.reset
-		.sdram_reset_reset_bridge_in_reset_reset        (rst_controller_002_reset_out_reset),                          //        sdram_reset_reset_bridge_in_reset.reset
+		.jtag_uart_0_reset_reset_bridge_in_reset_reset  (rst_controller_reset_out_reset),                              //  jtag_uart_0_reset_reset_bridge_in_reset.reset
+		.nios2_gen2_0_reset_reset_bridge_in_reset_reset (rst_controller_001_reset_out_reset),                          // nios2_gen2_0_reset_reset_bridge_in_reset.reset
 		.nios2_gen2_0_data_master_address               (nios2_gen2_0_data_master_address),                            //                 nios2_gen2_0_data_master.address
 		.nios2_gen2_0_data_master_waitrequest           (nios2_gen2_0_data_master_waitrequest),                        //                                         .waitrequest
 		.nios2_gen2_0_data_master_byteenable            (nios2_gen2_0_data_master_byteenable),                         //                                         .byteenable
@@ -254,11 +240,6 @@ module mp3player_soc (
 		.nios2_gen2_0_instruction_master_waitrequest    (nios2_gen2_0_instruction_master_waitrequest),                 //                                         .waitrequest
 		.nios2_gen2_0_instruction_master_read           (nios2_gen2_0_instruction_master_read),                        //                                         .read
 		.nios2_gen2_0_instruction_master_readdata       (nios2_gen2_0_instruction_master_readdata),                    //                                         .readdata
-		.altpll_0_pll_slave_address                     (mm_interconnect_0_altpll_0_pll_slave_address),                //                       altpll_0_pll_slave.address
-		.altpll_0_pll_slave_write                       (mm_interconnect_0_altpll_0_pll_slave_write),                  //                                         .write
-		.altpll_0_pll_slave_read                        (mm_interconnect_0_altpll_0_pll_slave_read),                   //                                         .read
-		.altpll_0_pll_slave_readdata                    (mm_interconnect_0_altpll_0_pll_slave_readdata),               //                                         .readdata
-		.altpll_0_pll_slave_writedata                   (mm_interconnect_0_altpll_0_pll_slave_writedata),              //                                         .writedata
 		.i2c_0_csr_address                              (mm_interconnect_0_i2c_0_csr_address),                         //                                i2c_0_csr.address
 		.i2c_0_csr_write                                (mm_interconnect_0_i2c_0_csr_write),                           //                                         .write
 		.i2c_0_csr_read                                 (mm_interconnect_0_i2c_0_csr_read),                            //                                         .read
@@ -288,88 +269,23 @@ module mp3player_soc (
 		.onchip_memory2_0_s1_byteenable                 (mm_interconnect_0_onchip_memory2_0_s1_byteenable),            //                                         .byteenable
 		.onchip_memory2_0_s1_chipselect                 (mm_interconnect_0_onchip_memory2_0_s1_chipselect),            //                                         .chipselect
 		.onchip_memory2_0_s1_clken                      (mm_interconnect_0_onchip_memory2_0_s1_clken),                 //                                         .clken
-		.sdram_s1_address                               (mm_interconnect_0_sdram_s1_address),                          //                                 sdram_s1.address
-		.sdram_s1_write                                 (mm_interconnect_0_sdram_s1_write),                            //                                         .write
-		.sdram_s1_read                                  (mm_interconnect_0_sdram_s1_read),                             //                                         .read
-		.sdram_s1_readdata                              (mm_interconnect_0_sdram_s1_readdata),                         //                                         .readdata
-		.sdram_s1_writedata                             (mm_interconnect_0_sdram_s1_writedata),                        //                                         .writedata
-		.sdram_s1_byteenable                            (mm_interconnect_0_sdram_s1_byteenable),                       //                                         .byteenable
-		.sdram_s1_readdatavalid                         (mm_interconnect_0_sdram_s1_readdatavalid),                    //                                         .readdatavalid
-		.sdram_s1_waitrequest                           (mm_interconnect_0_sdram_s1_waitrequest),                      //                                         .waitrequest
-		.sdram_s1_chipselect                            (mm_interconnect_0_sdram_s1_chipselect),                       //                                         .chipselect
+		.spi_0_spi_control_port_address                 (mm_interconnect_0_spi_0_spi_control_port_address),            //                   spi_0_spi_control_port.address
+		.spi_0_spi_control_port_write                   (mm_interconnect_0_spi_0_spi_control_port_write),              //                                         .write
+		.spi_0_spi_control_port_read                    (mm_interconnect_0_spi_0_spi_control_port_read),               //                                         .read
+		.spi_0_spi_control_port_readdata                (mm_interconnect_0_spi_0_spi_control_port_readdata),           //                                         .readdata
+		.spi_0_spi_control_port_writedata               (mm_interconnect_0_spi_0_spi_control_port_writedata),          //                                         .writedata
+		.spi_0_spi_control_port_chipselect              (mm_interconnect_0_spi_0_spi_control_port_chipselect),         //                                         .chipselect
 		.sysid_qsys_0_control_slave_address             (mm_interconnect_0_sysid_qsys_0_control_slave_address),        //               sysid_qsys_0_control_slave.address
 		.sysid_qsys_0_control_slave_readdata            (mm_interconnect_0_sysid_qsys_0_control_slave_readdata)        //                                         .readdata
 	);
 
 	mp3player_soc_irq_mapper irq_mapper (
-		.clk           (clk_clk),                        //       clk.clk
-		.reset         (rst_controller_reset_out_reset), // clk_reset.reset
-		.receiver0_irq (irq_mapper_receiver0_irq),       // receiver0.irq
-		.receiver1_irq (irq_mapper_receiver1_irq),       // receiver1.irq
-		.sender_irq    (nios2_gen2_0_irq_irq)            //    sender.irq
-	);
-
-	altera_reset_controller #(
-		.NUM_RESET_INPUTS          (2),
-		.OUTPUT_RESET_SYNC_EDGES   ("deassert"),
-		.SYNC_DEPTH                (2),
-		.RESET_REQUEST_PRESENT     (1),
-		.RESET_REQ_WAIT_TIME       (1),
-		.MIN_RST_ASSERTION_TIME    (3),
-		.RESET_REQ_EARLY_DSRT_TIME (1),
-		.USE_RESET_REQUEST_IN0     (0),
-		.USE_RESET_REQUEST_IN1     (0),
-		.USE_RESET_REQUEST_IN2     (0),
-		.USE_RESET_REQUEST_IN3     (0),
-		.USE_RESET_REQUEST_IN4     (0),
-		.USE_RESET_REQUEST_IN5     (0),
-		.USE_RESET_REQUEST_IN6     (0),
-		.USE_RESET_REQUEST_IN7     (0),
-		.USE_RESET_REQUEST_IN8     (0),
-		.USE_RESET_REQUEST_IN9     (0),
-		.USE_RESET_REQUEST_IN10    (0),
-		.USE_RESET_REQUEST_IN11    (0),
-		.USE_RESET_REQUEST_IN12    (0),
-		.USE_RESET_REQUEST_IN13    (0),
-		.USE_RESET_REQUEST_IN14    (0),
-		.USE_RESET_REQUEST_IN15    (0),
-		.ADAPT_RESET_REQUEST       (0)
-	) rst_controller (
-		.reset_in0      (~reset_reset_n),                         // reset_in0.reset
-		.reset_in1      (nios2_gen2_0_debug_reset_request_reset), // reset_in1.reset
-		.clk            (clk_clk),                                //       clk.clk
-		.reset_out      (rst_controller_reset_out_reset),         // reset_out.reset
-		.reset_req      (rst_controller_reset_out_reset_req),     //          .reset_req
-		.reset_req_in0  (1'b0),                                   // (terminated)
-		.reset_req_in1  (1'b0),                                   // (terminated)
-		.reset_in2      (1'b0),                                   // (terminated)
-		.reset_req_in2  (1'b0),                                   // (terminated)
-		.reset_in3      (1'b0),                                   // (terminated)
-		.reset_req_in3  (1'b0),                                   // (terminated)
-		.reset_in4      (1'b0),                                   // (terminated)
-		.reset_req_in4  (1'b0),                                   // (terminated)
-		.reset_in5      (1'b0),                                   // (terminated)
-		.reset_req_in5  (1'b0),                                   // (terminated)
-		.reset_in6      (1'b0),                                   // (terminated)
-		.reset_req_in6  (1'b0),                                   // (terminated)
-		.reset_in7      (1'b0),                                   // (terminated)
-		.reset_req_in7  (1'b0),                                   // (terminated)
-		.reset_in8      (1'b0),                                   // (terminated)
-		.reset_req_in8  (1'b0),                                   // (terminated)
-		.reset_in9      (1'b0),                                   // (terminated)
-		.reset_req_in9  (1'b0),                                   // (terminated)
-		.reset_in10     (1'b0),                                   // (terminated)
-		.reset_req_in10 (1'b0),                                   // (terminated)
-		.reset_in11     (1'b0),                                   // (terminated)
-		.reset_req_in11 (1'b0),                                   // (terminated)
-		.reset_in12     (1'b0),                                   // (terminated)
-		.reset_req_in12 (1'b0),                                   // (terminated)
-		.reset_in13     (1'b0),                                   // (terminated)
-		.reset_req_in13 (1'b0),                                   // (terminated)
-		.reset_in14     (1'b0),                                   // (terminated)
-		.reset_req_in14 (1'b0),                                   // (terminated)
-		.reset_in15     (1'b0),                                   // (terminated)
-		.reset_req_in15 (1'b0)                                    // (terminated)
+		.clk           (clk_clk),                            //       clk.clk
+		.reset         (rst_controller_001_reset_out_reset), // clk_reset.reset
+		.receiver0_irq (irq_mapper_receiver0_irq),           // receiver0.irq
+		.receiver1_irq (irq_mapper_receiver1_irq),           // receiver1.irq
+		.receiver2_irq (irq_mapper_receiver2_irq),           // receiver2.irq
+		.sender_irq    (nios2_gen2_0_irq_irq)                //    sender.irq
 	);
 
 	altera_reset_controller #(
@@ -397,49 +313,49 @@ module mp3player_soc (
 		.USE_RESET_REQUEST_IN14    (0),
 		.USE_RESET_REQUEST_IN15    (0),
 		.ADAPT_RESET_REQUEST       (0)
-	) rst_controller_001 (
-		.reset_in0      (~reset_reset_n),                     // reset_in0.reset
-		.clk            (clk_clk),                            //       clk.clk
-		.reset_out      (rst_controller_001_reset_out_reset), // reset_out.reset
-		.reset_req      (),                                   // (terminated)
-		.reset_req_in0  (1'b0),                               // (terminated)
-		.reset_in1      (1'b0),                               // (terminated)
-		.reset_req_in1  (1'b0),                               // (terminated)
-		.reset_in2      (1'b0),                               // (terminated)
-		.reset_req_in2  (1'b0),                               // (terminated)
-		.reset_in3      (1'b0),                               // (terminated)
-		.reset_req_in3  (1'b0),                               // (terminated)
-		.reset_in4      (1'b0),                               // (terminated)
-		.reset_req_in4  (1'b0),                               // (terminated)
-		.reset_in5      (1'b0),                               // (terminated)
-		.reset_req_in5  (1'b0),                               // (terminated)
-		.reset_in6      (1'b0),                               // (terminated)
-		.reset_req_in6  (1'b0),                               // (terminated)
-		.reset_in7      (1'b0),                               // (terminated)
-		.reset_req_in7  (1'b0),                               // (terminated)
-		.reset_in8      (1'b0),                               // (terminated)
-		.reset_req_in8  (1'b0),                               // (terminated)
-		.reset_in9      (1'b0),                               // (terminated)
-		.reset_req_in9  (1'b0),                               // (terminated)
-		.reset_in10     (1'b0),                               // (terminated)
-		.reset_req_in10 (1'b0),                               // (terminated)
-		.reset_in11     (1'b0),                               // (terminated)
-		.reset_req_in11 (1'b0),                               // (terminated)
-		.reset_in12     (1'b0),                               // (terminated)
-		.reset_req_in12 (1'b0),                               // (terminated)
-		.reset_in13     (1'b0),                               // (terminated)
-		.reset_req_in13 (1'b0),                               // (terminated)
-		.reset_in14     (1'b0),                               // (terminated)
-		.reset_req_in14 (1'b0),                               // (terminated)
-		.reset_in15     (1'b0),                               // (terminated)
-		.reset_req_in15 (1'b0)                                // (terminated)
+	) rst_controller (
+		.reset_in0      (~reset_reset_n),                 // reset_in0.reset
+		.clk            (clk_clk),                        //       clk.clk
+		.reset_out      (rst_controller_reset_out_reset), // reset_out.reset
+		.reset_req      (),                               // (terminated)
+		.reset_req_in0  (1'b0),                           // (terminated)
+		.reset_in1      (1'b0),                           // (terminated)
+		.reset_req_in1  (1'b0),                           // (terminated)
+		.reset_in2      (1'b0),                           // (terminated)
+		.reset_req_in2  (1'b0),                           // (terminated)
+		.reset_in3      (1'b0),                           // (terminated)
+		.reset_req_in3  (1'b0),                           // (terminated)
+		.reset_in4      (1'b0),                           // (terminated)
+		.reset_req_in4  (1'b0),                           // (terminated)
+		.reset_in5      (1'b0),                           // (terminated)
+		.reset_req_in5  (1'b0),                           // (terminated)
+		.reset_in6      (1'b0),                           // (terminated)
+		.reset_req_in6  (1'b0),                           // (terminated)
+		.reset_in7      (1'b0),                           // (terminated)
+		.reset_req_in7  (1'b0),                           // (terminated)
+		.reset_in8      (1'b0),                           // (terminated)
+		.reset_req_in8  (1'b0),                           // (terminated)
+		.reset_in9      (1'b0),                           // (terminated)
+		.reset_req_in9  (1'b0),                           // (terminated)
+		.reset_in10     (1'b0),                           // (terminated)
+		.reset_req_in10 (1'b0),                           // (terminated)
+		.reset_in11     (1'b0),                           // (terminated)
+		.reset_req_in11 (1'b0),                           // (terminated)
+		.reset_in12     (1'b0),                           // (terminated)
+		.reset_req_in12 (1'b0),                           // (terminated)
+		.reset_in13     (1'b0),                           // (terminated)
+		.reset_req_in13 (1'b0),                           // (terminated)
+		.reset_in14     (1'b0),                           // (terminated)
+		.reset_req_in14 (1'b0),                           // (terminated)
+		.reset_in15     (1'b0),                           // (terminated)
+		.reset_req_in15 (1'b0)                            // (terminated)
 	);
 
 	altera_reset_controller #(
 		.NUM_RESET_INPUTS          (2),
 		.OUTPUT_RESET_SYNC_EDGES   ("deassert"),
 		.SYNC_DEPTH                (2),
-		.RESET_REQUEST_PRESENT     (0),
+		.RESET_REQUEST_PRESENT     (1),
 		.RESET_REQ_WAIT_TIME       (1),
 		.MIN_RST_ASSERTION_TIME    (3),
 		.RESET_REQ_EARLY_DSRT_TIME (1),
@@ -460,12 +376,12 @@ module mp3player_soc (
 		.USE_RESET_REQUEST_IN14    (0),
 		.USE_RESET_REQUEST_IN15    (0),
 		.ADAPT_RESET_REQUEST       (0)
-	) rst_controller_002 (
+	) rst_controller_001 (
 		.reset_in0      (~reset_reset_n),                         // reset_in0.reset
 		.reset_in1      (nios2_gen2_0_debug_reset_request_reset), // reset_in1.reset
-		.clk            (altpll_0_c0_clk),                        //       clk.clk
-		.reset_out      (rst_controller_002_reset_out_reset),     // reset_out.reset
-		.reset_req      (),                                       // (terminated)
+		.clk            (clk_clk),                                //       clk.clk
+		.reset_out      (rst_controller_001_reset_out_reset),     // reset_out.reset
+		.reset_req      (rst_controller_001_reset_out_reset_req), //          .reset_req
 		.reset_req_in0  (1'b0),                                   // (terminated)
 		.reset_req_in1  (1'b0),                                   // (terminated)
 		.reset_in2      (1'b0),                                   // (terminated)

@@ -31,7 +31,7 @@ module sdcard_init (
 );
 
 parameter 			MAX_RAM_ADDRESS = 25'h3FFFFF;
-parameter			SDHC 				 = 1'b0;
+parameter			SDHC 				 = 1'b1;
 
 logic 				sd_read_block;
 logic				sd_busy;

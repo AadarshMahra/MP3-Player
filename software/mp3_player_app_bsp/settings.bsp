@@ -2,9 +2,9 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Dec 7, 2022 11:52:21 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1670435541207</BspGeneratedUnixTimeStamp>
-        <BspGeneratedLocation>C:\Users\puroh\OneDrive\Desktop\385\MP3-Player\software\mp3_player_app_bsp</BspGeneratedLocation>
+        <BspGeneratedTimeStamp>Dec 7, 2022 11:28:32 PM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1670477312853</BspGeneratedUnixTimeStamp>
+        <BspGeneratedLocation>C:\Users\tofu42\Documents\MP3Player\software\mp3_player_app_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\mp3player_soc.sopcinfo</SopcDesignFile>
         <JdiFile>default</JdiFile>
@@ -899,12 +899,6 @@
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
         <MemoryMap>
-                <slaveDescriptor>sdram</slaveDescriptor>
-                <addressRange>0x04000000 - 0x07FFFFFF</addressRange>
-                <addressSpan>67108864</addressSpan>
-                <attributes>memory</attributes>
-        </MemoryMap>
-        <MemoryMap>
                 <slaveDescriptor>onchip_memory2_0</slaveDescriptor>
                 <addressRange>0x08010000 - 0x0801F9FF</addressRange>
                 <addressSpan>64000</addressSpan>
@@ -917,26 +911,26 @@
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>keys</slaveDescriptor>
-                <addressRange>0x080210A0 - 0x080210AF</addressRange>
-                <addressSpan>16</addressSpan>
+                <slaveDescriptor>spi_0</slaveDescriptor>
+                <addressRange>0x080210A0 - 0x080210BF</addressRange>
+                <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
-                <slaveDescriptor>altpll_0</slaveDescriptor>
-                <addressRange>0x080210B0 - 0x080210BF</addressRange>
+                <slaveDescriptor>keys</slaveDescriptor>
+                <addressRange>0x080210E0 - 0x080210EF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid_qsys_0</slaveDescriptor>
-                <addressRange>0x080210D0 - 0x080210D7</addressRange>
+                <addressRange>0x08021110 - 0x08021117</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart_0</slaveDescriptor>
-                <addressRange>0x080210D8 - 0x080210DF</addressRange>
+                <addressRange>0x08021118 - 0x0802111F</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
         </MemoryMap>

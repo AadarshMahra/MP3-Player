@@ -3,7 +3,7 @@
 # Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
 # SOPC Builder design path: ../../mp3player_soc.sopcinfo
 #
-# Generated: Tue Dec 06 13:03:46 CST 2022
+# Generated: Wed Dec 07 23:28:08 CST 2022
 
 # DO NOT MODIFY THIS FILE
 #
@@ -45,9 +45,6 @@
 # Define memory regions for each memory connected to the CPU.
 # The cache attribute is specified which improves GDB performance
 # by allowing GDB to cache memory contents on the host.
-
-# sdram
-memory 0x4000000 0x8000000 cache
 
 # onchip_memory2_0
 memory 0x8010000 0x801fa00 cache
