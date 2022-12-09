@@ -19,6 +19,11 @@
    }
    element altpll_0.pll_slave
    {
+      datum _lockedAddress
+      {
+         value = "0";
+         type = "boolean";
+      }
       datum baseAddress
       {
          value = "67108864";
@@ -78,6 +83,11 @@
  <parameter name="timeStamp" value="0" />
  <parameter name="useTestBenchNamingPattern" value="false" />
  <instanceScript></instanceScript>
+ <interface
+   name="altpll_0_pll_slave"
+   internal="altpll_0.pll_slave"
+   type="avalon"
+   dir="end" />
  <interface
    name="bridge_0_external_interface"
    internal="bridge_0.external_interface"
@@ -264,7 +274,7 @@
    enabled="1">
   <parameter name="AUTO_CLK_CLOCK_RATE" value="50000000" />
   <parameter name="AUTO_DEVICE_FAMILY" value="MAX 10" />
-  <parameter name="addr_size" value="128" />
+  <parameter name="addr_size" value="64" />
   <parameter name="addr_size_multiplier" value="Mbytes" />
   <parameter name="data_size" value="16" />
  </module>
@@ -303,15 +313,6 @@
   <parameter name="registerDataIn" value="true" />
   <parameter name="rowWidth" value="13" />
  </module>
- <connection
-   kind="avalon"
-   version="18.1"
-   start="bridge_0.avalon_master"
-   end="altpll_0.pll_slave">
-  <parameter name="arbitrationPriority" value="1" />
-  <parameter name="baseAddress" value="0x04000000" />
-  <parameter name="defaultConnection" value="false" />
- </connection>
  <connection
    kind="avalon"
    version="18.1"

@@ -1,6 +1,6 @@
 Info: Starting: Create block symbol file (.bsf)
-Info: qsys-generate C:\Users\tofu42\Documents\MP3Player\sdram_interface.qsys --block-symbol-file --output-directory=C:\Users\tofu42\Documents\MP3Player\sdram_interface --family="MAX 10" --part=10M50DAF484C7G
-Progress: Loading MP3Player/sdram_interface.qsys
+Info: qsys-generate C:\Users\puroh\OneDrive\Desktop\385\MP3-Player\sdram_interface.qsys --block-symbol-file --output-directory=C:\Users\puroh\OneDrive\Desktop\385\MP3-Player\sdram_interface --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading MP3-Player/sdram_interface.qsys
 Progress: Reading input file
 Progress: Adding altpll_0 [altpll 18.1]
 Progress: Parameterizing module altpll_0
@@ -15,13 +15,12 @@ Progress: Parameterizing connections
 Progress: Validating
 Progress: Done reading input file
 Info: sdram_interface.new_sdram_controller_0: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
-Warning: sdram_interface.bridge_0.avalon_master/altpll_0.pll_slave: Master bridge_0.avalon_master cannot safely write to slave altpll_0.pll_slave, because the master data width is narrower than the slave data width. Add byteenable support to the slave to support safe writes from a narrow master.
 Info: qsys-generate succeeded.
 Info: Finished: Create block symbol file (.bsf)
 Info: 
 Info: Starting: Create HDL design files for synthesis
-Info: qsys-generate C:\Users\tofu42\Documents\MP3Player\sdram_interface.qsys --synthesis=VERILOG --output-directory=C:\Users\tofu42\Documents\MP3Player\sdram_interface\synthesis --family="MAX 10" --part=10M50DAF484C7G
-Progress: Loading MP3Player/sdram_interface.qsys
+Info: qsys-generate C:\Users\puroh\OneDrive\Desktop\385\MP3-Player\sdram_interface.qsys --synthesis=VERILOG --output-directory=C:\Users\puroh\OneDrive\Desktop\385\MP3-Player\sdram_interface\synthesis --family="MAX 10" --part=10M50DAF484C7G
+Progress: Loading MP3-Player/sdram_interface.qsys
 Progress: Reading input file
 Progress: Adding altpll_0 [altpll 18.1]
 Progress: Parameterizing module altpll_0
@@ -36,41 +35,35 @@ Progress: Parameterizing connections
 Progress: Validating
 Progress: Done reading input file
 Info: sdram_interface.new_sdram_controller_0: SDRAM Controller will only be supported in Quartus Prime Standard Edition in the future release.
-Warning: sdram_interface.bridge_0.avalon_master/altpll_0.pll_slave: Master bridge_0.avalon_master cannot safely write to slave altpll_0.pll_slave, because the master data width is narrower than the slave data width. Add byteenable support to the slave to support safe writes from a narrow master.
 Info: sdram_interface: Generating sdram_interface "sdram_interface" for QUARTUS_SYNTH
-Info: Inserting clock-crossing logic between cmd_demux.src1 and cmd_mux_001.sink0
-Info: Inserting clock-crossing logic between rsp_demux_001.src0 and rsp_mux.sink1
+Info: Interconnect is inserted between master bridge_0.avalon_master and slave new_sdram_controller_0.s1 because the master has address signal 26 bit wide, but the slave is 25 bit wide.
+Info: Interconnect is inserted between master bridge_0.avalon_master and slave new_sdram_controller_0.s1 because they have different clock source.
+Info: Inserting clock-crossing logic between cmd_demux.src0 and cmd_mux.sink0
+Info: Inserting clock-crossing logic between rsp_demux.src0 and rsp_mux.sink0
 Info: altpll_0: "sdram_interface" instantiated altpll "altpll_0"
 Info: bridge_0: Starting Generation of External Bus to Avalon Bridge
 Info: bridge_0: "sdram_interface" instantiated altera_up_external_bus_to_avalon_bridge "bridge_0"
 Info: new_sdram_controller_0: Starting RTL generation for module 'sdram_interface_new_sdram_controller_0'
-Info: new_sdram_controller_0:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=sdram_interface_new_sdram_controller_0 --dir=C:/Users/tofu42/AppData/Local/Temp/alt9334_9159035137462808976.dir/0005_new_sdram_controller_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/tofu42/AppData/Local/Temp/alt9334_9159035137462808976.dir/0005_new_sdram_controller_0_gen//sdram_interface_new_sdram_controller_0_component_configuration.pl  --do_build_sim=0  ]
+Info: new_sdram_controller_0:   Generation command is [exec C:/intelfpga_lite/18.1/quartus/bin64/perl/bin/perl.exe -I C:/intelfpga_lite/18.1/quartus/bin64/perl/lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/europa -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin/perl_lib -I C:/intelfpga_lite/18.1/quartus/sopc_builder/bin -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/common -I C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller -- C:/intelfpga_lite/18.1/quartus/../ip/altera/sopc_builder_ip/altera_avalon_new_sdram_controller/generate_rtl.pl --name=sdram_interface_new_sdram_controller_0 --dir=C:/Users/puroh/AppData/Local/Temp/alt9335_5745237291916017795.dir/0005_new_sdram_controller_0_gen/ --quartus_dir=C:/intelfpga_lite/18.1/quartus --verilog --config=C:/Users/puroh/AppData/Local/Temp/alt9335_5745237291916017795.dir/0005_new_sdram_controller_0_gen//sdram_interface_new_sdram_controller_0_component_configuration.pl  --do_build_sim=0  ]
 Info: new_sdram_controller_0: Done RTL generation for module 'sdram_interface_new_sdram_controller_0'
 Info: new_sdram_controller_0: "sdram_interface" instantiated altera_avalon_new_sdram_controller "new_sdram_controller_0"
 Info: avalon_st_adapter: Inserting error_adapter: error_adapter_0
-Info: avalon_st_adapter_001: Inserting error_adapter: error_adapter_0
 Info: mm_interconnect_0: "sdram_interface" instantiated altera_mm_interconnect "mm_interconnect_0"
 Info: rst_controller: "sdram_interface" instantiated altera_reset_controller "rst_controller"
 Info: bridge_0_avalon_master_translator: "mm_interconnect_0" instantiated altera_merlin_master_translator "bridge_0_avalon_master_translator"
-Info: altpll_0_pll_slave_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "altpll_0_pll_slave_translator"
+Info: new_sdram_controller_0_s1_translator: "mm_interconnect_0" instantiated altera_merlin_slave_translator "new_sdram_controller_0_s1_translator"
 Info: bridge_0_avalon_master_agent: "mm_interconnect_0" instantiated altera_merlin_master_agent "bridge_0_avalon_master_agent"
-Info: altpll_0_pll_slave_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "altpll_0_pll_slave_agent"
-Info: altpll_0_pll_slave_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "altpll_0_pll_slave_agent_rsp_fifo"
+Info: new_sdram_controller_0_s1_agent: "mm_interconnect_0" instantiated altera_merlin_slave_agent "new_sdram_controller_0_s1_agent"
+Info: new_sdram_controller_0_s1_agent_rsp_fifo: "mm_interconnect_0" instantiated altera_avalon_sc_fifo "new_sdram_controller_0_s1_agent_rsp_fifo"
 Info: router: "mm_interconnect_0" instantiated altera_merlin_router "router"
 Info: router_001: "mm_interconnect_0" instantiated altera_merlin_router "router_001"
-Info: router_002: "mm_interconnect_0" instantiated altera_merlin_router "router_002"
 Info: cmd_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "cmd_demux"
 Info: cmd_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "cmd_mux"
-Info: rsp_demux: "mm_interconnect_0" instantiated altera_merlin_demultiplexer "rsp_demux"
 Info: rsp_mux: "mm_interconnect_0" instantiated altera_merlin_multiplexer "rsp_mux"
-Info: Reusing file C:/Users/tofu42/Documents/MP3Player/sdram_interface/synthesis/submodules/altera_merlin_arbitrator.sv
-Info: altpll_0_pll_slave_cmd_width_adapter: "mm_interconnect_0" instantiated altera_merlin_width_adapter "altpll_0_pll_slave_cmd_width_adapter"
-Info: Reusing file C:/Users/tofu42/Documents/MP3Player/sdram_interface/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+Info: Reusing file C:/Users/puroh/OneDrive/Desktop/385/MP3-Player/sdram_interface/synthesis/submodules/altera_merlin_arbitrator.sv
 Info: crosser: "mm_interconnect_0" instantiated altera_avalon_st_handshake_clock_crosser "crosser"
 Info: avalon_st_adapter: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter"
-Info: avalon_st_adapter_001: "mm_interconnect_0" instantiated altera_avalon_st_adapter "avalon_st_adapter_001"
 Info: error_adapter_0: "avalon_st_adapter" instantiated error_adapter "error_adapter_0"
-Info: error_adapter_0: "avalon_st_adapter_001" instantiated error_adapter "error_adapter_0"
-Info: sdram_interface: Done "sdram_interface" with 24 modules, 33 files
+Info: sdram_interface: Done "sdram_interface" with 19 modules, 27 files
 Info: qsys-generate succeeded.
 Info: Finished: Create HDL design files for synthesis

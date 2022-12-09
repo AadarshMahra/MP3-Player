@@ -26,8 +26,8 @@ refer to the applicable agreement for further details.
 	(port
 		(pt 0 72)
 		(input)
-		(text "bridge_address[26..0]" (rect 0 0 86 12)(font "Arial" (font_size 8)))
-		(text "bridge_address[26..0]" (rect 4 61 130 72)(font "Arial" (font_size 8)))
+		(text "bridge_address[25..0]" (rect 0 0 86 12)(font "Arial" (font_size 8)))
+		(text "bridge_address[25..0]" (rect 4 61 130 72)(font "Arial" (font_size 8)))
 		(line (pt 0 72)(pt 144 72)(line_width 3))
 	)
 	(port

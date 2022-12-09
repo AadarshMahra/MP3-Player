@@ -5,11 +5,11 @@
  version="1.0"
  fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2022.12.07.21:01:39 -->
+ <!-- 2022.12.08.23:18:02 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1670468499</value>
+  <value>1670563082</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -2063,7 +2063,7 @@ parameters are a RESULT of the module parameters. -->
 the requested settings for a module instance. -->
   <parameter name="addr_size">
    <type>int</type>
-   <value>128</value>
+   <value>64</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -2528,17 +2528,9 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>avalon_address</name>
     <direction>Output</direction>
-    <width>27</width>
+    <width>26</width>
     <role>address</role>
    </port>
-   <memoryBlock>
-    <isBridge>false</isBridge>
-    <moduleName>altpll_0</moduleName>
-    <slaveName>pll_slave</slaveName>
-    <name>altpll_0.pll_slave</name>
-    <baseAddress>67108864</baseAddress>
-    <span>16</span>
-   </memoryBlock>
    <memoryBlock>
     <isBridge>false</isBridge>
     <moduleName>new_sdram_controller_0</moduleName>
@@ -2589,7 +2581,7 @@ parameters are a RESULT of the module parameters. -->
    <port>
     <name>address</name>
     <direction>Input</direction>
-    <width>27</width>
+    <width>26</width>
     <role>export</role>
    </port>
    <port>
@@ -3876,57 +3868,6 @@ parameters are a RESULT of the module parameters. -->
   </interface>
  </module>
  <connection
-   name="bridge_0.avalon_master/altpll_0.pll_slave"
-   kind="avalon"
-   version="18.1"
-   start="bridge_0.avalon_master"
-   end="altpll_0.pll_slave">
-  <parameter name="arbitrationPriority">
-   <type>int</type>
-   <value>1</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="baseAddress">
-   <type>java.math.BigInteger</type>
-   <value>0x04000000</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="defaultConnection">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="deviceFamily">
-   <type>java.lang.String</type>
-   <value>UNKNOWN</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <parameter name="generateLegacySim">
-   <type>boolean</type>
-   <value>false</value>
-   <derived>false</derived>
-   <enabled>true</enabled>
-   <visible>true</visible>
-   <valid>true</valid>
-  </parameter>
-  <startModule>bridge_0</startModule>
-  <startConnectionPoint>avalon_master</startConnectionPoint>
-  <endModule>altpll_0</endModule>
-  <endConnectionPoint>pll_slave</endConnectionPoint>
- </connection>
- <connection
    name="bridge_0.avalon_master/new_sdram_controller_0.s1"
    kind="avalon"
    version="18.1"
@@ -4252,7 +4193,7 @@ parameters are a RESULT of the module parameters. -->
   <version>18.1</version>
  </plugin>
  <plugin>
-  <instanceCount>2</instanceCount>
+  <instanceCount>1</instanceCount>
   <name>avalon</name>
   <type>com.altera.entityinterfaces.IElementClass</type>
   <subtype>com.altera.entityinterfaces.IConnection</subtype>

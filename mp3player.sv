@@ -27,12 +27,13 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 					  output	    DRAM_RAS_N,
 					  output	    DRAM_WE_N,
 					  output	    DRAM_CLK,
-					  inout [15:0] ARDUINO_IO
+					  inout [15:0] ARDUINO_IO,
+					  output logic [6:0] HEX0,HEX1,HEX2,HEX3
 				  
 				  );
 					logic [1:0] aud_mclk_ctr;
 					logic SCL_IN, SCL, SDA_IN, SDA, SDA_OE, SCL_OE;    	
-					
+	
 					
 					assign ARDUINO_IO[2] = ARDUINO_IO[1];
 					 
@@ -71,13 +72,13 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 					logic [15:0] BRIDGE_READ_DATA; 
 					
 					/* set BRIDGE ADDRESS based on read/write */ 
-					always_comb
+					/*always_comb
 					begin
 						if (LOAD_MEM)
 							BRIDGE_ADDR = LOAD_ADDRESS;
 						else 
 							BRIDGE_ADDR = address; 
-					end
+					end*/
 					
 				 /* We need SDRAM interface pins to use the SD Card Initializer. 
 				    This requires creating a controller to do the interfacing. */
@@ -85,13 +86,13 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 											 .reset_reset_n(SW[0]), 
 											 .keys_export(KEY),
 											 // Avalon Bridge, interface into SDRAM  
-											 .bridge_address(BRIDGE_ADDR), 
+											 .bridge_address(16'h0005), 
 											 .bridge_byte_enable(2'b11), 
-											 .bridge_read(PLAY),
-											 .bridge_write(LOAD_MEM & WE),
-											 .bridge_write_data(RAM_DATA),
+											 .bridge_read(1'b1),
+											 .bridge_write(1'b0),
+											 .bridge_write_data(2'h69),
 											 .bridge_acknowledge(BRIDGE_ACK), //output 
-											 .bridge_read_data(BRIDGE_READ_DATA),	//output
+											 .bridge_read_data(register),	//output
 											 // I2C
 											 .i2c0_sda_in(SDA_IN),
 											 .i2c0_scl_in(SCL_IN), 
@@ -122,18 +123,18 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				
 				/* wire declarations for control logic and SDCard Initialization */	
 				logic LOAD_MEM,PLAY; 
-				logic [24:0] LOAD_ADDRESS; 
+				logic [26:0] LOAD_ADDRESS; 
 				logic [15:0] RAM_DATA; 
-				logic RAM_OP_BEGUN, RAM_INIT_ERROR, RAM_INIT_DONE, SCLK_O, CS_BO, MOSI_O, WE; 
-				Control ISDU(.Clk(MAX10_CLK1_50), .Reset(~SW[0]), .RAM_INIT_DONE(RAM_INIT_DONE), .LOAD_MEM(LOAD_MEM), .PLAY(PLAY)); 
+				logic RAM_OP_BEGUN, RAM_INIT_ERROR, RAM_INIT_DONE, SCLK_O, CS_BO, MOSI_O, WE, MISO_I; 
+				//Control ISDU(.Clk(MAX10_CLK1_50), .Reset(~SW[0]), .RAM_INIT_DONE(RAM_INIT_DONE), .LOAD_MEM(LOAD_MEM), .PLAY(PLAY)); 
 				 
 				
 				/* create SD Card Initializer */
-				sdcard_init sdci(
+				/*sdcard_init sdci(
 				.clk50(MAX10_CLK1_50),			 
 				.reset(~SW[0]),     
 				.ram_op_begun(BRIDGE_ACK), // acknowledgement from RAM to move on to next word
-				.miso_i(SPI0_MISO), 		 // last input
+				.miso_i(MISO_I), 		 // last input
 				.ram_we(WE), 		 // RAM interface pins
 				.ram_address(LOAD_ADDRESS), 
 				.ram_data(RAM_DATA), 	 
@@ -142,13 +143,13 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				.cs_bo(CS_BO), 		//SD card pins (also make sure to disable USB CS if using DE10-Lite)
 				.sclk_o(SCLK_O), //not tied
 				.mosi_o(MOSI_O) //not tied
-				); 
+				); */
 				
 	
 											 
 				//Instantiate additional FPGA fabric modules as needed	
 				logic [15:0] register; //9 bits to account for dummy bit
-				logic [26:0] address;
+				logic [25:0] address;
 				//harmony_rom hrom (.clk(MAX10_CLK1_50), .addr(2'b11), .q(register));
 				//cat_flat_rom crom (.clk(MAX10_CLK1_50), .addr(address), .q(register));
 				
@@ -156,7 +157,6 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				logic [2:0] div_clk;
 				
 				// fill register from SDRAM 
-				assign register = BRIDGE_READ_DATA; 
 				assign full_register = {2'b00,register,14'b0};
 				
 				//at each positive edge of the LRCLK, we want the next 8-bit sample
@@ -176,12 +176,25 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				end
 				
 				always_ff @(posedge div_clk[1]) begin
-					address <= address + PLAY;
+					address <= address + 1;
 					
 				end
 				always_ff @(posedge ARDUINO_IO[4]) begin
 					div_clk <= div_clk + 1;
 				end
-
+				HexDriver        HexAL (
+                        .In0(register[11:8]),
+                        .Out0(HEX2) );
+	 HexDriver        HexBL (
+                        .In0(register[3:0]),
+                        .Out0(HEX0) );
+								
+	 //When you extend to 8-bits, you will need more HEX drivers to view upper nibble of registers, for now set to 0
+	 HexDriver        HexAU (
+                        .In0(register[15:12]),
+                        .Out0(HEX3) );	
+	 HexDriver        HexBU (
+                       .In0(register[7:4]),
+                        .Out0(HEX1) );
 				
 endmodule

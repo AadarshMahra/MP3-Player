@@ -6,6 +6,7 @@
 		.bridge_0_external_interface_write_data  (<connected-to-bridge_0_external_interface_write_data>),  //                            .write_data
 		.bridge_0_external_interface_acknowledge (<connected-to-bridge_0_external_interface_acknowledge>), //                            .acknowledge
 		.bridge_0_external_interface_read_data   (<connected-to-bridge_0_external_interface_read_data>),   //                            .read_data
+		.clk_clk                                 (<connected-to-clk_clk>),                                 //                         clk.clk
 		.reset_reset_n                           (<connected-to-reset_reset_n>),                           //                       reset.reset_n
 		.sdram_wire_addr                         (<connected-to-sdram_wire_addr>),                         //                  sdram_wire.addr
 		.sdram_wire_ba                           (<connected-to-sdram_wire_ba>),                           //                            .ba
@@ -16,6 +17,10 @@
 		.sdram_wire_dqm                          (<connected-to-sdram_wire_dqm>),                          //                            .dqm
 		.sdram_wire_ras_n                        (<connected-to-sdram_wire_ras_n>),                        //                            .ras_n
 		.sdram_wire_we_n                         (<connected-to-sdram_wire_we_n>),                         //                            .we_n
-		.clk_clk                                 (<connected-to-clk_clk>)                                  //                         clk.clk
+		.altpll_0_pll_slave_read                 (<connected-to-altpll_0_pll_slave_read>),                 //          altpll_0_pll_slave.read
+		.altpll_0_pll_slave_write                (<connected-to-altpll_0_pll_slave_write>),                //                            .write
+		.altpll_0_pll_slave_address              (<connected-to-altpll_0_pll_slave_address>),              //                            .address
+		.altpll_0_pll_slave_readdata             (<connected-to-altpll_0_pll_slave_readdata>),             //                            .readdata
+		.altpll_0_pll_slave_writedata            (<connected-to-altpll_0_pll_slave_writedata>)             //                            .writedata
 	);
 

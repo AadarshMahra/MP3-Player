@@ -1,6 +1,6 @@
 	component mp3player_soc is
 		port (
-			bridge_address     : in    std_logic_vector(26 downto 0) := (others => 'X'); -- address
+			bridge_address     : in    std_logic_vector(25 downto 0) := (others => 'X'); -- address
 			bridge_byte_enable : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- byte_enable
 			bridge_read        : in    std_logic                     := 'X';             -- read
 			bridge_write       : in    std_logic                     := 'X';             -- write

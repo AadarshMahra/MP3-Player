@@ -4,7 +4,12 @@
 
 `timescale 1 ps / 1 ps
 module sdram_interface (
-		input  wire [26:0] bridge_0_external_interface_address,     // bridge_0_external_interface.address
+		input  wire        altpll_0_pll_slave_read,                 //          altpll_0_pll_slave.read
+		input  wire        altpll_0_pll_slave_write,                //                            .write
+		input  wire [1:0]  altpll_0_pll_slave_address,              //                            .address
+		output wire [31:0] altpll_0_pll_slave_readdata,             //                            .readdata
+		input  wire [31:0] altpll_0_pll_slave_writedata,            //                            .writedata
+		input  wire [25:0] bridge_0_external_interface_address,     // bridge_0_external_interface.address
 		input  wire [1:0]  bridge_0_external_interface_byte_enable, //                            .byte_enable
 		input  wire        bridge_0_external_interface_read,        //                            .read
 		input  wire        bridge_0_external_interface_write,       //                            .write
@@ -29,14 +34,9 @@ module sdram_interface (
 	wire         bridge_0_avalon_master_waitrequest;                        // mm_interconnect_0:bridge_0_avalon_master_waitrequest -> bridge_0:avalon_waitrequest
 	wire   [1:0] bridge_0_avalon_master_byteenable;                         // bridge_0:avalon_byteenable -> mm_interconnect_0:bridge_0_avalon_master_byteenable
 	wire         bridge_0_avalon_master_read;                               // bridge_0:avalon_read -> mm_interconnect_0:bridge_0_avalon_master_read
-	wire  [26:0] bridge_0_avalon_master_address;                            // bridge_0:avalon_address -> mm_interconnect_0:bridge_0_avalon_master_address
+	wire  [25:0] bridge_0_avalon_master_address;                            // bridge_0:avalon_address -> mm_interconnect_0:bridge_0_avalon_master_address
 	wire         bridge_0_avalon_master_write;                              // bridge_0:avalon_write -> mm_interconnect_0:bridge_0_avalon_master_write
 	wire  [15:0] bridge_0_avalon_master_writedata;                          // bridge_0:avalon_writedata -> mm_interconnect_0:bridge_0_avalon_master_writedata
-	wire  [31:0] mm_interconnect_0_altpll_0_pll_slave_readdata;             // altpll_0:readdata -> mm_interconnect_0:altpll_0_pll_slave_readdata
-	wire   [1:0] mm_interconnect_0_altpll_0_pll_slave_address;              // mm_interconnect_0:altpll_0_pll_slave_address -> altpll_0:address
-	wire         mm_interconnect_0_altpll_0_pll_slave_read;                 // mm_interconnect_0:altpll_0_pll_slave_read -> altpll_0:read
-	wire         mm_interconnect_0_altpll_0_pll_slave_write;                // mm_interconnect_0:altpll_0_pll_slave_write -> altpll_0:write
-	wire  [31:0] mm_interconnect_0_altpll_0_pll_slave_writedata;            // mm_interconnect_0:altpll_0_pll_slave_writedata -> altpll_0:writedata
 	wire         mm_interconnect_0_new_sdram_controller_0_s1_chipselect;    // mm_interconnect_0:new_sdram_controller_0_s1_chipselect -> new_sdram_controller_0:az_cs
 	wire  [15:0] mm_interconnect_0_new_sdram_controller_0_s1_readdata;      // new_sdram_controller_0:za_data -> mm_interconnect_0:new_sdram_controller_0_s1_readdata
 	wire         mm_interconnect_0_new_sdram_controller_0_s1_waitrequest;   // new_sdram_controller_0:za_waitrequest -> mm_interconnect_0:new_sdram_controller_0_s1_waitrequest
@@ -50,30 +50,30 @@ module sdram_interface (
 	wire         rst_controller_001_reset_out_reset;                        // rst_controller_001:reset_out -> [mm_interconnect_0:new_sdram_controller_0_reset_reset_bridge_in_reset_reset, new_sdram_controller_0:reset_n]
 
 	sdram_interface_altpll_0 altpll_0 (
-		.clk                (clk_clk),                                        //       inclk_interface.clk
-		.reset              (rst_controller_reset_out_reset),                 // inclk_interface_reset.reset
-		.read               (mm_interconnect_0_altpll_0_pll_slave_read),      //             pll_slave.read
-		.write              (mm_interconnect_0_altpll_0_pll_slave_write),     //                      .write
-		.address            (mm_interconnect_0_altpll_0_pll_slave_address),   //                      .address
-		.readdata           (mm_interconnect_0_altpll_0_pll_slave_readdata),  //                      .readdata
-		.writedata          (mm_interconnect_0_altpll_0_pll_slave_writedata), //                      .writedata
-		.c0                 (altpll_0_c0_clk),                                //                    c0.clk
-		.c1                 (),                                               //                    c1.clk
-		.scandone           (),                                               //           (terminated)
-		.scandataout        (),                                               //           (terminated)
-		.c2                 (),                                               //           (terminated)
-		.c3                 (),                                               //           (terminated)
-		.c4                 (),                                               //           (terminated)
-		.areset             (1'b0),                                           //           (terminated)
-		.locked             (),                                               //           (terminated)
-		.phasedone          (),                                               //           (terminated)
-		.phasecounterselect (3'b000),                                         //           (terminated)
-		.phaseupdown        (1'b0),                                           //           (terminated)
-		.phasestep          (1'b0),                                           //           (terminated)
-		.scanclk            (1'b0),                                           //           (terminated)
-		.scanclkena         (1'b0),                                           //           (terminated)
-		.scandata           (1'b0),                                           //           (terminated)
-		.configupdate       (1'b0)                                            //           (terminated)
+		.clk                (clk_clk),                        //       inclk_interface.clk
+		.reset              (rst_controller_reset_out_reset), // inclk_interface_reset.reset
+		.read               (altpll_0_pll_slave_read),        //             pll_slave.read
+		.write              (altpll_0_pll_slave_write),       //                      .write
+		.address            (altpll_0_pll_slave_address),     //                      .address
+		.readdata           (altpll_0_pll_slave_readdata),    //                      .readdata
+		.writedata          (altpll_0_pll_slave_writedata),   //                      .writedata
+		.c0                 (altpll_0_c0_clk),                //                    c0.clk
+		.c1                 (),                               //                    c1.clk
+		.scandone           (),                               //           (terminated)
+		.scandataout        (),                               //           (terminated)
+		.c2                 (),                               //           (terminated)
+		.c3                 (),                               //           (terminated)
+		.c4                 (),                               //           (terminated)
+		.areset             (1'b0),                           //           (terminated)
+		.locked             (),                               //           (terminated)
+		.phasedone          (),                               //           (terminated)
+		.phasecounterselect (3'b000),                         //           (terminated)
+		.phaseupdown        (1'b0),                           //           (terminated)
+		.phasestep          (1'b0),                           //           (terminated)
+		.scanclk            (1'b0),                           //           (terminated)
+		.scanclkena         (1'b0),                           //           (terminated)
+		.scandata           (1'b0),                           //           (terminated)
+		.configupdate       (1'b0)                            //           (terminated)
 	);
 
 	sdram_interface_bridge_0 bridge_0 (
@@ -130,11 +130,6 @@ module sdram_interface (
 		.bridge_0_avalon_master_readdata                          (bridge_0_avalon_master_readdata),                           //                                                   .readdata
 		.bridge_0_avalon_master_write                             (bridge_0_avalon_master_write),                              //                                                   .write
 		.bridge_0_avalon_master_writedata                         (bridge_0_avalon_master_writedata),                          //                                                   .writedata
-		.altpll_0_pll_slave_address                               (mm_interconnect_0_altpll_0_pll_slave_address),              //                                 altpll_0_pll_slave.address
-		.altpll_0_pll_slave_write                                 (mm_interconnect_0_altpll_0_pll_slave_write),                //                                                   .write
-		.altpll_0_pll_slave_read                                  (mm_interconnect_0_altpll_0_pll_slave_read),                 //                                                   .read
-		.altpll_0_pll_slave_readdata                              (mm_interconnect_0_altpll_0_pll_slave_readdata),             //                                                   .readdata
-		.altpll_0_pll_slave_writedata                             (mm_interconnect_0_altpll_0_pll_slave_writedata),            //                                                   .writedata
 		.new_sdram_controller_0_s1_address                        (mm_interconnect_0_new_sdram_controller_0_s1_address),       //                          new_sdram_controller_0_s1.address
 		.new_sdram_controller_0_s1_write                          (mm_interconnect_0_new_sdram_controller_0_s1_write),         //                                                   .write
 		.new_sdram_controller_0_s1_read                           (mm_interconnect_0_new_sdram_controller_0_s1_read),          //                                                   .read

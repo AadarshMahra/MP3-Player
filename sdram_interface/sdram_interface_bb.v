@@ -7,6 +7,7 @@ module sdram_interface (
 	bridge_0_external_interface_write_data,
 	bridge_0_external_interface_acknowledge,
 	bridge_0_external_interface_read_data,
+	clk_clk,
 	reset_reset_n,
 	sdram_wire_addr,
 	sdram_wire_ba,
@@ -17,15 +18,20 @@ module sdram_interface (
 	sdram_wire_dqm,
 	sdram_wire_ras_n,
 	sdram_wire_we_n,
-	clk_clk);	
+	altpll_0_pll_slave_read,
+	altpll_0_pll_slave_write,
+	altpll_0_pll_slave_address,
+	altpll_0_pll_slave_readdata,
+	altpll_0_pll_slave_writedata);	
 
-	input	[26:0]	bridge_0_external_interface_address;
+	input	[25:0]	bridge_0_external_interface_address;
 	input	[1:0]	bridge_0_external_interface_byte_enable;
 	input		bridge_0_external_interface_read;
 	input		bridge_0_external_interface_write;
 	input	[15:0]	bridge_0_external_interface_write_data;
 	output		bridge_0_external_interface_acknowledge;
 	output	[15:0]	bridge_0_external_interface_read_data;
+	input		clk_clk;
 	input		reset_reset_n;
 	output	[12:0]	sdram_wire_addr;
 	output	[1:0]	sdram_wire_ba;
@@ -36,5 +42,9 @@ module sdram_interface (
 	output	[1:0]	sdram_wire_dqm;
 	output		sdram_wire_ras_n;
 	output		sdram_wire_we_n;
-	input		clk_clk;
+	input		altpll_0_pll_slave_read;
+	input		altpll_0_pll_slave_write;
+	input	[1:0]	altpll_0_pll_slave_address;
+	output	[31:0]	altpll_0_pll_slave_readdata;
+	input	[31:0]	altpll_0_pll_slave_writedata;
 endmodule

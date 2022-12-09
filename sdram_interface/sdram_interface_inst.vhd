@@ -1,12 +1,13 @@
 	component sdram_interface is
 		port (
-			bridge_0_external_interface_address     : in    std_logic_vector(26 downto 0) := (others => 'X'); -- address
+			bridge_0_external_interface_address     : in    std_logic_vector(25 downto 0) := (others => 'X'); -- address
 			bridge_0_external_interface_byte_enable : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- byte_enable
 			bridge_0_external_interface_read        : in    std_logic                     := 'X';             -- read
 			bridge_0_external_interface_write       : in    std_logic                     := 'X';             -- write
 			bridge_0_external_interface_write_data  : in    std_logic_vector(15 downto 0) := (others => 'X'); -- write_data
 			bridge_0_external_interface_acknowledge : out   std_logic;                                        -- acknowledge
 			bridge_0_external_interface_read_data   : out   std_logic_vector(15 downto 0);                    -- read_data
+			clk_clk                                 : in    std_logic                     := 'X';             -- clk
 			reset_reset_n                           : in    std_logic                     := 'X';             -- reset_n
 			sdram_wire_addr                         : out   std_logic_vector(12 downto 0);                    -- addr
 			sdram_wire_ba                           : out   std_logic_vector(1 downto 0);                     -- ba
@@ -17,7 +18,11 @@
 			sdram_wire_dqm                          : out   std_logic_vector(1 downto 0);                     -- dqm
 			sdram_wire_ras_n                        : out   std_logic;                                        -- ras_n
 			sdram_wire_we_n                         : out   std_logic;                                        -- we_n
-			clk_clk                                 : in    std_logic                     := 'X'              -- clk
+			altpll_0_pll_slave_read                 : in    std_logic                     := 'X';             -- read
+			altpll_0_pll_slave_write                : in    std_logic                     := 'X';             -- write
+			altpll_0_pll_slave_address              : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- address
+			altpll_0_pll_slave_readdata             : out   std_logic_vector(31 downto 0);                    -- readdata
+			altpll_0_pll_slave_writedata            : in    std_logic_vector(31 downto 0) := (others => 'X')  -- writedata
 		);
 	end component sdram_interface;
 
@@ -30,6 +35,7 @@
 			bridge_0_external_interface_write_data  => CONNECTED_TO_bridge_0_external_interface_write_data,  --                            .write_data
 			bridge_0_external_interface_acknowledge => CONNECTED_TO_bridge_0_external_interface_acknowledge, --                            .acknowledge
 			bridge_0_external_interface_read_data   => CONNECTED_TO_bridge_0_external_interface_read_data,   --                            .read_data
+			clk_clk                                 => CONNECTED_TO_clk_clk,                                 --                         clk.clk
 			reset_reset_n                           => CONNECTED_TO_reset_reset_n,                           --                       reset.reset_n
 			sdram_wire_addr                         => CONNECTED_TO_sdram_wire_addr,                         --                  sdram_wire.addr
 			sdram_wire_ba                           => CONNECTED_TO_sdram_wire_ba,                           --                            .ba
@@ -40,6 +46,10 @@
 			sdram_wire_dqm                          => CONNECTED_TO_sdram_wire_dqm,                          --                            .dqm
 			sdram_wire_ras_n                        => CONNECTED_TO_sdram_wire_ras_n,                        --                            .ras_n
 			sdram_wire_we_n                         => CONNECTED_TO_sdram_wire_we_n,                         --                            .we_n
-			clk_clk                                 => CONNECTED_TO_clk_clk                                  --                         clk.clk
+			altpll_0_pll_slave_read                 => CONNECTED_TO_altpll_0_pll_slave_read,                 --          altpll_0_pll_slave.read
+			altpll_0_pll_slave_write                => CONNECTED_TO_altpll_0_pll_slave_write,                --                            .write
+			altpll_0_pll_slave_address              => CONNECTED_TO_altpll_0_pll_slave_address,              --                            .address
+			altpll_0_pll_slave_readdata             => CONNECTED_TO_altpll_0_pll_slave_readdata,             --                            .readdata
+			altpll_0_pll_slave_writedata            => CONNECTED_TO_altpll_0_pll_slave_writedata             --                            .writedata
 		);
 

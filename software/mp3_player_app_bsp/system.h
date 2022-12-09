@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
  * SOPC Builder design path: ../../mp3player_soc.sopcinfo
  *
- * Generated: Thu Dec 08 11:35:22 CST 2022
+ * Generated: Fri Dec 09 00:26:02 CST 2022
  */
 
 /*
@@ -140,6 +140,7 @@
 #define __ALTERA_AVALON_SPI
 #define __ALTERA_AVALON_SYSID_QSYS
 #define __ALTERA_NIOS2_GEN2
+#define __ALTPLL
 
 
 /*
@@ -204,6 +205,20 @@
 #define I2C_0_SPAN 64
 #define I2C_0_TYPE "altera_avalon_i2c"
 #define I2C_0_USE_AV_ST 0
+
+
+/*
+ * interface_0_altpll_0 configuration
+ *
+ */
+
+#define ALT_MODULE_CLASS_interface_0_altpll_0 altpll
+#define INTERFACE_0_ALTPLL_0_BASE 0x0
+#define INTERFACE_0_ALTPLL_0_IRQ -1
+#define INTERFACE_0_ALTPLL_0_IRQ_INTERRUPT_CONTROLLER_ID -1
+#define INTERFACE_0_ALTPLL_0_NAME "/dev/interface_0_altpll_0"
+#define INTERFACE_0_ALTPLL_0_SPAN 16
+#define INTERFACE_0_ALTPLL_0_TYPE "altpll"
 
 
 /*
@@ -323,7 +338,7 @@
 #define SYSID_QSYS_0_IRQ_INTERRUPT_CONTROLLER_ID -1
 #define SYSID_QSYS_0_NAME "/dev/sysid_qsys_0"
 #define SYSID_QSYS_0_SPAN 8
-#define SYSID_QSYS_0_TIMESTAMP 1670520639
+#define SYSID_QSYS_0_TIMESTAMP 1670565361
 #define SYSID_QSYS_0_TYPE "altera_avalon_sysid_qsys"
 
 #endif /* __SYSTEM_H_ */

@@ -63,7 +63,7 @@ module sdram_interface_bridge_0 (
  *                           Parameter Declarations                          *
  *****************************************************************************/
 
-parameter	AW	= 26;	// Address width
+parameter	AW	= 25;	// Address width
 parameter	DW	= 15;	// Data width
 
 parameter	BW	= 1;	// Byte enable width
