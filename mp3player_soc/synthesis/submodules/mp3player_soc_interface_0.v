@@ -76,7 +76,7 @@ module mp3player_soc_interface_0 (
 		.configupdate       (1'b0)                            //           (terminated)
 	);
 
-	mp3player_soc_interface_0_bridge_0 bridge_0 (
+	mp3player_soc_bridge_0 bridge_0 (
 		.clk                (clk_clk),                                 //                clk.clk
 		.reset              (rst_controller_reset_out_reset),          //              reset.reset
 		.avalon_readdata    (bridge_0_avalon_master_readdata),         //      avalon_master.readdata
@@ -118,7 +118,7 @@ module mp3player_soc_interface_0 (
 		.zs_we_n        (sdram_wire_we_n)                                            //      .export
 	);
 
-	mp3player_soc_interface_0_mm_interconnect_0 mm_interconnect_0 (
+	mp3player_soc_mm_interconnect_0 mm_interconnect_0 (
 		.altpll_0_c0_clk                                          (altpll_0_c0_clk),                                           //                                        altpll_0_c0.clk
 		.clk_0_clk_clk                                            (clk_clk),                                                   //                                          clk_0_clk.clk
 		.bridge_0_reset_reset_bridge_in_reset_reset               (rst_controller_reset_out_reset),                            //               bridge_0_reset_reset_bridge_in_reset.reset

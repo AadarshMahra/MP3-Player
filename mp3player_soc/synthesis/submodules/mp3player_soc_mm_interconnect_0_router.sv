@@ -44,26 +44,26 @@
 
 module mp3player_soc_mm_interconnect_0_router_default_decode
   #(
-     parameter DEFAULT_CHANNEL = 5,
+     parameter DEFAULT_CHANNEL = 0,
                DEFAULT_WR_CHANNEL = -1,
                DEFAULT_RD_CHANNEL = -1,
-               DEFAULT_DESTID = 5 
+               DEFAULT_DESTID = 0 
    )
-  (output [95 - 93 : 0] default_destination_id,
-   output [8-1 : 0] default_wr_channel,
-   output [8-1 : 0] default_rd_channel,
-   output [8-1 : 0] default_src_channel
+  (output [63 - 63 : 0] default_destination_id,
+   output [1-1 : 0] default_wr_channel,
+   output [1-1 : 0] default_rd_channel,
+   output [1-1 : 0] default_src_channel
   );
 
   assign default_destination_id = 
-    DEFAULT_DESTID[95 - 93 : 0];
+    DEFAULT_DESTID[63 - 63 : 0];
 
   generate
     if (DEFAULT_CHANNEL == -1) begin : no_default_channel_assignment
       assign default_src_channel = '0;
     end
     else begin : default_channel_assignment
-      assign default_src_channel = 8'b1 << DEFAULT_CHANNEL;
+      assign default_src_channel = 1'b1 << DEFAULT_CHANNEL;
     end
   endgenerate
 
@@ -73,8 +73,8 @@ module mp3player_soc_mm_interconnect_0_router_default_decode
       assign default_rd_channel = '0;
     end
     else begin : default_rw_channel_assignment
-      assign default_wr_channel = 8'b1 << DEFAULT_WR_CHANNEL;
-      assign default_rd_channel = 8'b1 << DEFAULT_RD_CHANNEL;
+      assign default_wr_channel = 1'b1 << DEFAULT_WR_CHANNEL;
+      assign default_rd_channel = 1'b1 << DEFAULT_RD_CHANNEL;
     end
   endgenerate
 
@@ -93,7 +93,7 @@ module mp3player_soc_mm_interconnect_0_router
     // Command Sink (Input)
     // -------------------
     input                       sink_valid,
-    input  [109-1 : 0]    sink_data,
+    input  [77-1 : 0]    sink_data,
     input                       sink_startofpacket,
     input                       sink_endofpacket,
     output                      sink_ready,
@@ -102,8 +102,8 @@ module mp3player_soc_mm_interconnect_0_router
     // Command Source (Output)
     // -------------------
     output                          src_valid,
-    output reg [109-1    : 0] src_data,
-    output reg [8-1 : 0] src_channel,
+    output reg [77-1    : 0] src_data,
+    output reg [1-1 : 0] src_channel,
     output                          src_startofpacket,
     output                          src_endofpacket,
     input                           src_ready
@@ -112,18 +112,18 @@ module mp3player_soc_mm_interconnect_0_router
     // -------------------------------------------------------
     // Local parameters and variables
     // -------------------------------------------------------
-    localparam PKT_ADDR_H = 63;
-    localparam PKT_ADDR_L = 36;
-    localparam PKT_DEST_ID_H = 95;
-    localparam PKT_DEST_ID_L = 93;
-    localparam PKT_PROTECTION_H = 99;
-    localparam PKT_PROTECTION_L = 97;
-    localparam ST_DATA_W = 109;
-    localparam ST_CHANNEL_W = 8;
+    localparam PKT_ADDR_H = 43;
+    localparam PKT_ADDR_L = 18;
+    localparam PKT_DEST_ID_H = 63;
+    localparam PKT_DEST_ID_L = 63;
+    localparam PKT_PROTECTION_H = 67;
+    localparam PKT_PROTECTION_L = 65;
+    localparam ST_DATA_W = 77;
+    localparam ST_CHANNEL_W = 1;
     localparam DECODER_TYPE = 0;
 
-    localparam PKT_TRANS_WRITE = 66;
-    localparam PKT_TRANS_READ  = 67;
+    localparam PKT_TRANS_WRITE = 46;
+    localparam PKT_TRANS_READ  = 47;
 
     localparam PKT_ADDR_W = PKT_ADDR_H-PKT_ADDR_L + 1;
     localparam PKT_DEST_ID_W = PKT_DEST_ID_H-PKT_DEST_ID_L + 1;
@@ -134,34 +134,22 @@ module mp3player_soc_mm_interconnect_0_router
     // Figure out the number of bits to mask off for each slave span
     // during address decoding
     // -------------------------------------------------------
-    localparam PAD0 = log2ceil(64'h10 - 64'h0); 
-    localparam PAD1 = log2ceil(64'h8020000 - 64'h8010000); 
-    localparam PAD2 = log2ceil(64'h8021000 - 64'h8020800); 
-    localparam PAD3 = log2ceil(64'h8021080 - 64'h8021040); 
-    localparam PAD4 = log2ceil(64'h80210c0 - 64'h80210a0); 
-    localparam PAD5 = log2ceil(64'h80210f0 - 64'h80210e0); 
-    localparam PAD6 = log2ceil(64'h8021118 - 64'h8021110); 
-    localparam PAD7 = log2ceil(64'h8021120 - 64'h8021118); 
+    localparam PAD0 = log2ceil(64'h4000000 - 64'h0); 
     // -------------------------------------------------------
     // Work out which address bits are significant based on the
     // address range of the slaves. If the required width is too
     // large or too small, we use the address field width instead.
     // -------------------------------------------------------
-    localparam ADDR_RANGE = 64'h8021120;
+    localparam ADDR_RANGE = 64'h4000000;
     localparam RANGE_ADDR_WIDTH = log2ceil(ADDR_RANGE);
     localparam OPTIMIZED_ADDR_H = (RANGE_ADDR_WIDTH > PKT_ADDR_W) ||
                                   (RANGE_ADDR_WIDTH == 0) ?
                                         PKT_ADDR_H :
                                         PKT_ADDR_L + RANGE_ADDR_WIDTH - 1;
 
-    localparam RG = RANGE_ADDR_WIDTH-1;
+    localparam RG = RANGE_ADDR_WIDTH;
     localparam REAL_ADDRESS_RANGE = OPTIMIZED_ADDR_H - PKT_ADDR_L;
 
-      reg [PKT_ADDR_W-1 : 0] address;
-      always @* begin
-        address = {PKT_ADDR_W{1'b0}};
-        address [REAL_ADDRESS_RANGE:0] = sink_data[OPTIMIZED_ADDR_H : PKT_ADDR_L];
-      end   
 
     // -------------------------------------------------------
     // Pass almost everything through, untouched
@@ -171,16 +159,11 @@ module mp3player_soc_mm_interconnect_0_router
     assign src_startofpacket = sink_startofpacket;
     assign src_endofpacket   = sink_endofpacket;
     wire [PKT_DEST_ID_W-1:0] default_destid;
-    wire [8-1 : 0] default_src_channel;
+    wire [1-1 : 0] default_src_channel;
 
 
 
 
-    // -------------------------------------------------------
-    // Write and read transaction signals
-    // -------------------------------------------------------
-    wire read_transaction;
-    assign read_transaction  = sink_data[PKT_TRANS_READ];
 
 
     mp3player_soc_mm_interconnect_0_router_default_decode the_default_decode(
@@ -199,54 +182,13 @@ module mp3player_soc_mm_interconnect_0_router
         // Address Decoder
         // Sets the channel and destination ID based on the address
         // --------------------------------------------------
-
-    // ( 0x0 .. 0x10 )
-    if ( {address[RG:PAD0],{PAD0{1'b0}}} == 28'h0   ) begin
-            src_channel = 8'b00000001;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 1;
-    end
-
-    // ( 0x8010000 .. 0x8020000 )
-    if ( {address[RG:PAD1],{PAD1{1'b0}}} == 28'h8010000   ) begin
-            src_channel = 8'b00100000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 5;
-    end
-
-    // ( 0x8020800 .. 0x8021000 )
-    if ( {address[RG:PAD2],{PAD2{1'b0}}} == 28'h8020800   ) begin
-            src_channel = 8'b00010000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 4;
-    end
-
-    // ( 0x8021040 .. 0x8021080 )
-    if ( {address[RG:PAD3],{PAD3{1'b0}}} == 28'h8021040   ) begin
-            src_channel = 8'b00001000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
-    end
-
-    // ( 0x80210a0 .. 0x80210c0 )
-    if ( {address[RG:PAD4],{PAD4{1'b0}}} == 28'h80210a0   ) begin
-            src_channel = 8'b10000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 6;
-    end
-
-    // ( 0x80210e0 .. 0x80210f0 )
-    if ( {address[RG:PAD5],{PAD5{1'b0}}} == 28'h80210e0  && read_transaction  ) begin
-            src_channel = 8'b01000000;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 3;
-    end
-
-    // ( 0x8021110 .. 0x8021118 )
-    if ( {address[RG:PAD6],{PAD6{1'b0}}} == 28'h8021110  && read_transaction  ) begin
-            src_channel = 8'b00000100;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 7;
-    end
-
-    // ( 0x8021118 .. 0x8021120 )
-    if ( {address[RG:PAD7],{PAD7{1'b0}}} == 28'h8021118   ) begin
-            src_channel = 8'b00000010;
-            src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 2;
-    end
+           
+         
+          // ( 0 .. 4000000 )
+          src_channel = 1'b1;
+          src_data[PKT_DEST_ID_H:PKT_DEST_ID_L] = 0;
+	     
+        
 
 end
 

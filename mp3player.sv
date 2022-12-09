@@ -86,21 +86,20 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 											 .reset_reset_n(SW[0]), 
 											 .keys_export(KEY),
 											 // Avalon Bridge, interface into SDRAM  
-											 .bridge_address(16'h0005), 
-											 .bridge_byte_enable(2'b11), 
-											 .bridge_read(1'b1),
-											 .bridge_write(1'b0),
-											 .bridge_write_data(2'h69),
-											 .bridge_acknowledge(BRIDGE_ACK), //output 
-											 .bridge_read_data(register),	//output
+											 .bridge_0_external_interface_address(16'h0005), 
+											 .bridge_0_external_interface_byte_enable(2'b11), 
+											 .bridge_0_external_interface_read(1'b1),
+											 .bridge_0_external_interface_write(1'b0),
+											 .bridge_0_external_interface_write_data(2'h69),
+											 .bridge_0_external_interface_acknowledge(BRIDGE_ACK), //output 
+											 .bridge_0_external_interface_read_data(register),	//output
 											 // I2C
 											 .i2c0_sda_in(SDA_IN),
 											 .i2c0_scl_in(SCL_IN), 
 											 .i2c0_sda_oe(SDA_OE), 
 											 .i2c0_scl_oe(SCL_OE),
-											/* 
+											
 											//SDRAM
-											.sdram_clk_clk(DRAM_CLK),                            //clk_sdram.clk
 											.sdram_wire_addr(DRAM_ADDR),                         //sdram_wire.addr
 											.sdram_wire_ba(DRAM_BA),                             //.ba
 											.sdram_wire_cas_n(DRAM_CAS_N),                       //.cas_n
@@ -110,7 +109,7 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 											.sdram_wire_dqm({DRAM_UDQM,DRAM_LDQM}),              //.dqm
 											.sdram_wire_ras_n(DRAM_RAS_N),                       //.ras_n
 											.sdram_wire_we_n(DRAM_WE_N),                          //.we_n
-											*/
+											
 											// SPI 
 											.spi0_MISO(SPI0_MISO), //only input
 											.spi0_MOSI(SPI0_MOSI), 
@@ -182,18 +181,18 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				always_ff @(posedge ARDUINO_IO[4]) begin
 					div_clk <= div_clk + 1;
 				end
-				HexDriver        HexAL (
+				HexDriver HexAL (
                         .In0(register[11:8]),
                         .Out0(HEX2) );
-	 HexDriver        HexBL (
+				HexDriver HexBL (
                         .In0(register[3:0]),
                         .Out0(HEX0) );
 								
 	 //When you extend to 8-bits, you will need more HEX drivers to view upper nibble of registers, for now set to 0
-	 HexDriver        HexAU (
+				HexDriver HexAU (
                         .In0(register[15:12]),
                         .Out0(HEX3) );	
-	 HexDriver        HexBU (
+				HexDriver HexBU (
                        .In0(register[7:4]),
                         .Out0(HEX1) );
 				
