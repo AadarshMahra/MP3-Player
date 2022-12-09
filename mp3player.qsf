@@ -299,75 +299,6 @@ set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_clk -to MAX10_
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
-set_global_assignment -name SYSTEMVERILOG_FILE cat_flat.sv
-set_global_assignment -name SDC_FILE lab7.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE harmony.sv
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_sysid_qsys_0.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_sdram.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_onchip_memory2_0.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0_cpu_test_bench.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0_cpu.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0.v
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_rsp_mux.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_rsp_demux.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_router_007.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_router_006.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_router_002.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_router.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_cmd_mux.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_cmd_demux.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0.sv
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter_005.v
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter_004_error_adapter_0.sv
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter_004.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0.v
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_irq_mapper.sv
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_altpll_0.v
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_wrap_burst_converter.sv
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_std_synchronizer_nocut.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_reset_synchronizer.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_reset_controller.v
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_width_adapter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_slave_translator.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_slave_agent.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_master_translator.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_master_agent.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_burst_adapter_uncmpr.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_burst_adapter_new.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_burst_adapter_13_1.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_burst_adapter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_arbitrator.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_address_alignment.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_incr_burst_converter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_default_burst_converter.sv
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_st_pipeline_stage.sv
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_st_pipeline_base.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_sc_fifo.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_txshifter.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_txout.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_spksupp.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_rxshifter.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_mstfsm.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_fifo.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_csr.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_condt_gen.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_condt_det.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_clk_cnt.v
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c.v
-set_global_assignment -name QSYS_FILE mp3player_soc.qsys
-set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/mp3player_soc.v
-set_global_assignment -name SYSTEMVERILOG_FILE mp3player.sv
-set_global_assignment -name SIGNALTAP_FILE stp1.stp
-set_global_assignment -name SDC_FILE mp3player.sdc
-set_global_assignment -name SYSTEMVERILOG_FILE reg_8.sv
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[9] -to LD_ctr[0] -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[10] -to LD_ctr[1] -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[11] -to LD_ctr[2] -section_id auto_signaltap_0
@@ -591,190 +522,139 @@ set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[220] -
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[221] -to index[4] -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[222] -to index[5] -section_id auto_signaltap_0
 set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_RAM_PIPELINE=5" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to ARDUINO_IO[3] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to ARDUINO_IO[4] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to LD_ctr[0] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[3] -to address[0] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[4] -to "mp3player_soc:soc|bridge_0_external_interface_address[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[223] -to "mp3player_soc:soc|bridge_0_external_interface_address[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[5] -to "mp3player_soc:soc|bridge_0_external_interface_address[10]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[224] -to "mp3player_soc:soc|bridge_0_external_interface_address[10]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[6] -to "mp3player_soc:soc|bridge_0_external_interface_address[11]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[225] -to "mp3player_soc:soc|bridge_0_external_interface_address[11]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[7] -to "mp3player_soc:soc|bridge_0_external_interface_address[12]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[226] -to "mp3player_soc:soc|bridge_0_external_interface_address[12]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[8] -to "mp3player_soc:soc|bridge_0_external_interface_address[13]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[227] -to "mp3player_soc:soc|bridge_0_external_interface_address[13]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[9] -to "mp3player_soc:soc|bridge_0_external_interface_address[14]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[228] -to "mp3player_soc:soc|bridge_0_external_interface_address[14]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[10] -to "mp3player_soc:soc|bridge_0_external_interface_address[15]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[229] -to "mp3player_soc:soc|bridge_0_external_interface_address[15]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[11] -to "mp3player_soc:soc|bridge_0_external_interface_address[16]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[230] -to "mp3player_soc:soc|bridge_0_external_interface_address[16]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[12] -to "mp3player_soc:soc|bridge_0_external_interface_address[17]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[231] -to "mp3player_soc:soc|bridge_0_external_interface_address[17]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[13] -to "mp3player_soc:soc|bridge_0_external_interface_address[18]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[232] -to "mp3player_soc:soc|bridge_0_external_interface_address[18]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[14] -to "mp3player_soc:soc|bridge_0_external_interface_address[19]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[233] -to "mp3player_soc:soc|bridge_0_external_interface_address[19]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[15] -to "mp3player_soc:soc|bridge_0_external_interface_address[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[234] -to "mp3player_soc:soc|bridge_0_external_interface_address[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[16] -to "mp3player_soc:soc|bridge_0_external_interface_address[20]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[235] -to "mp3player_soc:soc|bridge_0_external_interface_address[20]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[17] -to "mp3player_soc:soc|bridge_0_external_interface_address[21]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[236] -to "mp3player_soc:soc|bridge_0_external_interface_address[21]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[18] -to "mp3player_soc:soc|bridge_0_external_interface_address[22]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[237] -to "mp3player_soc:soc|bridge_0_external_interface_address[22]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[19] -to "mp3player_soc:soc|bridge_0_external_interface_address[23]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[238] -to "mp3player_soc:soc|bridge_0_external_interface_address[23]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[20] -to "mp3player_soc:soc|bridge_0_external_interface_address[24]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[239] -to "mp3player_soc:soc|bridge_0_external_interface_address[24]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[21] -to "mp3player_soc:soc|bridge_0_external_interface_address[25]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[240] -to "mp3player_soc:soc|bridge_0_external_interface_address[25]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[22] -to "mp3player_soc:soc|bridge_0_external_interface_address[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[241] -to "mp3player_soc:soc|bridge_0_external_interface_address[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[23] -to "mp3player_soc:soc|bridge_0_external_interface_address[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[242] -to "mp3player_soc:soc|bridge_0_external_interface_address[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[24] -to "mp3player_soc:soc|bridge_0_external_interface_address[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[243] -to "mp3player_soc:soc|bridge_0_external_interface_address[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[25] -to "mp3player_soc:soc|bridge_0_external_interface_address[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[244] -to "mp3player_soc:soc|bridge_0_external_interface_address[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[26] -to "mp3player_soc:soc|bridge_0_external_interface_address[6]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[245] -to "mp3player_soc:soc|bridge_0_external_interface_address[6]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[27] -to "mp3player_soc:soc|bridge_0_external_interface_address[7]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[246] -to "mp3player_soc:soc|bridge_0_external_interface_address[7]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[28] -to "mp3player_soc:soc|bridge_0_external_interface_address[8]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[247] -to "mp3player_soc:soc|bridge_0_external_interface_address[8]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[29] -to "mp3player_soc:soc|bridge_0_external_interface_address[9]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[248] -to "mp3player_soc:soc|bridge_0_external_interface_address[9]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[30] -to "mp3player_soc:soc|bridge_0_external_interface_byte_enable[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[249] -to "mp3player_soc:soc|bridge_0_external_interface_byte_enable[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[31] -to "mp3player_soc:soc|bridge_0_external_interface_byte_enable[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[250] -to "mp3player_soc:soc|bridge_0_external_interface_byte_enable[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[32] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[251] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[33] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[10]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[252] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[10]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[34] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[11]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[253] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[11]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[35] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[12]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[254] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[12]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[36] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[13]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[255] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[13]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[37] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[14]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[256] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[14]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[38] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[15]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[257] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[15]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[39] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[258] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[40] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[259] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[41] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[260] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[42] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[261] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[43] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[262] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[44] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[6]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[263] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[6]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[45] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[7]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[264] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[7]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[46] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[8]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[265] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[8]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[47] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[9]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[266] -to "mp3player_soc:soc|bridge_0_external_interface_read_data[9]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[48] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[267] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[49] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[10]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[268] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[10]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[50] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[11]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[269] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[11]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[51] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[12]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[270] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[12]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[52] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[13]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[271] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[13]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[53] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[14]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[272] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[14]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[54] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[15]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[273] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[15]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[55] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[274] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[56] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[275] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[57] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[276] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[58] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[277] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[59] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[278] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[60] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[6]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[279] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[6]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[61] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[7]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[280] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[7]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[62] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[8]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[281] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[8]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[63] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[9]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[282] -to "mp3player_soc:soc|bridge_0_external_interface_write_data[9]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[283] -to new_reg[0] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[284] -to new_reg[1] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[285] -to new_reg[2] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[286] -to new_reg[3] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[287] -to new_reg[4] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[288] -to new_reg[5] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[289] -to new_reg[6] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[290] -to new_reg[7] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[291] -to new_reg[8] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[292] -to "reg_8:shift_reg|D[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[293] -to "reg_8:shift_reg|D[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[294] -to "reg_8:shift_reg|D[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[295] -to "reg_8:shift_reg|D[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[296] -to "reg_8:shift_reg|D[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[297] -to "reg_8:shift_reg|D[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[298] -to "reg_8:shift_reg|D[6]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[299] -to "reg_8:shift_reg|D[7]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[300] -to "reg_8:shift_reg|D[8]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[301] -to "reg_8:shift_reg|Data_Out[0]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[302] -to "reg_8:shift_reg|Data_Out[1]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[303] -to "reg_8:shift_reg|Data_Out[2]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[304] -to "reg_8:shift_reg|Data_Out[3]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[305] -to "reg_8:shift_reg|Data_Out[4]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[306] -to "reg_8:shift_reg|Data_Out[5]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[307] -to "reg_8:shift_reg|Data_Out[6]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[308] -to "reg_8:shift_reg|Data_Out[7]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[309] -to "reg_8:shift_reg|Data_Out[8]" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[310] -to "reg_8:shift_reg|Load" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[311] -to "reg_8:shift_reg|Shift_En" -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[312] -to register[0] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[313] -to register[1] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[314] -to register[2] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[315] -to register[3] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[316] -to register[4] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[317] -to register[5] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[318] -to register[6] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[319] -to register[7] -section_id auto_signaltap_0
 set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT storage_enable -to register[8] -section_id auto_signaltap_0
-set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[320] -to register[8] -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[18] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[7] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[8] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[10] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[11] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[19] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[29] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[31] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[12] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[25] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[1] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[4] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[13] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[16] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[17] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[27] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[28] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=321" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=64" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_BITS=321" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000" -section_id auto_signaltap_0
-set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=207" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[0] -to ARDUINO_IO[4] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[1] -to LD_ctr[0] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_trigger_in[2] -to address[0] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[223] -to new_reg[0] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[224] -to new_reg[1] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[225] -to new_reg[2] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[226] -to new_reg[3] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[227] -to new_reg[4] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[228] -to new_reg[5] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[229] -to new_reg[6] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[230] -to new_reg[7] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[231] -to new_reg[8] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[232] -to "reg_8:shift_reg|D[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[233] -to "reg_8:shift_reg|D[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[234] -to "reg_8:shift_reg|D[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[235] -to "reg_8:shift_reg|D[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[236] -to "reg_8:shift_reg|D[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[237] -to "reg_8:shift_reg|D[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[238] -to "reg_8:shift_reg|D[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[239] -to "reg_8:shift_reg|D[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[240] -to "reg_8:shift_reg|D[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[241] -to "reg_8:shift_reg|Data_Out[0]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[242] -to "reg_8:shift_reg|Data_Out[1]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[243] -to "reg_8:shift_reg|Data_Out[2]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[244] -to "reg_8:shift_reg|Data_Out[3]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[245] -to "reg_8:shift_reg|Data_Out[4]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[246] -to "reg_8:shift_reg|Data_Out[5]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[247] -to "reg_8:shift_reg|Data_Out[6]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[248] -to "reg_8:shift_reg|Data_Out[7]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[249] -to "reg_8:shift_reg|Data_Out[8]" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[250] -to "reg_8:shift_reg|Load" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[251] -to "reg_8:shift_reg|Shift_En" -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[252] -to register[0] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[253] -to register[1] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[254] -to register[2] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[255] -to register[3] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[256] -to register[4] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[257] -to register[5] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[258] -to register[6] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[259] -to register[7] -section_id auto_signaltap_0
+set_instance_assignment -name CONNECT_TO_SLD_NODE_ENTITY_PORT acq_data_in[260] -to register[8] -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_DATA_BITS=261" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_TRIGGER_BITS=3" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_STORAGE_QUALIFIER_BITS=261" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK=000000000000000000000000" -section_id auto_signaltap_0
+set_global_assignment -name SLD_NODE_PARAMETER_ASSIGNMENT "SLD_INVERSION_MASK_LENGTH=24" -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[1] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[4] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[7] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[8] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[10] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[11] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[12] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[13] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[16] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[17] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[18] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[19] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[25] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[27] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[28] -to auto_signaltap_0|gnd -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[29] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_instance_assignment -name POST_FIT_CONNECT_TO_SLD_NODE_ENTITY_PORT crc[31] -to auto_signaltap_0|vcc -section_id auto_signaltap_0
+set_global_assignment -name SYSTEMVERILOG_FILE holy_mashed_potatoes.sv
+set_global_assignment -name SYSTEMVERILOG_FILE cat_flat.sv
+set_global_assignment -name SDC_FILE lab7.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE harmony.sv
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_sysid_qsys_0.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_sdram.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_onchip_memory2_0.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0_cpu_test_bench.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0_cpu_debug_slave_wrapper.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0_cpu_debug_slave_tck.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0_cpu_debug_slave_sysclk.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0_cpu.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_nios2_gen2_0.v
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_rsp_mux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_rsp_demux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_router_007.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_router_006.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_router_002.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_router.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_cmd_mux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_cmd_demux.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter_005_error_adapter_0.sv
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter_005.v
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter_004_error_adapter_0.sv
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter_004.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0_avalon_st_adapter.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_mm_interconnect_0.v
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_irq_mapper.sv
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/mp3player_soc_altpll_0.v
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_wrap_burst_converter.sv
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_std_synchronizer_nocut.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_reset_synchronizer.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_reset_controller.v
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_width_adapter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_slave_translator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_slave_agent.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_master_translator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_master_agent.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_burst_adapter_uncmpr.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_burst_adapter_new.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_burst_adapter_13_1.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_burst_adapter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_arbitrator.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_merlin_address_alignment.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_incr_burst_converter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_default_burst_converter.sv
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_st_pipeline_stage.sv
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_st_pipeline_base.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_st_handshake_clock_crosser.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_st_clock_crosser.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_sc_fifo.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_txshifter.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_txout.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_spksupp.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_rxshifter.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_mstfsm.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_fifo.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_csr.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_condt_gen.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_condt_det.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c_clk_cnt.v
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/submodules/altera_avalon_i2c.v
+set_global_assignment -name QSYS_FILE mp3player_soc.qsys
+set_global_assignment -name VERILOG_FILE mp3player_soc/synthesis/mp3player_soc.v
+set_global_assignment -name SYSTEMVERILOG_FILE mp3player.sv
+set_global_assignment -name SIGNALTAP_FILE stp1.stp
+set_global_assignment -name SDC_FILE mp3player.sdc
+set_global_assignment -name SYSTEMVERILOG_FILE reg_8.sv
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
 set_global_assignment -name SLD_FILE db/stp1_auto_stripped.stp

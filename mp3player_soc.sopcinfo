@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <EnsembleReport name="mp3player_soc" kind="mp3player_soc" version="1.0" fabric="QSYS">
  <!-- Format version 18.1 625 (Future versions may contain additional information.) -->
- <!-- 2022.12.09.10:50:48 -->
+ <!-- 2022.12.09.11:33:37 -->
  <!-- A collection of modules and connections -->
  <parameter name="AUTO_GENERATION_ID">
   <type>java.lang.Integer</type>
-  <value>1670604648</value>
+  <value>1670607217</value>
   <derived>false</derived>
   <enabled>true</enabled>
   <visible>false</visible>
@@ -4627,7 +4627,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.EXCEPTION_ADDR</name>
-   <value>0x08010020</value>
+   <value>0x04000020</value>
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.FLASH_ACCELERATOR_LINES</name>
@@ -4691,7 +4691,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.RESET_ADDR</name>
-   <value>0x08010000</value>
+   <value>0x04000000</value>
   </assignment>
   <assignment>
    <name>embeddedsw.configuration.DataCacheVictimBufImpl</name>
@@ -4719,7 +4719,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.configuration.exceptionSlave</name>
-   <value>onchip_memory2_0.s1</value>
+   <value>sdram.s1</value>
   </assignment>
   <assignment>
    <name>embeddedsw.configuration.resetOffset</name>
@@ -4727,7 +4727,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.configuration.resetSlave</name>
-   <value>onchip_memory2_0.s1</value>
+   <value>sdram.s1</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -4743,7 +4743,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.altr,exception-addr</name>
-   <value>0x08010020</value>
+   <value>0x04000020</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.altr,implementation</name>
@@ -4751,7 +4751,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.altr,reset-addr</name>
-   <value>0x08010000</value>
+   <value>0x04000000</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.clock-frequency</name>
@@ -5187,7 +5187,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="resetSlave">
    <type>java.lang.String</type>
-   <value>onchip_memory2_0.s1</value>
+   <value>sdram.s1</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -5203,7 +5203,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="exceptionSlave">
    <type>java.lang.String</type>
-   <value>onchip_memory2_0.s1</value>
+   <value>sdram.s1</value>
    <derived>false</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -5907,7 +5907,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="resetAbsoluteAddr">
    <type>int</type>
-   <value>134283264</value>
+   <value>67108864</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -5915,7 +5915,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="exceptionAbsoluteAddr">
    <type>int</type>
-   <value>134283296</value>
+   <value>67108896</value>
    <derived>true</derived>
    <enabled>true</enabled>
    <visible>true</visible>
@@ -9691,7 +9691,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.CMacro.TIMESTAMP</name>
-   <value>1670604648</value>
+   <value>1670607217</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.compatible</name>
@@ -9711,7 +9711,7 @@ the requested settings for a module instance. -->
   </assignment>
   <assignment>
    <name>embeddedsw.dts.params.timestamp</name>
-   <value>1670604648</value>
+   <value>1670607217</value>
   </assignment>
   <assignment>
    <name>embeddedsw.dts.vendor</name>
@@ -9727,7 +9727,7 @@ the requested settings for a module instance. -->
   </parameter>
   <parameter name="timestamp">
    <type>int</type>
-   <value>1670604648</value>
+   <value>1670607217</value>
    <derived>true</derived>
    <enabled>false</enabled>
    <visible>false</visible>
