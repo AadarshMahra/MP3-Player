@@ -174,7 +174,37 @@ int main()
 	SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ADCDAC_CTRL, 0x0000);
 	printf( "CHIP_ADCDAC_CTRL register: %x\n", SGTL5000_Reg_Rd (i2c_dev, SGTL5000_CHIP_ADCDAC_CTRL));
 	printf( "CHIP_PAD_STRENGTH register: %x\n", SGTL5000_Reg_Rd (i2c_dev, SGTL5000_CHIP_PAD_STRENGTH));
+	volatile WORD current_volume = SGTL5000_Reg_Rd (i2c_dev, SGTL5000_CHIP_ANA_HP_CTRL);
+	    volatile unsigned int *KEY = (unsigned int*) 0x80210a0; //pointer to keys
+	    volatile int pressed = 0;
+	    int step = 0x808;
+	    while(1){
+	        //Volume Up
+	        if(*KEY == 0x2 && pressed == 0){
+	            pressed = 1;
 
+	            if(current_volume <= 0x808)
+	                current_volume = 0;
+	            else
+	                current_volume -= step;
+	            SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_HP_CTRL, current_volume);
+	            printf("Volume Up: %x",current_volume);
+	        }
+
+	        //Volume Down
+	        if(*KEY == 0x1 && pressed == 0){
+	            if(current_volume != 0x7F7F)
+	                current_volume += step;
+	            if(current_volume > 0x7F7F)
+	                current_volume = 0x7F7F;
+	            SGTL5000_Reg_Wr(i2c_dev, SGTL5000_CHIP_ANA_HP_CTRL, current_volume);
+	            pressed = 1;
+	            printf("Volume Down: %x", current_volume);
+	        }
+	        if(*KEY == 0x3){
+	            pressed = 0;
+	        }
+	    }
 
 	return 0;
 }

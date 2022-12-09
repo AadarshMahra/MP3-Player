@@ -97,11 +97,12 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				logic LD_EN, SH_EN, Data_Bit;
 				logic[31:0] full_register;
 				
-				logic [31:0] LD_ctr, LR_ctr;
+				logic [31:0] LR_ctr;
+				logic [7:0] LD_ctr;
 				logic [2:0] div_clk;
 				logic [7:0] new_reg;
 				assign SH_EN = ARDUINO_IO[5];
-				assign full_register = {2'b00,new_reg,22'b0};
+				assign full_register = {2'b00,new_reg,22'b00};
 				assign new_reg = SW[8] ? register2 : register;
 				logic [31:0] LD_ctr2, LR_ctr2;
 				logic [2:0] div_clk2;
@@ -110,7 +111,7 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				//at each positive edge of the LRCLK, we want the next 8-bit sample
 				always_ff @(posedge ARDUINO_IO[5]) begin
 				
-					LD_ctr <= LD_ctr + 1;
+					
 					
 					/*if(LD_ctr[4:0] == 5'b00000)
 					begin
@@ -122,23 +123,51 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 						LR_ctr <= 5'h1F;
 						LR_ctr <= LR_ctr - 1;
 						ARDUINO_IO[1] <= full_register[LR_ctr];
+						if(full_register[LR_ctr] == 0)
+							if(LD_ctr != 0)
+								LD_ctr <= LD_ctr - 1;
+							else
+								LD_ctr <= LD_ctr;
+						else
+							LD_ctr <= LD_ctr + 1;
 					end
 					else
 					begin
 						LR_ctr <= 5'h1F;
 						LR_ctr <= LR_ctr - 1;
 						ARDUINO_IO[1] <= full_register[LR_ctr];
+						if(full_register[LR_ctr] == 0)
+							if(LD_ctr != 0)
+								LD_ctr <= LD_ctr - 1;
+							else
+								LD_ctr <= LD_ctr;
+						else
+							LD_ctr <= LD_ctr + 1;
 					end
 				end
 				always_ff @(posedge div_clk[1]) begin
-					if(~SW[9] & ~SW[8])
+					if(~SW[9] & ~SW[8] & ~SW[7])
 						address <= address + 1;
-					if(~SW[9] & SW[8])
+					else if(~SW[9] & ~SW[8] & SW[7])
+					begin
+						if(address != 0)
+							address <= address - 1;
+					end
+					if(~SW[9] & SW[8] & ~SW[7])
 						address2 <= address2 + 1;
+					else if(~SW[9] & SW[8] & SW[7])
+					begin
+						if(address != 0)
+							address2 <= address2 - 1;
+					end
 				end
 				always_ff @(posedge ARDUINO_IO[4]) begin
 					div_clk <= div_clk + 1;
 				end
-
+			
+				always_comb
+				begin
+					LEDR = LD_ctr;
+				end
 				
 endmodule
