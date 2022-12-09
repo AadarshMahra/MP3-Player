@@ -14,7 +14,7 @@
 
 module mp3player(  	 	  input	        MAX10_CLK1_50, 
 					  input  [1:0]  KEY,
-					  input [7:0] SW, 
+					  input [9:0] SW, 
 					  output [7:0]  LEDR,
 					  output [12:0] DRAM_ADDR,
 					  output [1:0]  DRAM_BA,
@@ -45,7 +45,8 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				   assign ARDUINO_IO[3] = aud_mclk_ctr[1]; 
 
 					always_ff @(posedge MAX10_CLK1_50) begin
-						aud_mclk_ctr <= aud_mclk_ctr + 1;
+						if(~SW[9])
+							aud_mclk_ctr <= aud_mclk_ctr + 1;
 					end
 					
 					/*  */ 

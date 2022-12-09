@@ -1,48 +1,9 @@
-11:53:25 **** Incremental Build of configuration Nios II for project mp3_player_app ****
+10:59:37 **** Incremental Build of configuration Nios II for project mp3_player_app ****
 make all 
 Info: Building ../mp3_player_app_bsp/
 C:/intelFPGA_lite/18.1/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../mp3_player_app_bsp/
 [BSP build complete]
-Info: Compiling sgtl5000/sgtl5000.c to obj/default/sgtl5000/sgtl5000.o
-nios2-elf-gcc -xc -MP -MMD -c -I../mp3_player_app_bsp//HAL/inc -I../mp3_player_app_bsp/ -I../mp3_player_app_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/sgtl5000/sgtl5000.o sgtl5000/sgtl5000.c
-sgtl5000/sgtl5000.c: In function 'SGTL5000_Reg_Rd':
-sgtl5000/sgtl5000.c:16:2: warning: implicit declaration of function 'printf' [-Wimplicit-function-declaration]
-  printf("%d\n",status);
-  ^
-sgtl5000/sgtl5000.c:16:2: warning: incompatible implicit declaration of built-in function 'printf'
-sgtl5000/sgtl5000.c:16:2: note: include '<stdio.h>' or provide a declaration of 'printf'
-sgtl5000/sgtl5000.c:16:9: warning: format '%d' expects argument of type 'int', but argument 2 has type 'ALT_AVALON_I2C_STATUS_CODE {aka long unsigned int}' [-Wformat=]
-  printf("%d\n",status);
-         ^
-sgtl5000/sgtl5000.c: In function 'SGTL5000_Reg_Wr':
-sgtl5000/sgtl5000.c:40:3: warning: incompatible implicit declaration of built-in function 'printf'
-   printf ("SGTL5000 I2C error, address: %x", ADDR);
-   ^
-sgtl5000/sgtl5000.c:40:3: note: include '<stdio.h>' or provide a declaration of 'printf'
-Info: Compiling sgtl5000_test.c to obj/default/sgtl5000_test.o
-nios2-elf-gcc -xc -MP -MMD -c -I../mp3_player_app_bsp//HAL/inc -I../mp3_player_app_bsp/ -I../mp3_player_app_bsp//drivers/inc  -pipe -D__hal__ -DALT_NO_INSTRUCTION_EMULATION -DSMALL_C_LIB -DALT_SINGLE_THREADED    -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o obj/default/sgtl5000_test.o sgtl5000_test.c
-sgtl5000_test.c: In function 'printSignedHex0':
-sgtl5000_test.c:34:7: warning: variable 'ones' set but not used [-Wunused-but-set-variable]
-  BYTE ones = 0;
-       ^
-sgtl5000_test.c:33:7: warning: variable 'tens' set but not used [-Wunused-but-set-variable]
-  BYTE tens = 0;
-       ^
-sgtl5000_test.c: In function 'printSignedHex1':
-sgtl5000_test.c:65:7: warning: variable 'ones' set but not used [-Wunused-but-set-variable]
-  BYTE ones = 0;
-       ^
-sgtl5000_test.c:64:7: warning: variable 'tens' set but not used [-Wunused-but-set-variable]
-  BYTE tens = 0;
-       ^
-Info: Linking mp3_player_app.elf
-nios2-elf-g++  -T'../mp3_player_app_bsp//linker.x' -msys-crt0='../mp3_player_app_bsp//obj/HAL/src/crt0.o' -msys-lib=hal_bsp -L../mp3_player_app_bsp/  -msmallc  -Wl,-Map=mp3_player_app.map   -O0 -g -Wall   -mno-hw-div -mno-hw-mul -mno-hw-mulx -mgpopt=global  -o mp3_player_app.elf obj/default/sgtl5000/sgtl5000.o obj/default/sgtl5000_test.o -lm -msys-lib=m
-nios2-elf-insert mp3_player_app.elf --thread_model hal --cpu_name nios2_gen2_0 --qsys true --simulation_enabled false --id 0 --sidp 0x80210d0 --timestamp 1670434985 --stderr_dev jtag_uart_0 --stdin_dev jtag_uart_0 --stdout_dev jtag_uart_0 --sopc_system_name mp3player_soc --quartus_project_dir "C:/Users/puroh/OneDrive/Desktop/385/MP3-Player" --jdi ../..//output_files/mp3player.jdi --sopcinfo C:/Users/puroh/OneDrive/Desktop/385/MP3-Player/software/mp3_player_app_bsp/../../mp3player_soc.sopcinfo
-Info: (mp3_player_app.elf) 30 KBytes program size (code + initialized data).
-Info:                      27 KBytes free for stack + heap.
-Info: Creating mp3_player_app.objdump
-nios2-elf-objdump --disassemble --syms --all-header --source mp3_player_app.elf >mp3_player_app.objdump
 [mp3_player_app build complete]
 
-11:53:29 Build Finished (took 4s.350ms)
+10:59:38 Build Finished (took 847ms)
 
