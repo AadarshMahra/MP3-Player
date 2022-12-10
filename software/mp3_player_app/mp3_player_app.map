@@ -136,8 +136,8 @@ errno               0x4               c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-
 Memory Configuration
 
 Name             Origin             Length             Attributes
-reset            0x0000000008010000 0x0000000000000020
-onchip_memory2_0 0x0000000008010020 0x000000000000f9e0
+reset            0x0000000000010000 0x0000000000000020
+onchip_memory2_0 0x0000000000010020 0x000000000000f9e0
 *default*        0x0000000000000000 0xffffffffffffffff
 
 Linker script and memory map
@@ -155,72 +155,72 @@ LOAD ../mp3_player_app_bsp/\libhal_bsp.a
 LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libm.a
 END GROUP
 LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a
-                0x0000000008010000                __alt_mem_onchip_memory2_0 = 0x8010000
+                0x0000000000010000                __alt_mem_onchip_memory2_0 = 0x10000
 
-.entry          0x0000000008010000       0x20
+.entry          0x0000000000010000       0x20
  *(.entry)
- .entry         0x0000000008010000       0x20 ../mp3_player_app_bsp//obj/HAL/src/crt0.o
-                0x0000000008010000                __reset
+ .entry         0x0000000000010000       0x20 ../mp3_player_app_bsp//obj/HAL/src/crt0.o
+                0x0000000000010000                __reset
 
-.exceptions     0x0000000008010020      0x210
-                0x0000000008010020                PROVIDE (__ram_exceptions_start, ABSOLUTE (.))
-                0x0000000008010020                . = ALIGN (0x20)
+.exceptions     0x0000000000010020      0x210
+                0x0000000000010020                PROVIDE (__ram_exceptions_start, ABSOLUTE (.))
+                0x0000000000010020                . = ALIGN (0x20)
  *(.irq)
  *(.exceptions.entry.label)
  .exceptions.entry.label
-                0x0000000008010020        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
-                0x0000000008010020                alt_irq_entry
+                0x0000000000010020        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
+                0x0000000000010020                alt_irq_entry
  .exceptions.entry.label
-                0x0000000008010020        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
-                0x0000000008010020                alt_exception
+                0x0000000000010020        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
+                0x0000000000010020                alt_exception
  *(.exceptions.entry.user)
  *(.exceptions.entry.ecc_fatal)
  *(.exceptions.entry)
  .exceptions.entry
-                0x0000000008010020       0x54 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
+                0x0000000000010020       0x54 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
  *(.exceptions.irqtest.user)
  *(.exceptions.irqtest)
  .exceptions.irqtest
-                0x0000000008010074       0x10 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
+                0x0000000000010074       0x10 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
  *(.exceptions.irqhandler.user)
  *(.exceptions.irqhandler)
  .exceptions.irqhandler
-                0x0000000008010084        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
+                0x0000000000010084        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
  *(.exceptions.irqreturn.user)
  *(.exceptions.irqreturn)
  .exceptions.irqreturn
-                0x0000000008010088        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
+                0x0000000000010088        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
  *(.exceptions.notirq.label)
  .exceptions.notirq.label
-                0x000000000801008c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
+                0x000000000001008c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
  *(.exceptions.notirq.user)
  *(.exceptions.notirq)
  .exceptions.notirq
-                0x000000000801008c        0x8 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
+                0x000000000001008c        0x8 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
  *(.exceptions.soft.user)
  *(.exceptions.soft)
  *(.exceptions.unknown.user)
  *(.exceptions.unknown)
  .exceptions.unknown
-                0x0000000008010094       0x14 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
+                0x0000000000010094       0x14 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
  *(.exceptions.exit.label)
  .exceptions.exit.label
-                0x00000000080100a8        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
+                0x00000000000100a8        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
  .exceptions.exit.label
-                0x00000000080100a8        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
+                0x00000000000100a8        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
  *(.exceptions.exit.user)
  *(.exceptions.exit)
  .exceptions.exit
-                0x00000000080100a8       0x54 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
+                0x00000000000100a8       0x54 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
  *(.exceptions)
- .exceptions    0x00000000080100fc       0xd4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_handler.o)
-                0x00000000080100fc                alt_irq_handler
- .exceptions    0x00000000080101d0       0x60 ../mp3_player_app_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
-                0x00000000080101d0                alt_instruction_exception_entry
-                0x0000000008010230                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
-                0x0000000008010020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
+ .exceptions    0x00000000000100fc       0xd4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_handler.o)
+                0x00000000000100fc                alt_irq_handler
+ .exceptions    0x00000000000101d0       0x60 ../mp3_player_app_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x00000000000101d0                alt_instruction_exception_entry
+                0x0000000000010230                PROVIDE (__ram_exceptions_end, ABSOLUTE (.))
+                0x0000000000010020                PROVIDE (__flash_exceptions_start, LOADADDR (.exceptions))
 
-.text           0x0000000008010230     0x5e78
+.text           0x0000000000010230     0x5e78
                 [!provide]                        PROVIDE (stext, ABSOLUTE (.))
  *(.interp)
  *(.hash)
@@ -265,220 +265,220 @@ LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nio
  *(.init)
  *(.plt)
  *(.text .stub .text.* .gnu.linkonce.t.*)
- .text          0x0000000008010230       0x3c ../mp3_player_app_bsp//obj/HAL/src/crt0.o
-                0x0000000008010230                _start
- .text          0x000000000801026c      0x164 obj/default/sgtl5000/sgtl5000.o
-                0x000000000801026c                SGTL5000_Reg_Rd
-                0x0000000008010330                SGTL5000_Reg_Wr
- .text          0x00000000080103d0      0x4f8 obj/default/sgtl5000_test.o
-                0x00000000080103d0                setLED
-                0x00000000080103f4                clearLED
-                0x0000000008010418                printSignedHex0
-                0x00000000080104dc                printSignedHex1
-                0x00000000080105c8                main
- .text          0x00000000080108c8       0x60 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_fixunssfsi.o)
-                0x00000000080108c8                __fixunssfsi
- .text          0x0000000008010928      0x1b4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
-                0x0000000008010928                __divsi3
-                0x00000000080109ac                __modsi3
-                0x0000000008010a20                __udivsi3
-                0x0000000008010a84                __umodsi3
- .text          0x0000000008010adc       0xbc c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(gesf2.o)
-                0x0000000008010adc                __gesf2
-                0x0000000008010adc                __gtsf2
- .text          0x0000000008010b98      0x430 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(mulsf3.o)
-                0x0000000008010b98                __mulsf3
- .text          0x0000000008010fc8      0x4e4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(subsf3.o)
-                0x0000000008010fc8                __subsf3
- .text          0x00000000080114ac       0x70 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(fixsfsi.o)
-                0x00000000080114ac                __fixsfsi
- .text          0x000000000801151c       0xf0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(floatunsisf.o)
-                0x000000000801151c                __floatunsisf
- .text          0x000000000801160c       0x64 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clzsi2.o)
-                0x000000000801160c                __clzsi2
- .text          0x0000000008011670       0x28 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
-                0x0000000008011670                __mulsi3
- .text          0x0000000008011698        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clz.o)
- .text          0x0000000008011698        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .text          0x0000000000010230       0x3c ../mp3_player_app_bsp//obj/HAL/src/crt0.o
+                0x0000000000010230                _start
+ .text          0x000000000001026c      0x164 obj/default/sgtl5000/sgtl5000.o
+                0x000000000001026c                SGTL5000_Reg_Rd
+                0x0000000000010330                SGTL5000_Reg_Wr
+ .text          0x00000000000103d0      0x4f8 obj/default/sgtl5000_test.o
+                0x00000000000103d0                setLED
+                0x00000000000103f4                clearLED
+                0x0000000000010418                printSignedHex0
+                0x00000000000104dc                printSignedHex1
+                0x00000000000105c8                main
+ .text          0x00000000000108c8       0x60 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_fixunssfsi.o)
+                0x00000000000108c8                __fixunssfsi
+ .text          0x0000000000010928      0x1b4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+                0x0000000000010928                __divsi3
+                0x00000000000109ac                __modsi3
+                0x0000000000010a20                __udivsi3
+                0x0000000000010a84                __umodsi3
+ .text          0x0000000000010adc       0xbc c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(gesf2.o)
+                0x0000000000010adc                __gesf2
+                0x0000000000010adc                __gtsf2
+ .text          0x0000000000010b98      0x430 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(mulsf3.o)
+                0x0000000000010b98                __mulsf3
+ .text          0x0000000000010fc8      0x4e4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(subsf3.o)
+                0x0000000000010fc8                __subsf3
+ .text          0x00000000000114ac       0x70 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(fixsfsi.o)
+                0x00000000000114ac                __fixsfsi
+ .text          0x000000000001151c       0xf0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(floatunsisf.o)
+                0x000000000001151c                __floatunsisf
+ .text          0x000000000001160c       0x64 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clzsi2.o)
+                0x000000000001160c                __clzsi2
+ .text          0x0000000000011670       0x28 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+                0x0000000000011670                __mulsi3
+ .text          0x0000000000011698        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clz.o)
+ .text          0x0000000000011698        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
  .text._printf_r
-                0x0000000008011698       0x3c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
-                0x0000000008011698                _printf_r
- .text.printf   0x00000000080116d4       0x4c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
-                0x00000000080116d4                printf
- .text          0x0000000008011720        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
- .text._puts_r  0x0000000008011720       0x80 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
-                0x0000000008011720                _puts_r
- .text.puts     0x00000000080117a0       0x14 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
-                0x00000000080117a0                puts
- .text          0x00000000080117b4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
- .text.strlen   0x00000000080117b4       0x1c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
-                0x00000000080117b4                strlen
- .text          0x00000000080117d0        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+                0x0000000000011698       0x3c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+                0x0000000000011698                _printf_r
+ .text.printf   0x00000000000116d4       0x4c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+                0x00000000000116d4                printf
+ .text          0x0000000000011720        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .text._puts_r  0x0000000000011720       0x80 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+                0x0000000000011720                _puts_r
+ .text.puts     0x00000000000117a0       0x14 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+                0x00000000000117a0                puts
+ .text          0x00000000000117b4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .text.strlen   0x00000000000117b4       0x1c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+                0x00000000000117b4                strlen
+ .text          0x00000000000117d0        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
  .text.print_repeat
-                0x00000000080117d0       0x6c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+                0x00000000000117d0       0x6c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
  .text.___vfprintf_internal_r
-                0x000000000801183c      0x52c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
-                0x000000000801183c                ___vfprintf_internal_r
+                0x000000000001183c      0x52c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+                0x000000000001183c                ___vfprintf_internal_r
  .text.__vfprintf_internal
-                0x0000000008011d68       0x1c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
-                0x0000000008011d68                __vfprintf_internal
- .text          0x0000000008011d84        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+                0x0000000000011d68       0x1c c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+                0x0000000000011d68                __vfprintf_internal
+ .text          0x0000000000011d84        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
  .text.__sfvwrite_small_dev
-                0x0000000008011d84       0xb8 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
-                0x0000000008011d84                __sfvwrite_small_dev
- .text          0x0000000008011e3c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
- .text          0x0000000008011e3c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+                0x0000000000011d84       0xb8 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+                0x0000000000011d84                __sfvwrite_small_dev
+ .text          0x0000000000011e3c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .text          0x0000000000011e3c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
  .text._write_r
-                0x0000000008011e3c       0x58 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
-                0x0000000008011e3c                _write_r
- .text          0x0000000008011e94        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
- .text          0x0000000008011e94       0xec ../mp3_player_app_bsp/\libhal_bsp.a(alt_load.o)
-                0x0000000008011efc                alt_load
- .text          0x0000000008011f80       0x7c ../mp3_player_app_bsp/\libhal_bsp.a(alt_main.o)
-                0x0000000008011f80                alt_main
- .text          0x0000000008011ffc      0x13c ../mp3_player_app_bsp/\libhal_bsp.a(alt_write.o)
-                0x0000000008012038                write
- .text          0x0000000008012138       0xc8 ../mp3_player_app_bsp/\libhal_bsp.a(alt_sys_init.o)
-                0x000000000801216c                alt_irq_init
-                0x00000000080121a4                alt_sys_init
- .text          0x0000000008012200     0x1c18 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_i2c.o)
-                0x0000000008012310                alt_avalon_i2c_register_optional_irq_handler
-                0x00000000080123fc                alt_avalon_i2c_register_callback
-                0x0000000008012450                alt_avalon_i2c_init
-                0x000000000801253c                alt_avalon_i2c_open
-                0x000000000801257c                alt_avalon_i2c_enable
-                0x0000000008012614                alt_avalon_i2c_disable
-                0x0000000008012660                alt_avalon_i2c_master_config_get
-                0x0000000008012710                alt_avalon_i2c_master_config_set
-                0x00000000080127dc                alt_avalon_i2c_master_config_speed_get
-                0x0000000008012870                alt_avalon_i2c_master_config_speed_set
-                0x000000000801296c                alt_avalon_i2c_is_busy
-                0x00000000080129b0                alt_avalon_i2c_rx_read_available
-                0x0000000008012a58                alt_avalon_i2c_rx_read
-                0x0000000008012b00                alt_avalon_i2c_cmd_write
-                0x0000000008012be4                alt_avalon_i2c_send_address
-                0x0000000008012cd4                alt_avalon_i2c_master_target_get
-                0x0000000008012d0c                alt_avalon_i2c_master_target_set
-                0x0000000008012d40                alt_avalon_i2c_check_nack
-                0x0000000008012d8c                alt_avalon_i2c_check_arblost
-                0x0000000008012dd8                alt_avalon_i2c_interrupt_transaction_status
-                0x0000000008012f14                alt_avalon_i2c_master_tx
-                0x0000000008012ffc                alt_avalon_i2c_master_rx
-                0x0000000008013138                alt_avalon_i2c_master_tx_rx
-                0x0000000008013300                alt_avalon_i2c_master_transmit
-                0x00000000080134c0                alt_avalon_i2c_master_transmit_using_interrupts
-                0x00000000080136cc                alt_avalon_i2c_master_receive
-                0x00000000080138dc                alt_avalon_i2c_master_receive_using_interrupts
-                0x0000000008013acc                alt_avalon_i2c_int_status_get
-                0x0000000008013b24                alt_avalon_i2c_int_raw_status_get
-                0x0000000008013b68                alt_avalon_i2c_int_clear
-                0x0000000008013ba4                alt_avalon_i2c_int_disable
-                0x0000000008013c0c                alt_avalon_i2c_int_enable
-                0x0000000008013c70                alt_avalon_i2c_enabled_ints_get
-                0x0000000008013cb4                alt_avalon_i2c_rx_fifo_threshold_get
-                0x0000000008013d00                alt_avalon_i2c_rx_fifo_threshold_set
-                0x0000000008013d64                alt_avalon_i2c_tfr_cmd_fifo_threshold_get
-                0x0000000008013db0                alt_avalon_i2c_tfr_cmd_fifo_threshold_set
- .text          0x0000000008013e18      0x164 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
-                0x0000000008013e18                altera_avalon_jtag_uart_read_fd
-                0x0000000008013e78                altera_avalon_jtag_uart_write_fd
-                0x0000000008013ed8                altera_avalon_jtag_uart_close_fd
-                0x0000000008013f28                altera_avalon_jtag_uart_ioctl_fd
- .text          0x0000000008013f7c      0x3d4 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
-                0x0000000008013f7c                altera_avalon_jtag_uart_init
-                0x00000000080142e8                altera_avalon_jtag_uart_close
- .text          0x0000000008014350       0xf0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
-                0x0000000008014350                altera_avalon_jtag_uart_ioctl
- .text          0x0000000008014440      0x21c ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
-                0x0000000008014440                altera_avalon_jtag_uart_read
- .text          0x000000000801465c      0x224 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
-                0x000000000801465c                altera_avalon_jtag_uart_write
- .text          0x0000000008014880      0x12c ../mp3_player_app_bsp/\libhal_bsp.a(alt_alarm_start.o)
-                0x0000000008014880                alt_alarm_start
- .text          0x00000000080149ac      0x158 ../mp3_player_app_bsp/\libhal_bsp.a(alt_busy_sleep.o)
-                0x00000000080149ac                alt_busy_sleep
- .text          0x0000000008014b04      0x114 ../mp3_player_app_bsp/\libhal_bsp.a(alt_close.o)
-                0x0000000008014b40                close
- .text          0x0000000008014c18       0x20 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
-                0x0000000008014c18                alt_dcache_flush_all
- .text          0x0000000008014c38       0x2c ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev.o)
- .text          0x0000000008014c64       0xe0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
-                0x0000000008014ca0                alt_dev_llist_insert
- .text          0x0000000008014d44       0x60 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_ctors.o)
-                0x0000000008014d44                _do_ctors
- .text          0x0000000008014da4       0x60 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_dtors.o)
-                0x0000000008014da4                _do_dtors
- .text          0x0000000008014e04        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_errno.o)
- .text          0x0000000008014e04       0x90 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_dev.o)
-                0x0000000008014e04                alt_find_dev
- .text          0x0000000008014e94       0x20 ../mp3_player_app_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
-                0x0000000008014e94                alt_icache_flush_all
- .text          0x0000000008014eb4      0x1b0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic.o)
-                0x0000000008014eb4                alt_ic_isr_register
-                0x0000000008014f04                alt_ic_irq_enable
-                0x0000000008014f8c                alt_ic_irq_disable
-                0x0000000008015018                alt_ic_irq_enabled
- .text          0x0000000008015064       0xf0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
-                0x0000000008015064                alt_iic_isr_register
- .text          0x0000000008015154      0x160 ../mp3_player_app_bsp/\libhal_bsp.a(alt_io_redirect.o)
-                0x0000000008015238                alt_io_redirect
- .text          0x00000000080152b4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .text          0x00000000080152b4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .text          0x00000000080152b4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .text          0x00000000080152b4      0x284 ../mp3_player_app_bsp/\libhal_bsp.a(alt_open.o)
-                0x00000000080153dc                open
- .text          0x0000000008015538      0x22c ../mp3_player_app_bsp/\libhal_bsp.a(alt_printf.o)
-                0x0000000008015538                alt_printf
- .text          0x0000000008015764       0x3c ../mp3_player_app_bsp/\libhal_bsp.a(alt_putchar.o)
-                0x0000000008015764                alt_putchar
- .text          0x00000000080157a0       0x84 ../mp3_player_app_bsp/\libhal_bsp.a(alt_release_fd.o)
-                0x00000000080157a0                alt_release_fd
- .text          0x0000000008015824      0x1a4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_tick.o)
-                0x0000000008015824                alt_alarm_stop
-                0x00000000080158c0                alt_tick
- .text          0x00000000080159c8       0x24 ../mp3_player_app_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
-                0x00000000080159c8                altera_nios2_gen2_irq_init
- .text          0x00000000080159ec        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .text          0x00000000080159ec      0x108 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_file.o)
-                0x00000000080159ec                alt_find_file
- .text          0x0000000008015af4       0xc4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_get_fd.o)
-                0x0000000008015af4                alt_get_fd
- .text          0x0000000008015bb8       0x9c ../mp3_player_app_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
-                0x0000000008015bb8                alt_exception_cause_generated_bad_addr
- .text          0x0000000008015c54        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-atexit.o)
- .text.atexit   0x0000000008015c54       0x14 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-atexit.o)
-                0x0000000008015c54                atexit
- .text          0x0000000008015c68        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
- .text.exit     0x0000000008015c68       0x20 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
-                0x0000000008015c68                exit
- .text          0x0000000008015c88        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
- .text.memcmp   0x0000000008015c88       0x30 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
-                0x0000000008015c88                memcmp
- .text          0x0000000008015cb8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
- .text.memcpy   0x0000000008015cb8       0x28 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
-                0x0000000008015cb8                memcpy
- .text          0x0000000008015ce0        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-putc.o)
- .text.putc     0x0000000008015ce0       0x54 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-putc.o)
-                0x0000000008015ce0                putc
- .text._putc_r  0x0000000008015d34       0x58 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-putc.o)
-                0x0000000008015d34                _putc_r
- .text          0x0000000008015d8c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__atexit.o)
+                0x0000000000011e3c       0x58 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+                0x0000000000011e3c                _write_r
+ .text          0x0000000000011e94        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .text          0x0000000000011e94       0xec ../mp3_player_app_bsp/\libhal_bsp.a(alt_load.o)
+                0x0000000000011efc                alt_load
+ .text          0x0000000000011f80       0x7c ../mp3_player_app_bsp/\libhal_bsp.a(alt_main.o)
+                0x0000000000011f80                alt_main
+ .text          0x0000000000011ffc      0x13c ../mp3_player_app_bsp/\libhal_bsp.a(alt_write.o)
+                0x0000000000012038                write
+ .text          0x0000000000012138       0xc8 ../mp3_player_app_bsp/\libhal_bsp.a(alt_sys_init.o)
+                0x000000000001216c                alt_irq_init
+                0x00000000000121a4                alt_sys_init
+ .text          0x0000000000012200     0x1c18 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_i2c.o)
+                0x0000000000012310                alt_avalon_i2c_register_optional_irq_handler
+                0x00000000000123fc                alt_avalon_i2c_register_callback
+                0x0000000000012450                alt_avalon_i2c_init
+                0x000000000001253c                alt_avalon_i2c_open
+                0x000000000001257c                alt_avalon_i2c_enable
+                0x0000000000012614                alt_avalon_i2c_disable
+                0x0000000000012660                alt_avalon_i2c_master_config_get
+                0x0000000000012710                alt_avalon_i2c_master_config_set
+                0x00000000000127dc                alt_avalon_i2c_master_config_speed_get
+                0x0000000000012870                alt_avalon_i2c_master_config_speed_set
+                0x000000000001296c                alt_avalon_i2c_is_busy
+                0x00000000000129b0                alt_avalon_i2c_rx_read_available
+                0x0000000000012a58                alt_avalon_i2c_rx_read
+                0x0000000000012b00                alt_avalon_i2c_cmd_write
+                0x0000000000012be4                alt_avalon_i2c_send_address
+                0x0000000000012cd4                alt_avalon_i2c_master_target_get
+                0x0000000000012d0c                alt_avalon_i2c_master_target_set
+                0x0000000000012d40                alt_avalon_i2c_check_nack
+                0x0000000000012d8c                alt_avalon_i2c_check_arblost
+                0x0000000000012dd8                alt_avalon_i2c_interrupt_transaction_status
+                0x0000000000012f14                alt_avalon_i2c_master_tx
+                0x0000000000012ffc                alt_avalon_i2c_master_rx
+                0x0000000000013138                alt_avalon_i2c_master_tx_rx
+                0x0000000000013300                alt_avalon_i2c_master_transmit
+                0x00000000000134c0                alt_avalon_i2c_master_transmit_using_interrupts
+                0x00000000000136cc                alt_avalon_i2c_master_receive
+                0x00000000000138dc                alt_avalon_i2c_master_receive_using_interrupts
+                0x0000000000013acc                alt_avalon_i2c_int_status_get
+                0x0000000000013b24                alt_avalon_i2c_int_raw_status_get
+                0x0000000000013b68                alt_avalon_i2c_int_clear
+                0x0000000000013ba4                alt_avalon_i2c_int_disable
+                0x0000000000013c0c                alt_avalon_i2c_int_enable
+                0x0000000000013c70                alt_avalon_i2c_enabled_ints_get
+                0x0000000000013cb4                alt_avalon_i2c_rx_fifo_threshold_get
+                0x0000000000013d00                alt_avalon_i2c_rx_fifo_threshold_set
+                0x0000000000013d64                alt_avalon_i2c_tfr_cmd_fifo_threshold_get
+                0x0000000000013db0                alt_avalon_i2c_tfr_cmd_fifo_threshold_set
+ .text          0x0000000000013e18      0x164 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+                0x0000000000013e18                altera_avalon_jtag_uart_read_fd
+                0x0000000000013e78                altera_avalon_jtag_uart_write_fd
+                0x0000000000013ed8                altera_avalon_jtag_uart_close_fd
+                0x0000000000013f28                altera_avalon_jtag_uart_ioctl_fd
+ .text          0x0000000000013f7c      0x3d4 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+                0x0000000000013f7c                altera_avalon_jtag_uart_init
+                0x00000000000142e8                altera_avalon_jtag_uart_close
+ .text          0x0000000000014350       0xf0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+                0x0000000000014350                altera_avalon_jtag_uart_ioctl
+ .text          0x0000000000014440      0x21c ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+                0x0000000000014440                altera_avalon_jtag_uart_read
+ .text          0x000000000001465c      0x224 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+                0x000000000001465c                altera_avalon_jtag_uart_write
+ .text          0x0000000000014880      0x12c ../mp3_player_app_bsp/\libhal_bsp.a(alt_alarm_start.o)
+                0x0000000000014880                alt_alarm_start
+ .text          0x00000000000149ac      0x158 ../mp3_player_app_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+                0x00000000000149ac                alt_busy_sleep
+ .text          0x0000000000014b04      0x114 ../mp3_player_app_bsp/\libhal_bsp.a(alt_close.o)
+                0x0000000000014b40                close
+ .text          0x0000000000014c18       0x20 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+                0x0000000000014c18                alt_dcache_flush_all
+ .text          0x0000000000014c38       0x2c ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev.o)
+ .text          0x0000000000014c64       0xe0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+                0x0000000000014ca0                alt_dev_llist_insert
+ .text          0x0000000000014d44       0x60 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_ctors.o)
+                0x0000000000014d44                _do_ctors
+ .text          0x0000000000014da4       0x60 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_dtors.o)
+                0x0000000000014da4                _do_dtors
+ .text          0x0000000000014e04        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_errno.o)
+ .text          0x0000000000014e04       0x90 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_dev.o)
+                0x0000000000014e04                alt_find_dev
+ .text          0x0000000000014e94       0x20 ../mp3_player_app_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+                0x0000000000014e94                alt_icache_flush_all
+ .text          0x0000000000014eb4      0x1b0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic.o)
+                0x0000000000014eb4                alt_ic_isr_register
+                0x0000000000014f04                alt_ic_irq_enable
+                0x0000000000014f8c                alt_ic_irq_disable
+                0x0000000000015018                alt_ic_irq_enabled
+ .text          0x0000000000015064       0xf0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+                0x0000000000015064                alt_iic_isr_register
+ .text          0x0000000000015154      0x160 ../mp3_player_app_bsp/\libhal_bsp.a(alt_io_redirect.o)
+                0x0000000000015238                alt_io_redirect
+ .text          0x00000000000152b4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .text          0x00000000000152b4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .text          0x00000000000152b4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .text          0x00000000000152b4      0x284 ../mp3_player_app_bsp/\libhal_bsp.a(alt_open.o)
+                0x00000000000153dc                open
+ .text          0x0000000000015538      0x22c ../mp3_player_app_bsp/\libhal_bsp.a(alt_printf.o)
+                0x0000000000015538                alt_printf
+ .text          0x0000000000015764       0x3c ../mp3_player_app_bsp/\libhal_bsp.a(alt_putchar.o)
+                0x0000000000015764                alt_putchar
+ .text          0x00000000000157a0       0x84 ../mp3_player_app_bsp/\libhal_bsp.a(alt_release_fd.o)
+                0x00000000000157a0                alt_release_fd
+ .text          0x0000000000015824      0x1a4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_tick.o)
+                0x0000000000015824                alt_alarm_stop
+                0x00000000000158c0                alt_tick
+ .text          0x00000000000159c8       0x24 ../mp3_player_app_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+                0x00000000000159c8                altera_nios2_gen2_irq_init
+ .text          0x00000000000159ec        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .text          0x00000000000159ec      0x108 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_file.o)
+                0x00000000000159ec                alt_find_file
+ .text          0x0000000000015af4       0xc4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_get_fd.o)
+                0x0000000000015af4                alt_get_fd
+ .text          0x0000000000015bb8       0x9c ../mp3_player_app_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x0000000000015bb8                alt_exception_cause_generated_bad_addr
+ .text          0x0000000000015c54        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-atexit.o)
+ .text.atexit   0x0000000000015c54       0x14 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-atexit.o)
+                0x0000000000015c54                atexit
+ .text          0x0000000000015c68        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .text.exit     0x0000000000015c68       0x20 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+                0x0000000000015c68                exit
+ .text          0x0000000000015c88        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .text.memcmp   0x0000000000015c88       0x30 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+                0x0000000000015c88                memcmp
+ .text          0x0000000000015cb8        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+ .text.memcpy   0x0000000000015cb8       0x28 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+                0x0000000000015cb8                memcpy
+ .text          0x0000000000015ce0        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-putc.o)
+ .text.putc     0x0000000000015ce0       0x54 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-putc.o)
+                0x0000000000015ce0                putc
+ .text._putc_r  0x0000000000015d34       0x58 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-putc.o)
+                0x0000000000015d34                _putc_r
+ .text          0x0000000000015d8c        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__atexit.o)
  .text.__register_exitproc
-                0x0000000008015d8c      0x158 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__atexit.o)
-                0x0000000008015d8c                __register_exitproc
- .text          0x0000000008015ee4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+                0x0000000000015d8c      0x158 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__atexit.o)
+                0x0000000000015d8c                __register_exitproc
+ .text          0x0000000000015ee4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
  .text.__call_exitprocs
-                0x0000000008015ee4      0x190 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
-                0x0000000008015ee4                __call_exitprocs
- .text          0x0000000008016074       0x34 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exit.o)
-                0x0000000008016074                _exit
+                0x0000000000015ee4      0x190 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+                0x0000000000015ee4                __call_exitprocs
+ .text          0x0000000000016074       0x34 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exit.o)
+                0x0000000000016074                _exit
  *(.gnu.warning.*)
  *(.fini)
                 [!provide]                        PROVIDE (__etext, ABSOLUTE (.))
                 [!provide]                        PROVIDE (_etext, ABSOLUTE (.))
                 [!provide]                        PROVIDE (etext, ABSOLUTE (.))
  *(.eh_frame_hdr)
-                0x00000000080160a8                . = ALIGN (0x4)
+                0x00000000000160a8                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (__preinit_array_start, ABSOLUTE (.))
  *(.preinit_array)
                 [!provide]                        PROVIDE (__preinit_array_end, ABSOLUTE (.))
@@ -491,253 +491,253 @@ LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nio
  *(.eh_frame)
  *(.gcc_except_table .gcc_except_table.*)
  *(.dynamic)
-                0x00000000080160a8                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
+                0x00000000000160a8                PROVIDE (__CTOR_LIST__, ABSOLUTE (.))
  *(.ctors)
  *(SORT(.ctors.*))
-                0x00000000080160a8                PROVIDE (__CTOR_END__, ABSOLUTE (.))
-                0x00000000080160a8                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
+                0x00000000000160a8                PROVIDE (__CTOR_END__, ABSOLUTE (.))
+                0x00000000000160a8                PROVIDE (__DTOR_LIST__, ABSOLUTE (.))
  *(.dtors)
  *(SORT(.dtors.*))
-                0x00000000080160a8                PROVIDE (__DTOR_END__, ABSOLUTE (.))
+                0x00000000000160a8                PROVIDE (__DTOR_END__, ABSOLUTE (.))
  *(.jcr)
-                0x00000000080160a8                . = ALIGN (0x4)
+                0x00000000000160a8                . = ALIGN (0x4)
 
-.rodata         0x00000000080160a8      0x34c
-                0x00000000080160a8                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
-                0x00000000080160a8                . = ALIGN (0x4)
+.rodata         0x00000000000160a8      0x34c
+                0x00000000000160a8                PROVIDE (__ram_rodata_start, ABSOLUTE (.))
+                0x00000000000160a8                . = ALIGN (0x4)
  *(.rodata .rodata.* .gnu.linkonce.r.*)
- .rodata        0x00000000080160a8       0x24 obj/default/sgtl5000/sgtl5000.o
- .rodata        0x00000000080160cc      0x1c4 obj/default/sgtl5000_test.o
- .rodata        0x0000000008016290      0x100 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clz.o)
-                0x0000000008016290                __clz_tab
+ .rodata        0x00000000000160a8       0x24 obj/default/sgtl5000/sgtl5000.o
+ .rodata        0x00000000000160cc      0x1c4 obj/default/sgtl5000_test.o
+ .rodata        0x0000000000016290      0x100 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clz.o)
+                0x0000000000016290                __clz_tab
  .rodata.str1.4
-                0x0000000008016390        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+                0x0000000000016390        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
                                           0x2 (size before relaxing)
- .rodata        0x0000000008016394       0x11 ../mp3_player_app_bsp/\libhal_bsp.a(alt_main.o)
- *fill*         0x00000000080163a5        0x3 
- .rodata        0x00000000080163a8       0x1d ../mp3_player_app_bsp/\libhal_bsp.a(alt_sys_init.o)
- *fill*         0x00000000080163c5        0x3 
- .rodata        0x00000000080163c8       0x1d ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_i2c.o)
- *fill*         0x00000000080163e5        0x3 
- .rodata        0x00000000080163e8        0xa ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev.o)
+ .rodata        0x0000000000016394       0x11 ../mp3_player_app_bsp/\libhal_bsp.a(alt_main.o)
+ *fill*         0x00000000000163a5        0x3 
+ .rodata        0x00000000000163a8       0x1d ../mp3_player_app_bsp/\libhal_bsp.a(alt_sys_init.o)
+ *fill*         0x00000000000163c5        0x3 
+ .rodata        0x00000000000163c8       0x1d ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_i2c.o)
+ *fill*         0x00000000000163e5        0x3 
+ .rodata        0x00000000000163e8        0xa ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev.o)
  *(.rodata1)
-                0x00000000080163f4                . = ALIGN (0x4)
- *fill*         0x00000000080163f2        0x2 
-                0x00000000080163f4                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
-                0x00000000080160a8                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
+                0x00000000000163f4                . = ALIGN (0x4)
+ *fill*         0x00000000000163f2        0x2 
+                0x00000000000163f4                PROVIDE (__ram_rodata_end, ABSOLUTE (.))
+                0x00000000000160a8                PROVIDE (__flash_rodata_start, LOADADDR (.rodata))
 
-.rwdata         0x00000000080163f4     0x1354 load address 0x0000000008017748
-                0x00000000080163f4                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
-                0x00000000080163f4                . = ALIGN (0x4)
+.rwdata         0x00000000000163f4     0x1354 load address 0x0000000000017748
+                0x00000000000163f4                PROVIDE (__ram_rwdata_start, ABSOLUTE (.))
+                0x00000000000163f4                . = ALIGN (0x4)
  *(.got.plt)
  *(.got)
  *(.data1)
  *(.data .data.* .gnu.linkonce.d.*)
- .data          0x00000000080163f4        0x0 ../mp3_player_app_bsp//obj/HAL/src/crt0.o
- .data          0x00000000080163f4        0x0 obj/default/sgtl5000/sgtl5000.o
- .data          0x00000000080163f4        0x0 obj/default/sgtl5000_test.o
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_fixunssfsi.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(gesf2.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(mulsf3.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(subsf3.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(fixsfsi.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(floatunsisf.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clzsi2.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clz.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
- .data          0x00000000080163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .data          0x00000000000163f4        0x0 ../mp3_player_app_bsp//obj/HAL/src/crt0.o
+ .data          0x00000000000163f4        0x0 obj/default/sgtl5000/sgtl5000.o
+ .data          0x00000000000163f4        0x0 obj/default/sgtl5000_test.o
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_fixunssfsi.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(gesf2.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(mulsf3.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(subsf3.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(fixsfsi.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(floatunsisf.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clzsi2.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clz.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .data          0x00000000000163f4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
  .data.impure_data
-                0x00000000080163f4       0xe0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
- .data          0x00000000080164d4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
- .data          0x00000000080164d4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
- .data          0x00000000080164d4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_load.o)
- .data          0x00000000080164d4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_main.o)
- .data          0x00000000080164d4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_write.o)
- .data          0x00000000080164d4     0x1098 ../mp3_player_app_bsp/\libhal_bsp.a(alt_sys_init.o)
- .data          0x000000000801756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_i2c.o)
- .data          0x000000000801756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .data          0x000000000801756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .data          0x000000000801756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .data          0x000000000801756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .data          0x000000000801756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .data          0x000000000801756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .data          0x000000000801756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_busy_sleep.o)
- .data          0x000000000801756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_close.o)
- .data          0x000000000801756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .data          0x000000000801756c      0x1a8 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev.o)
-                0x000000000801756c                alt_dev_null
-                0x0000000008017594                alt_fd_list
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_errno.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_dev.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_open.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_printf.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_putchar.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_release_fd.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_tick.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_file.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_get_fd.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .data          0x0000000008017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-atexit.o)
- .data          0x0000000008017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
- .data          0x0000000008017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
- .data          0x0000000008017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
- .data          0x0000000008017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-putc.o)
- .data          0x0000000008017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__atexit.o)
- .data          0x0000000008017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
- .data          0x0000000008017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exit.o)
-                0x000000000801f714                _gp = ABSOLUTE ((. + 0x8000))
+                0x00000000000163f4       0xe0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .data          0x00000000000164d4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .data          0x00000000000164d4        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .data          0x00000000000164d4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_load.o)
+ .data          0x00000000000164d4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_main.o)
+ .data          0x00000000000164d4        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_write.o)
+ .data          0x00000000000164d4     0x1098 ../mp3_player_app_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .data          0x000000000001756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_i2c.o)
+ .data          0x000000000001756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .data          0x000000000001756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .data          0x000000000001756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .data          0x000000000001756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .data          0x000000000001756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .data          0x000000000001756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .data          0x000000000001756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .data          0x000000000001756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_close.o)
+ .data          0x000000000001756c        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .data          0x000000000001756c      0x1a8 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev.o)
+                0x000000000001756c                alt_dev_null
+                0x0000000000017594                alt_fd_list
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_errno.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_open.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_printf.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_putchar.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_tick.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_file.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .data          0x0000000000017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-atexit.o)
+ .data          0x0000000000017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .data          0x0000000000017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .data          0x0000000000017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+ .data          0x0000000000017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-putc.o)
+ .data          0x0000000000017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__atexit.o)
+ .data          0x0000000000017714        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .data          0x0000000000017714        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exit.o)
+                0x000000000001f714                _gp = ABSOLUTE ((. + 0x8000))
                 [!provide]                        PROVIDE (gp, _gp)
  *(.rwdata .rwdata.*)
  *(.sdata .sdata.* .gnu.linkonce.s.*)
  .sdata._global_impure_ptr
-                0x0000000008017714        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
-                0x0000000008017714                _global_impure_ptr
+                0x0000000000017714        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+                0x0000000000017714                _global_impure_ptr
  .sdata._impure_ptr
-                0x0000000008017718        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
-                0x0000000008017718                _impure_ptr
- .sdata         0x000000000801771c        0x8 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_i2c.o)
-                0x000000000801771c                alt_avalon_i2c_list
- .sdata         0x0000000008017724       0x14 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev.o)
-                0x0000000008017724                alt_fs_list
-                0x000000000801772c                alt_dev_list
-                0x0000000008017734                alt_max_fd
- .sdata         0x0000000008017738        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_errno.o)
-                0x0000000008017738                alt_errno
- .sdata         0x000000000801773c        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_vars.o)
-                0x000000000801773c                alt_priority_mask
- .sdata         0x0000000008017740        0x8 ../mp3_player_app_bsp/\libhal_bsp.a(alt_tick.o)
-                0x0000000008017740                alt_alarm_list
+                0x0000000000017718        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+                0x0000000000017718                _impure_ptr
+ .sdata         0x000000000001771c        0x8 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_i2c.o)
+                0x000000000001771c                alt_avalon_i2c_list
+ .sdata         0x0000000000017724       0x14 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev.o)
+                0x0000000000017724                alt_fs_list
+                0x000000000001772c                alt_dev_list
+                0x0000000000017734                alt_max_fd
+ .sdata         0x0000000000017738        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_errno.o)
+                0x0000000000017738                alt_errno
+ .sdata         0x000000000001773c        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                0x000000000001773c                alt_priority_mask
+ .sdata         0x0000000000017740        0x8 ../mp3_player_app_bsp/\libhal_bsp.a(alt_tick.o)
+                0x0000000000017740                alt_alarm_list
  *(.sdata2 .sdata2.* .gnu.linkonce.s2.*)
-                0x0000000008017748                . = ALIGN (0x4)
-                0x0000000008017748                _edata = ABSOLUTE (.)
+                0x0000000000017748                . = ALIGN (0x4)
+                0x0000000000017748                _edata = ABSOLUTE (.)
                 [!provide]                        PROVIDE (edata, ABSOLUTE (.))
-                0x0000000008017748                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
-                0x0000000008017748                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
+                0x0000000000017748                PROVIDE (__ram_rwdata_end, ABSOLUTE (.))
+                0x0000000000017748                PROVIDE (__flash_rwdata_start, LOADADDR (.rwdata))
 
-.bss            0x0000000008018a9c      0x120
-                0x0000000008018a9c                __bss_start = ABSOLUTE (.)
+.bss            0x0000000000018a9c      0x120
+                0x0000000000018a9c                __bss_start = ABSOLUTE (.)
                 [!provide]                        PROVIDE (__sbss_start, ABSOLUTE (.))
                 [!provide]                        PROVIDE (___sbss_start, ABSOLUTE (.))
  *(.dynsbss)
  *(.sbss .sbss.* .gnu.linkonce.sb.*)
- .sbss          0x0000000008018a9c        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
-                0x0000000008018a9c                errno
- .sbss          0x0000000008018aa0        0xc ../mp3_player_app_bsp/\libhal_bsp.a(alt_main.o)
-                0x0000000008018aa0                alt_argc
-                0x0000000008018aa4                alt_argv
-                0x0000000008018aa8                alt_envp
- .sbss          0x0000000008018aac        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_vars.o)
-                0x0000000008018aac                alt_irq_active
- .sbss          0x0000000008018ab0        0x8 ../mp3_player_app_bsp/\libhal_bsp.a(alt_tick.o)
-                0x0000000008018ab0                _alt_tick_rate
-                0x0000000008018ab4                _alt_nticks
- .sbss          0x0000000008018ab8        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
-                0x0000000008018ab8                alt_instruction_exception_handler
+ .sbss          0x0000000000018a9c        0x4 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+                0x0000000000018a9c                errno
+ .sbss          0x0000000000018aa0        0xc ../mp3_player_app_bsp/\libhal_bsp.a(alt_main.o)
+                0x0000000000018aa0                alt_argc
+                0x0000000000018aa4                alt_argv
+                0x0000000000018aa8                alt_envp
+ .sbss          0x0000000000018aac        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_vars.o)
+                0x0000000000018aac                alt_irq_active
+ .sbss          0x0000000000018ab0        0x8 ../mp3_player_app_bsp/\libhal_bsp.a(alt_tick.o)
+                0x0000000000018ab0                _alt_tick_rate
+                0x0000000000018ab4                _alt_nticks
+ .sbss          0x0000000000018ab8        0x4 ../mp3_player_app_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+                0x0000000000018ab8                alt_instruction_exception_handler
  *(.sbss2 .sbss2.* .gnu.linkonce.sb2.*)
  *(.scommon)
                 [!provide]                        PROVIDE (__sbss_end, ABSOLUTE (.))
                 [!provide]                        PROVIDE (___sbss_end, ABSOLUTE (.))
  *(.dynbss)
  *(.bss .bss.* .gnu.linkonce.b.*)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp//obj/HAL/src/crt0.o
- .bss           0x0000000008018abc        0x0 obj/default/sgtl5000/sgtl5000.o
- .bss           0x0000000008018abc        0x0 obj/default/sgtl5000_test.o
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_fixunssfsi.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(gesf2.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(mulsf3.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(subsf3.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(fixsfsi.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(floatunsisf.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clzsi2.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clz.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_load.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_main.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_write.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_sys_init.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_i2c.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_alarm_start.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_busy_sleep.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_close.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_ctors.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_dtors.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_errno.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_dev.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_io_redirect.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_handler.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_vars.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_open.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_printf.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_putchar.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_release_fd.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_tick.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_file.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_get_fd.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-atexit.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-putc.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__atexit.o)
- .bss           0x0000000008018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
- .bss           0x0000000008018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exit.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp//obj/HAL/src/crt0.o
+ .bss           0x0000000000018abc        0x0 obj/default/sgtl5000/sgtl5000.o
+ .bss           0x0000000000018abc        0x0 obj/default/sgtl5000_test.o
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_fixunssfsi.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-divmod.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(gesf2.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(mulsf3.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(subsf3.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(fixsfsi.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(floatunsisf.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clzsi2.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(lib2-mul.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/mno-hw-mul\libgcc.a(_clz.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-printf.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-puts.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-strlen.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-vfprintf.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-fvwrite_small_dev.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-impure.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-writer.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-int_errno.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_load.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_main.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_write.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_sys_init.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_i2c.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_fd.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_init.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_ioctl.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_read.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_avalon_jtag_uart_write.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_alarm_start.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_busy_sleep.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_close.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dcache_flush_all.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_dev_llist_insert.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_ctors.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_do_dtors.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_errno.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_dev.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_icache_flush_all.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_iic_isr_register.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_io_redirect.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_entry.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_handler.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_vars.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_open.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_printf.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_putchar.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_release_fd.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_tick.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(altera_nios2_gen2_irq.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exception_entry.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_find_file.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_get_fd.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_instruction_exception_entry.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-atexit.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-exit.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcmp.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-memcpy.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-putc.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__atexit.o)
+ .bss           0x0000000000018abc        0x0 c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nios2-elf/5.3.0/../../../../../H-x86_64-mingw32/nios2-elf/lib/mno-hw-mul\libsmallc.a(lib_a-__call_atexit.o)
+ .bss           0x0000000000018abc        0x0 ../mp3_player_app_bsp/\libhal_bsp.a(alt_exit.o)
  *(COMMON)
- COMMON         0x0000000008018abc      0x100 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_handler.o)
-                0x0000000008018abc                alt_irq
-                0x0000000008018bbc                . = ALIGN (0x4)
-                0x0000000008018bbc                __bss_end = ABSOLUTE (.)
+ COMMON         0x0000000000018abc      0x100 ../mp3_player_app_bsp/\libhal_bsp.a(alt_irq_handler.o)
+                0x0000000000018abc                alt_irq
+                0x0000000000018bbc                . = ALIGN (0x4)
+                0x0000000000018bbc                __bss_end = ABSOLUTE (.)
 
 .onchip_memory2_0
-                0x0000000008018bbc        0x0
+                0x0000000000018bbc        0x0
                 [!provide]                        PROVIDE (_alt_partition_onchip_memory2_0_start, ABSOLUTE (.))
  *(.onchip_memory2_0 .onchip_memory2_0. onchip_memory2_0.*)
-                0x0000000008018bbc                . = ALIGN (0x4)
+                0x0000000000018bbc                . = ALIGN (0x4)
                 [!provide]                        PROVIDE (_alt_partition_onchip_memory2_0_end, ABSOLUTE (.))
-                0x0000000008018bbc                _end = ABSOLUTE (.)
-                0x0000000008018bbc                end = ABSOLUTE (.)
-                0x0000000008018bbc                __alt_stack_base = ABSOLUTE (.)
+                0x0000000000018bbc                _end = ABSOLUTE (.)
+                0x0000000000018bbc                end = ABSOLUTE (.)
+                0x0000000000018bbc                __alt_stack_base = ABSOLUTE (.)
                 [!provide]                        PROVIDE (_alt_partition_onchip_memory2_0_load_addr, LOADADDR (.onchip_memory2_0))
 
 .stab
@@ -1418,11 +1418,11 @@ LOAD c:/intelfpga_lite/18.1/nios2eds/bin/gnu/h-x86_64-mingw32/bin/../lib/gcc/nio
                 0x0000000000000000       0x10 ../mp3_player_app_bsp//obj/HAL/src/crt0.o
  .debug_alt_sim_info
                 0x0000000000000010       0x30 ../mp3_player_app_bsp/\libhal_bsp.a(alt_busy_sleep.o)
-                0x000000000801fa00                __alt_data_end = 0x801fa00
-                0x000000000801fa00                PROVIDE (__alt_stack_pointer, __alt_data_end)
+                0x000000000001fa00                __alt_data_end = 0x1fa00
+                0x000000000001fa00                PROVIDE (__alt_stack_pointer, __alt_data_end)
                 [!provide]                        PROVIDE (__alt_stack_limit, __alt_stack_base)
                 [!provide]                        PROVIDE (__alt_heap_start, end)
-                [!provide]                        PROVIDE (__alt_heap_limit, 0x801fa00)
+                [!provide]                        PROVIDE (__alt_heap_limit, 0x1fa00)
 OUTPUT(mp3_player_app.elf elf32-littlenios2)
 
 .debug_ranges   0x0000000000000000      0x600

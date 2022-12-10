@@ -2,8 +2,8 @@
 <sch:Settings xmlns:sch="http://www.altera.com/embeddedsw/bsp/schema">
         <BspType>hal</BspType>
         <BspVersion>default</BspVersion>
-        <BspGeneratedTimeStamp>Dec 9, 2022 1:08:36 AM</BspGeneratedTimeStamp>
-        <BspGeneratedUnixTimeStamp>1670569716849</BspGeneratedUnixTimeStamp>
+        <BspGeneratedTimeStamp>Dec 9, 2022 10:52:35 AM</BspGeneratedTimeStamp>
+        <BspGeneratedUnixTimeStamp>1670604755390</BspGeneratedUnixTimeStamp>
         <BspGeneratedLocation>C:\Users\tofu42\Documents\MP3Player\software\mp3_player_app_bsp</BspGeneratedLocation>
         <BspSettingsFile>settings.bsp</BspSettingsFile>
         <SopcDesignFile>..\..\mp3player_soc.sopcinfo</SopcDesignFile>
@@ -899,46 +899,46 @@
                 <Group xsi:nil="true" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"/>
         </Setting>
         <MemoryMap>
-                <slaveDescriptor>interface_0_altpll_0</slaveDescriptor>
-                <addressRange>0x00000000 - 0x0000000F</addressRange>
-                <addressSpan>16</addressSpan>
-                <attributes/>
-        </MemoryMap>
-        <MemoryMap>
                 <slaveDescriptor>onchip_memory2_0</slaveDescriptor>
-                <addressRange>0x08010000 - 0x0801F9FF</addressRange>
+                <addressRange>0x00010000 - 0x0001F9FF</addressRange>
                 <addressSpan>64000</addressSpan>
                 <attributes>memory</attributes>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>i2c_0</slaveDescriptor>
-                <addressRange>0x08021040 - 0x0802107F</addressRange>
+                <addressRange>0x00021040 - 0x0002107F</addressRange>
                 <addressSpan>64</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>spi_0</slaveDescriptor>
-                <addressRange>0x080210A0 - 0x080210BF</addressRange>
+                <addressRange>0x000210A0 - 0x000210BF</addressRange>
                 <addressSpan>32</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>keys</slaveDescriptor>
-                <addressRange>0x080210E0 - 0x080210EF</addressRange>
+                <addressRange>0x000210D0 - 0x000210DF</addressRange>
                 <addressSpan>16</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>sysid_qsys_0</slaveDescriptor>
-                <addressRange>0x08021110 - 0x08021117</addressRange>
+                <addressRange>0x000210F0 - 0x000210F7</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes/>
         </MemoryMap>
         <MemoryMap>
                 <slaveDescriptor>jtag_uart_0</slaveDescriptor>
-                <addressRange>0x08021118 - 0x0802111F</addressRange>
+                <addressRange>0x000210F8 - 0x000210FF</addressRange>
                 <addressSpan>8</addressSpan>
                 <attributes>printable</attributes>
+        </MemoryMap>
+        <MemoryMap>
+                <slaveDescriptor>altpll_0</slaveDescriptor>
+                <addressRange>0x04000000 - 0x0400000F</addressRange>
+                <addressSpan>16</addressSpan>
+                <attributes/>
         </MemoryMap>
         <LinkerSection>
                 <sectionName>.text</sectionName>

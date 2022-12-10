@@ -3,19 +3,18 @@
 module Control(
 						input logic Clk, 
 										Reset, 
-										RAM_INIT_DONE, 
-						output logic LOAD_MEM, 
-										 PLAY
+						output logic readwrite, //1 for read
+						output logic [15:0] addr
 ); 
 
 /* internal state logic */
-enum logic {Halted, Play} state, next_state;
+enum logic [2:0] {Write, Read1, Read2} state, next_state;
 
 
 always_ff @ (posedge Clk)
 begin
 	if (Reset)
-		state <= Halted; 
+		state <= Write; 
 	else
 		state <= next_state; 
 end
@@ -23,35 +22,32 @@ end
 
 always_comb
 begin
-	LOAD_MEM = 1'b0; 
-	PLAY = 1'b0; 
+	readwrite = 1'b1;
+	addr = 16'h0;
 	
 	unique case(state)
-		Halted: 
+		Write: 
 		begin
-				if (RAM_INIT_DONE)
-				begin
-					next_state = Play; 
-					PLAY = 1'b1; 
-					LOAD_MEM = 1'b0;  
-				end
-				else
-				begin
-					next_state = Halted; 
-					PLAY = 1'b0; 
-					LOAD_MEM = 1'b1;
-				end
+				readwrite = 1'b0;
+				addr = 16'h0;
+				next_state = state;
 		end
 			
-		Play:
+		Read1:
 		begin
-			next_state = Play; 
-			PLAY = 1'b1; 
-			LOAD_MEM = 1'b0;
+			readwrite = 1'b1;
+		   addr = 16'h0;
+			next_state = Read1;
 		end
 		
+		Read2:
+		begin
+			readwrite = 1'b1;
+			addr = 16'h1;
+			next_state = Read2;
+		end
 		default: 
-			next_state = Halted; 
+			next_state = Write; 
 		
 	endcase 
 end

@@ -3,7 +3,7 @@
 # Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
 # SOPC Builder design path: ../../mp3player_soc.sopcinfo
 #
-# Generated: Wed Dec 07 23:28:08 CST 2022
+# Generated: Fri Dec 09 10:50:24 CST 2022
 
 # DO NOT MODIFY THIS FILE
 #
@@ -47,4 +47,4 @@
 # by allowing GDB to cache memory contents on the host.
 
 # onchip_memory2_0
-memory 0x8010000 0x801fa00 cache
+memory 0x10000 0x1fa00 cache

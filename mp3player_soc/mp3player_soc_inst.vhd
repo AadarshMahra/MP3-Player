@@ -1,10 +1,5 @@
 	component mp3player_soc is
 		port (
-			altpll_0_pll_slave_read                 : in    std_logic                     := 'X';             -- read
-			altpll_0_pll_slave_write                : in    std_logic                     := 'X';             -- write
-			altpll_0_pll_slave_address              : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- address
-			altpll_0_pll_slave_readdata             : out   std_logic_vector(31 downto 0);                    -- readdata
-			altpll_0_pll_slave_writedata            : in    std_logic_vector(31 downto 0) := (others => 'X'); -- writedata
 			bridge_0_external_interface_address     : in    std_logic_vector(25 downto 0) := (others => 'X'); -- address
 			bridge_0_external_interface_byte_enable : in    std_logic_vector(1 downto 0)  := (others => 'X'); -- byte_enable
 			bridge_0_external_interface_read        : in    std_logic                     := 'X';             -- read
@@ -37,11 +32,6 @@
 
 	u0 : component mp3player_soc
 		port map (
-			altpll_0_pll_slave_read                 => CONNECTED_TO_altpll_0_pll_slave_read,                 --          altpll_0_pll_slave.read
-			altpll_0_pll_slave_write                => CONNECTED_TO_altpll_0_pll_slave_write,                --                            .write
-			altpll_0_pll_slave_address              => CONNECTED_TO_altpll_0_pll_slave_address,              --                            .address
-			altpll_0_pll_slave_readdata             => CONNECTED_TO_altpll_0_pll_slave_readdata,             --                            .readdata
-			altpll_0_pll_slave_writedata            => CONNECTED_TO_altpll_0_pll_slave_writedata,            --                            .writedata
 			bridge_0_external_interface_address     => CONNECTED_TO_bridge_0_external_interface_address,     -- bridge_0_external_interface.address
 			bridge_0_external_interface_byte_enable => CONNECTED_TO_bridge_0_external_interface_byte_enable, --                            .byte_enable
 			bridge_0_external_interface_read        => CONNECTED_TO_bridge_0_external_interface_read,        --                            .read

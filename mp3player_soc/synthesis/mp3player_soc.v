@@ -4,11 +4,6 @@
 
 `timescale 1 ps / 1 ps
 module mp3player_soc (
-		input  wire        altpll_0_pll_slave_read,                 //          altpll_0_pll_slave.read
-		input  wire        altpll_0_pll_slave_write,                //                            .write
-		input  wire [1:0]  altpll_0_pll_slave_address,              //                            .address
-		output wire [31:0] altpll_0_pll_slave_readdata,             //                            .readdata
-		input  wire [31:0] altpll_0_pll_slave_writedata,            //                            .writedata
 		input  wire [25:0] bridge_0_external_interface_address,     // bridge_0_external_interface.address
 		input  wire [1:0]  bridge_0_external_interface_byte_enable, //                            .byte_enable
 		input  wire        bridge_0_external_interface_read,        //                            .read
@@ -58,14 +53,14 @@ module mp3player_soc (
 	wire    [31:0] nios2_gen2_0_data_master_readdata;                           // mm_interconnect_1:nios2_gen2_0_data_master_readdata -> nios2_gen2_0:d_readdata
 	wire           nios2_gen2_0_data_master_waitrequest;                        // mm_interconnect_1:nios2_gen2_0_data_master_waitrequest -> nios2_gen2_0:d_waitrequest
 	wire           nios2_gen2_0_data_master_debugaccess;                        // nios2_gen2_0:debug_mem_slave_debugaccess_to_roms -> mm_interconnect_1:nios2_gen2_0_data_master_debugaccess
-	wire    [17:0] nios2_gen2_0_data_master_address;                            // nios2_gen2_0:d_address -> mm_interconnect_1:nios2_gen2_0_data_master_address
+	wire    [26:0] nios2_gen2_0_data_master_address;                            // nios2_gen2_0:d_address -> mm_interconnect_1:nios2_gen2_0_data_master_address
 	wire     [3:0] nios2_gen2_0_data_master_byteenable;                         // nios2_gen2_0:d_byteenable -> mm_interconnect_1:nios2_gen2_0_data_master_byteenable
 	wire           nios2_gen2_0_data_master_read;                               // nios2_gen2_0:d_read -> mm_interconnect_1:nios2_gen2_0_data_master_read
 	wire           nios2_gen2_0_data_master_write;                              // nios2_gen2_0:d_write -> mm_interconnect_1:nios2_gen2_0_data_master_write
 	wire    [31:0] nios2_gen2_0_data_master_writedata;                          // nios2_gen2_0:d_writedata -> mm_interconnect_1:nios2_gen2_0_data_master_writedata
 	wire    [31:0] nios2_gen2_0_instruction_master_readdata;                    // mm_interconnect_1:nios2_gen2_0_instruction_master_readdata -> nios2_gen2_0:i_readdata
 	wire           nios2_gen2_0_instruction_master_waitrequest;                 // mm_interconnect_1:nios2_gen2_0_instruction_master_waitrequest -> nios2_gen2_0:i_waitrequest
-	wire    [17:0] nios2_gen2_0_instruction_master_address;                     // nios2_gen2_0:i_address -> mm_interconnect_1:nios2_gen2_0_instruction_master_address
+	wire    [26:0] nios2_gen2_0_instruction_master_address;                     // nios2_gen2_0:i_address -> mm_interconnect_1:nios2_gen2_0_instruction_master_address
 	wire           nios2_gen2_0_instruction_master_read;                        // nios2_gen2_0:i_read -> mm_interconnect_1:nios2_gen2_0_instruction_master_read
 	wire           mm_interconnect_1_jtag_uart_0_avalon_jtag_slave_chipselect;  // mm_interconnect_1:jtag_uart_0_avalon_jtag_slave_chipselect -> jtag_uart_0:av_chipselect
 	wire    [31:0] mm_interconnect_1_jtag_uart_0_avalon_jtag_slave_readdata;    // jtag_uart_0:av_readdata -> mm_interconnect_1:jtag_uart_0_avalon_jtag_slave_readdata
@@ -89,6 +84,11 @@ module mp3player_soc (
 	wire     [3:0] mm_interconnect_1_nios2_gen2_0_debug_mem_slave_byteenable;   // mm_interconnect_1:nios2_gen2_0_debug_mem_slave_byteenable -> nios2_gen2_0:debug_mem_slave_byteenable
 	wire           mm_interconnect_1_nios2_gen2_0_debug_mem_slave_write;        // mm_interconnect_1:nios2_gen2_0_debug_mem_slave_write -> nios2_gen2_0:debug_mem_slave_write
 	wire    [31:0] mm_interconnect_1_nios2_gen2_0_debug_mem_slave_writedata;    // mm_interconnect_1:nios2_gen2_0_debug_mem_slave_writedata -> nios2_gen2_0:debug_mem_slave_writedata
+	wire    [31:0] mm_interconnect_1_altpll_0_pll_slave_readdata;               // altpll_0:readdata -> mm_interconnect_1:altpll_0_pll_slave_readdata
+	wire     [1:0] mm_interconnect_1_altpll_0_pll_slave_address;                // mm_interconnect_1:altpll_0_pll_slave_address -> altpll_0:address
+	wire           mm_interconnect_1_altpll_0_pll_slave_read;                   // mm_interconnect_1:altpll_0_pll_slave_read -> altpll_0:read
+	wire           mm_interconnect_1_altpll_0_pll_slave_write;                  // mm_interconnect_1:altpll_0_pll_slave_write -> altpll_0:write
+	wire    [31:0] mm_interconnect_1_altpll_0_pll_slave_writedata;              // mm_interconnect_1:altpll_0_pll_slave_writedata -> altpll_0:writedata
 	wire           mm_interconnect_1_onchip_memory2_0_s1_chipselect;            // mm_interconnect_1:onchip_memory2_0_s1_chipselect -> onchip_memory2_0:chipselect
 	wire  [1023:0] mm_interconnect_1_onchip_memory2_0_s1_readdata;              // onchip_memory2_0:readdata -> mm_interconnect_1:onchip_memory2_0_s1_readdata
 	wire     [8:0] mm_interconnect_1_onchip_memory2_0_s1_address;               // mm_interconnect_1:onchip_memory2_0_s1_address -> onchip_memory2_0:address
@@ -115,30 +115,30 @@ module mp3player_soc (
 	wire           nios2_gen2_0_debug_reset_request_reset;                      // nios2_gen2_0:debug_reset_request -> rst_controller_002:reset_in1
 
 	mp3player_soc_altpll_0 altpll_0 (
-		.clk                (clk_clk),                        //       inclk_interface.clk
-		.reset              (rst_controller_reset_out_reset), // inclk_interface_reset.reset
-		.read               (altpll_0_pll_slave_read),        //             pll_slave.read
-		.write              (altpll_0_pll_slave_write),       //                      .write
-		.address            (altpll_0_pll_slave_address),     //                      .address
-		.readdata           (altpll_0_pll_slave_readdata),    //                      .readdata
-		.writedata          (altpll_0_pll_slave_writedata),   //                      .writedata
-		.c0                 (altpll_0_c0_clk),                //                    c0.clk
-		.c1                 (),                               //                    c1.clk
-		.scandone           (),                               //           (terminated)
-		.scandataout        (),                               //           (terminated)
-		.c2                 (),                               //           (terminated)
-		.c3                 (),                               //           (terminated)
-		.c4                 (),                               //           (terminated)
-		.areset             (1'b0),                           //           (terminated)
-		.locked             (),                               //           (terminated)
-		.phasedone          (),                               //           (terminated)
-		.phasecounterselect (3'b000),                         //           (terminated)
-		.phaseupdown        (1'b0),                           //           (terminated)
-		.phasestep          (1'b0),                           //           (terminated)
-		.scanclk            (1'b0),                           //           (terminated)
-		.scanclkena         (1'b0),                           //           (terminated)
-		.scandata           (1'b0),                           //           (terminated)
-		.configupdate       (1'b0)                            //           (terminated)
+		.clk                (clk_clk),                                        //       inclk_interface.clk
+		.reset              (rst_controller_reset_out_reset),                 // inclk_interface_reset.reset
+		.read               (mm_interconnect_1_altpll_0_pll_slave_read),      //             pll_slave.read
+		.write              (mm_interconnect_1_altpll_0_pll_slave_write),     //                      .write
+		.address            (mm_interconnect_1_altpll_0_pll_slave_address),   //                      .address
+		.readdata           (mm_interconnect_1_altpll_0_pll_slave_readdata),  //                      .readdata
+		.writedata          (mm_interconnect_1_altpll_0_pll_slave_writedata), //                      .writedata
+		.c0                 (altpll_0_c0_clk),                                //                    c0.clk
+		.c1                 (),                                               //                    c1.clk
+		.scandone           (),                                               //           (terminated)
+		.scandataout        (),                                               //           (terminated)
+		.c2                 (),                                               //           (terminated)
+		.c3                 (),                                               //           (terminated)
+		.c4                 (),                                               //           (terminated)
+		.areset             (1'b0),                                           //           (terminated)
+		.locked             (),                                               //           (terminated)
+		.phasedone          (),                                               //           (terminated)
+		.phasecounterselect (3'b000),                                         //           (terminated)
+		.phaseupdown        (1'b0),                                           //           (terminated)
+		.phasestep          (1'b0),                                           //           (terminated)
+		.scanclk            (1'b0),                                           //           (terminated)
+		.scanclkena         (1'b0),                                           //           (terminated)
+		.scandata           (1'b0),                                           //           (terminated)
+		.configupdate       (1'b0)                                            //           (terminated)
 	);
 
 	mp3player_soc_bridge_0 bridge_0 (
@@ -334,6 +334,11 @@ module mp3player_soc (
 		.nios2_gen2_0_instruction_master_waitrequest    (nios2_gen2_0_instruction_master_waitrequest),                 //                                         .waitrequest
 		.nios2_gen2_0_instruction_master_read           (nios2_gen2_0_instruction_master_read),                        //                                         .read
 		.nios2_gen2_0_instruction_master_readdata       (nios2_gen2_0_instruction_master_readdata),                    //                                         .readdata
+		.altpll_0_pll_slave_address                     (mm_interconnect_1_altpll_0_pll_slave_address),                //                       altpll_0_pll_slave.address
+		.altpll_0_pll_slave_write                       (mm_interconnect_1_altpll_0_pll_slave_write),                  //                                         .write
+		.altpll_0_pll_slave_read                        (mm_interconnect_1_altpll_0_pll_slave_read),                   //                                         .read
+		.altpll_0_pll_slave_readdata                    (mm_interconnect_1_altpll_0_pll_slave_readdata),               //                                         .readdata
+		.altpll_0_pll_slave_writedata                   (mm_interconnect_1_altpll_0_pll_slave_writedata),              //                                         .writedata
 		.i2c_0_csr_address                              (mm_interconnect_1_i2c_0_csr_address),                         //                                i2c_0_csr.address
 		.i2c_0_csr_write                                (mm_interconnect_1_i2c_0_csr_write),                           //                                         .write
 		.i2c_0_csr_read                                 (mm_interconnect_1_i2c_0_csr_read),                            //                                         .read

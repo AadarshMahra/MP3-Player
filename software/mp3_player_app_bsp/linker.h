@@ -4,7 +4,7 @@
  * Machine generated for CPU 'nios2_gen2_0' in SOPC Builder design 'mp3player_soc'
  * SOPC Builder design path: ../../mp3player_soc.sopcinfo
  *
- * Generated: Wed Dec 07 23:28:08 CST 2022
+ * Generated: Fri Dec 09 10:50:24 CST 2022
  */
 
 /*
@@ -65,9 +65,9 @@
  *
  */
 
-#define ONCHIP_MEMORY2_0_REGION_BASE 0x8010020
+#define ONCHIP_MEMORY2_0_REGION_BASE 0x10020
 #define ONCHIP_MEMORY2_0_REGION_SPAN 63968
-#define RESET_REGION_BASE 0x8010000
+#define RESET_REGION_BASE 0x10000
 #define RESET_REGION_SPAN 32
 
 

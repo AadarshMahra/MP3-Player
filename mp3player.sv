@@ -86,11 +86,11 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 											 .reset_reset_n(SW[0]), 
 											 .keys_export(KEY),
 											 // Avalon Bridge, interface into SDRAM  
-											 .bridge_0_external_interface_address(16'h0005), 
-											 .bridge_0_external_interface_byte_enable(2'b11), 
-											 .bridge_0_external_interface_read(1'b1),
-											 .bridge_0_external_interface_write(1'b0),
-											 .bridge_0_external_interface_write_data(2'h69),
+											 .bridge_0_external_interface_address(BRIDGE_ADDR), 
+											 .bridge_0_external_interface_byte_enable(BRIDGE_BYTE_EN), 
+											 .bridge_0_external_interface_read(BRIDGE_RE),
+											 .bridge_0_external_interface_write(BRIDGE_WR),
+											 .bridge_0_external_interface_write_data(BRIDGE_WR_DATA),
 											 .bridge_0_external_interface_acknowledge(BRIDGE_ACK), //output 
 											 .bridge_0_external_interface_read_data(register),	//output
 											 // I2C
@@ -125,7 +125,7 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				logic [26:0] LOAD_ADDRESS; 
 				logic [15:0] RAM_DATA; 
 				logic RAM_OP_BEGUN, RAM_INIT_ERROR, RAM_INIT_DONE, SCLK_O, CS_BO, MOSI_O, WE, MISO_I; 
-				//Control ISDU(.Clk(MAX10_CLK1_50), .Reset(~SW[0]), .RAM_INIT_DONE(RAM_INIT_DONE), .LOAD_MEM(LOAD_MEM), .PLAY(PLAY)); 
+				//Control ISDU(.Clk(MAX10_CLK1_50), .Reset(~SW[0]), .readwrite(readWrite), .addr(BRIDGE_ADDR)); 
 				 
 				
 				/* create SD Card Initializer */
@@ -143,8 +143,29 @@ module mp3player(  	 	  input	        MAX10_CLK1_50,
 				.sclk_o(SCLK_O), //not tied
 				.mosi_o(MOSI_O) //not tied
 				); */
+				logic readWrite, nextReadWrite; 
+				logic[15:0] readData, newReadData; 
 				
-	
+				always_ff @(posedge MAX10_CLK1_50) 
+					begin
+						readWrite <= nextReadWrite; 
+						readData <= newReadData; 
+					end
+					
+				always_comb 
+					begin
+					 //nextReadWrite = BRIDGE_ACK? ~readWrite: readWrite;
+					 nextReadWrite = 1;
+
+					 
+					 newReadData = readWrite ? register: readData;
+					 
+					 BRIDGE_RE = readWrite;
+					 BRIDGE_WR = ~readWrite;
+					 BRIDGE_WR_DATA = 16'h6900;
+					 BRIDGE_BYTE_EN = 2'b11;
+					 BRIDGE_ADDR = 16'h0000;
+					end
 											 
 				//Instantiate additional FPGA fabric modules as needed	
 				logic [15:0] register; //9 bits to account for dummy bit

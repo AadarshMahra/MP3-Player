@@ -1,10 +1,5 @@
 
 module mp3player_soc (
-	altpll_0_pll_slave_read,
-	altpll_0_pll_slave_write,
-	altpll_0_pll_slave_address,
-	altpll_0_pll_slave_readdata,
-	altpll_0_pll_slave_writedata,
 	bridge_0_external_interface_address,
 	bridge_0_external_interface_byte_enable,
 	bridge_0_external_interface_read,
@@ -33,11 +28,6 @@ module mp3player_soc (
 	spi0_SCLK,
 	spi0_SS_n);	
 
-	input		altpll_0_pll_slave_read;
-	input		altpll_0_pll_slave_write;
-	input	[1:0]	altpll_0_pll_slave_address;
-	output	[31:0]	altpll_0_pll_slave_readdata;
-	input	[31:0]	altpll_0_pll_slave_writedata;
 	input	[25:0]	bridge_0_external_interface_address;
 	input	[1:0]	bridge_0_external_interface_byte_enable;
 	input		bridge_0_external_interface_read;

@@ -1,9 +1,4 @@
 	mp3player_soc u0 (
-		.altpll_0_pll_slave_read                 (<connected-to-altpll_0_pll_slave_read>),                 //          altpll_0_pll_slave.read
-		.altpll_0_pll_slave_write                (<connected-to-altpll_0_pll_slave_write>),                //                            .write
-		.altpll_0_pll_slave_address              (<connected-to-altpll_0_pll_slave_address>),              //                            .address
-		.altpll_0_pll_slave_readdata             (<connected-to-altpll_0_pll_slave_readdata>),             //                            .readdata
-		.altpll_0_pll_slave_writedata            (<connected-to-altpll_0_pll_slave_writedata>),            //                            .writedata
 		.bridge_0_external_interface_address     (<connected-to-bridge_0_external_interface_address>),     // bridge_0_external_interface.address
 		.bridge_0_external_interface_byte_enable (<connected-to-bridge_0_external_interface_byte_enable>), //                            .byte_enable
 		.bridge_0_external_interface_read        (<connected-to-bridge_0_external_interface_read>),        //                            .read
